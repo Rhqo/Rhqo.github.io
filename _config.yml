@@ -1,6 +1,6 @@
 # Setup
-title:               Rhqo
-tagline:             ._blog
+title:               Rhqo._blog
+tagline:             'get()'
 description:         'This is my blog'
 url:                 https://Rhqo.github.io
 baseurl:             /
