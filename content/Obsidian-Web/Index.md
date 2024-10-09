@@ -4,8 +4,7 @@ longform:
   title: Obsidian-Web
   workflow: Default Workflow
   sceneFolder: /
-  scenes:
-    - Introduction
+  scenes: []
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
