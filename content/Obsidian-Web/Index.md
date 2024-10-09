@@ -1,11 +1,14 @@
 ---
 longform:
   format: scenes
-  title: Obsidian-Web
+  title: Computer Vision
   workflow: Default Workflow
   sceneFolder: /
   scenes:
-    - Readme
+    - Reconstruction
+    - Detection
+    - Segmentation
+    - Video Understanding
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
