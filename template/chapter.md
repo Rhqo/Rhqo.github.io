@@ -1,5 +1,5 @@
 ---
-title: Example Title
+title: '"<% tp.file.title %>"'
 draft: false
-tags: []
+tags:
 ---
