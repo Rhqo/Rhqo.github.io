@@ -1,10 +1,11 @@
 
+[[Foundations]]
+
 
 [[Conventions]]
 
 
-
-[[Online Action segmentation]]
+[[Online Action segmentation (Temporal)]]
 
 [[Using LLM]]
 
