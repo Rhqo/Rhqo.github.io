@@ -1,6 +1,6 @@
 ---
-title: Welcome to Quartz
+title: Welcome to Rhqo._get()
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+This is a KBH blog.
+See the [Github](https://github.com) 
