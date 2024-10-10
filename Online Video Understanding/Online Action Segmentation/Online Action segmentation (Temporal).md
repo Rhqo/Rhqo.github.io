@@ -1,4 +1,4 @@
-![[Pasted image 20240923150431.png]]
+
 
 
 # Survey

@@ -1,6 +1,5 @@
 VideoLLM-online: Online Video Large Language Model for Streaming Video
 
-[[videollm-online-result]]
 
 ### Abstract
 
@@ -120,7 +119,7 @@ Inference 중에는,
 
 이 접근 방식에서는 EOS 토큰이 기존 언어 모델에서 사용되는 실제 EOS 토큰(e.g., `</s>`)에 국한되지 않는다. 대신 시스템 프롬프트에 명시된 경우 어떤 토큰이라도 사용 가능하며, 단순화를 위해 "Streaming EOS"라는 용어를 사용하는 것이다.
 
-![[VideoLLM-online_1.jpeg]]
+
 
 ## 3.2 Data
 
@@ -129,11 +128,11 @@ Inference 중에는,
 ### Offline Annotations to Video Streaming Dialogue
 
 ## 3.3 Model Training
-![[VideoLLM-online_0.png]]
+
 ### Model Architecture
 
 모델은 다음과 같은 세 가지 주요 구성 요소로 이루어져 있다.
-![[Screenshot from 2024-09-12 13-32-23.png]]
+
 1. **이미지 인코더 (Image Encoder):**
     
     - CLIP ViT-L 인코더를 사용하여 비디오 프레임 임베딩을 추출합니다. 이 인코더는 DataComp1B 데이터셋에서 사전 훈련되었다.
