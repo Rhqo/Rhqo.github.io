@@ -8,7 +8,6 @@ longform:
     - Reconstruction
     - Detection
     - Segmentation
-    - Video Understanding
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
