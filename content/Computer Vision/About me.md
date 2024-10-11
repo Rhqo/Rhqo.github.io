@@ -9,7 +9,7 @@ longform:
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
-![[content/icon.png]]
+![[content/icon.png|300x300]]
 
 This is a ByungHa Ko's blog.
 See the [Github](https://github.com/Rhqo)
