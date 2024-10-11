@@ -5,7 +5,7 @@ tags:
 ---
  
 Retrieval-Augmented Generation for AI-Generated Content: A Survey
-## 1. [[Captioning]]
+## 1. [[Using R-A Generation/Captioning]]
 
 ### Image Captioning
 - Retrieval-augmented Image Captioning
@@ -16,11 +16,11 @@ Retrieval-Augmented Generation for AI-Generated Content: A Survey
 - Concept-Aware Video Captioning: Describing Videos With Effective Prior Information (CARE)
 - Retrieval-Augmented Egocentric Video Captioning (EgoInstructor)
 
-## 2. [[Video QA & Dialogue]]
+## 2. [[Using R-A Generation/Video QA & Dialogue]]
 - Memory Augmented Deep Recurrent Neural Network for Video Question Answering (MA-DRNN)
 - VGNMN: Video-grounded Neural Module Networks for Video-Grounded Dialogue Systems
 
-## 3. [[Others]]
+## 3. [[Using R-A Generation/Others]]
 ### Captioning + QA + ...
 - Language Models with Image Descriptors are Strong Few-Shot Video-Language Learners ([[VidIL]])
 
