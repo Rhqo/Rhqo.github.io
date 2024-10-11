@@ -1,6 +1,6 @@
 ---
 title: CoIR
-draft: true
+draft: false
 tags:
 ---
 ### Composed Image Retrieval
