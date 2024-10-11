@@ -4,10 +4,7 @@ longform:
   title: Computer Vision
   workflow: Default Workflow
   sceneFolder: /
-  scenes:
-    - Reconstruction
-    - Detection
-    - Segmentation
+  scenes: []
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
