@@ -1,4 +1,5 @@
 ---
+title: About me
 longform:
   format: scenes
   title: Computer Vision
@@ -8,3 +9,6 @@ longform:
   sceneTemplate: template/chapter.md
   ignoredFiles: []
 ---
+![[icon.png|300x300]]
+This is a ByungHa Ko's blog.
+See the [Github](https://github.com/Rhqo)
