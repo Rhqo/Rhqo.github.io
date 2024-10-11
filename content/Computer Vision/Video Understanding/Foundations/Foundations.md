@@ -1,8 +1,3 @@
----
-title: Foundations
-draft: false
-tags:
----
 
 [[VideoCLIP]]  2109
 [[LAVENDER]]  2206

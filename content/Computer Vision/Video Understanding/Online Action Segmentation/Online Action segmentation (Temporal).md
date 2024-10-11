@@ -1,8 +1,3 @@
----
-title: Online Action segmentation (Temporal)
-draft: false
-tags:
----
 
 # Survey
 ```embed
