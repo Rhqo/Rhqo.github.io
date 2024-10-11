@@ -1,3 +1,9 @@
+---
+title: Video-text Retrieval
+draft: false
+tags:
+---
+
 Deep Learning for Video-Text Retrieval: a Review
 ### Text to Video retrieval
 ![[Screenshot from 2024-10-08 14-37-09.png]]
