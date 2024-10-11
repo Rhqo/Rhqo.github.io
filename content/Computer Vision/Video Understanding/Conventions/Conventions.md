@@ -1,8 +1,3 @@
----
-title: Conventions
-draft: false
-tags:
----
 
 ## [[Spatio-temporal]]
 - Uniformer
