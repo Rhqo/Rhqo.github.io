@@ -21,5 +21,8 @@ Retrieval-Augmented Generation for AI-Generated Content: A Survey
 - VGNMN: Video-grounded Neural Module Networks for Video-Grounded Dialogue Systems
 
 ## 3. [[Others]]
-- Language Models with Image Descriptors are Strong Few-Shot Video-Language Learners (VidIL) => Captioning + QA + ...
-- RAG-Driver: Generalisable Driving Explanations with Retrieval-Augmented In-Context Learning in Multi-Modal Large Language Model => Reasoning
+### Captioning + QA + ...
+- Language Models with Image Descriptors are Strong Few-Shot Video-Language Learners ([[VidIL]])
+
+### Resoning
+- [[RAG-Driver]]: Generalisable Driving Explanations with Retrieval-Augmented In-Context Learning in Multi-Modal Large Language Model
