@@ -1,8 +1,7 @@
 ---
 title: Video-video Retrieval
 draft: false
-tags:
-  - example-tag
+tags: []
 ---
 
 ![[Pasted image 20241008161227.png]]

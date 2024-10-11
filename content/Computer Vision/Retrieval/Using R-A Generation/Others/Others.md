@@ -2,7 +2,6 @@
 title: Others
 draft: false
 tags:
-  - example-tag
 ---
 
 - Language Models with Image Descriptors are Strong Few-Shot Video-Language Learners ([[VidIL]]) => Captioning + QA + ...
