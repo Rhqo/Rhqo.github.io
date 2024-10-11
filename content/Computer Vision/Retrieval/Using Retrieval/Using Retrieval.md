@@ -7,7 +7,7 @@ Deep Learning for Video-Text Retrieval: a Review
 ### Video to Text retrieval
 ![[Pasted image 20241008144040.png]]
 
-## 2. [[Composed Image Retrieval(CoIR), CoVR]]
+## 2. [[Composed Retrieval]]
 
 ### CBIR (Content Based Image Retrieval)
 Google Lens
