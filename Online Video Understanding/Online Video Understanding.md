@@ -1,9 +1,7 @@
 
 [[Foundations]]
 
-
 [[Conventions]]
-
 
 [[Online Action segmentation (Temporal)]]
 
