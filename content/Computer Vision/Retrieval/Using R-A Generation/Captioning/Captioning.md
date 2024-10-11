@@ -5,7 +5,7 @@ tags:
 ---
 
 ### Image 
-- Retrieval-augmented Image Captioning ([[EXTRA]])
+- Retrieval-augmented Image Captioning ([[Image Caption/EXTRA]])
 - [[SMALL CAP]]: Lightweight Image Captioning Prompted with Retrieval Augmentation
 
 ### Video Captioning
