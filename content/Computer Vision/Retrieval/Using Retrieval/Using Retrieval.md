@@ -1,3 +1,9 @@
+---
+title: Using Retrieval
+draft: false
+tags:
+---
+
 ## 1. [[Video-text Retrieval]]
 
 Deep Learning for Video-Text Retrieval: a Review

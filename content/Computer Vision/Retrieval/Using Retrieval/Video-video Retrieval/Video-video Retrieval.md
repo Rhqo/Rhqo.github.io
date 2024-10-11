@@ -1,3 +1,9 @@
+---
+title: Video-video Retrieval
+draft: false
+tags:
+  - example-tag
+---
 
 ![[Pasted image 20241008161227.png]]
 - [[ViSiL]]: Fine-grained Spatio-Temporal Video Similarity Learning

@@ -1,3 +1,9 @@
+---
+title: Composed Retrieval
+draft: false
+tags: []
+---
+
 ### [[CBIR]] (Content Based Image Retrieval)
 Google Lens
 ### [[CoIR]] (Pic2Word)

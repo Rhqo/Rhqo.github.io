@@ -4,7 +4,6 @@ draft: false
 tags:
 ---
 
-
 # Survey
 ```embed
 title: "GitHub - nus-cvml/awesome-temporal-action-segmentation: A curated list of awesome temporal action segmentation resources."

@@ -1,3 +1,9 @@
+---
+title: Using R-A Generation
+draft: false
+tags:
+---
+ 
 Retrieval-Augmented Generation for AI-Generated Content: A Survey
 ## 1. [[Captioning]]
 

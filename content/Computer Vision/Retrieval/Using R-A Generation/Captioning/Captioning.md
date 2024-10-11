@@ -1,3 +1,9 @@
+---
+title: Example Title
+draft: false
+tags: []
+---
+
 ### Image Captioning
 - Retrieval-augmented Image Captioning ([[EXTRA]])
 - [[SMALL CAP]]: Lightweight Image Captioning Prompted with Retrieval Augmentation
