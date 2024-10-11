@@ -1,4 +1,4 @@
-## 1. [[IDEAs/Video-text Retrieval]]
+## 1. [[Video-text Retrieval]]
 
 Deep Learning for Video-Text Retrieval: a Review
 ### Text to Video retrieval
@@ -25,7 +25,7 @@ Google Lens
 - CoVR: Learning Composed Video Retrieval from Web Video Captions (CoVR-BLIP)
 - Composed Video Retrieval via Enriched Context and Discriminative Embeddings
 
-## 3. [[IDEAs/Video-video Retrieval]]
+## 3. [[Video-video Retrieval]]
 
 ![[Pasted image 20241008161227.png]]
 - ViSiL: Fine-grained Spatio-Temporal Video Similarity Learning
