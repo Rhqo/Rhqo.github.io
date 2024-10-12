@@ -6,7 +6,7 @@ This is a **ByungHa Ko**'s blog.
 class Rhqo:
 	def __init__(self): 
 		self.name = "Byungha Ko"
-		self.affilation = "Hongik University"
+		self.affiliation = "Hongik University"
 		self.interests = ["Computer Vision", 
 				"Multi-modal Understanding", ]
 		...
