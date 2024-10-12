@@ -8,6 +8,7 @@ longform:
   scenes: []
   sceneTemplate: template/chapter.md
   ignoredFiles: []
+draft: true
 ---
 ![[content/icon.png|300x300]]
 
