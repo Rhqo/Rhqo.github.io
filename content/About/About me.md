@@ -6,12 +6,14 @@ This is a **ByungHa Ko**'s blog.
 class Rhqo:
 	def __init__(self): 
 		self.name = "Byungha Ko"
+		self.affilation = "Hongik University"
+		self.interests = ["Computer Vision", 
+				"Multi-modal Understanding",
+				"Video Understanding", ]
 		...
 		 
-	def get(self): 
-		return { 
-			[rhqo.github.io](rhqo) 
-		}
+	def get(): 
+		return rhqo.github.io
 
 ```
 
