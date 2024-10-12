@@ -3,7 +3,13 @@
 This is a **ByungHa Ko**'s blog.
 
 ```python
-class Person:
+byungha_ko = { 
+	"name": "Byungha Ko", 
+	"affiliation": "Hongik University", 
+	"interests": [ "Computer Vision", 
+		"Multi-modal Understanding" ],
+
+class Rhqo:
 	def __init__(self): 
 		self.name = "Byungha Ko"
 		self.affiliation = "Hongik University"
