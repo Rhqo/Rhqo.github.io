@@ -16,11 +16,8 @@ class Person:
 		self.info = info
 		 
 	def get(self): 
-		return self.username.github.io
+		return self.username + ".github.io"
 
-Rhqo = Blog(byungha_ko)
+Rhqo = Person(byungha_ko)
 Rhqo.get()
 ```
-
-Github: https://github.com/Rhqo \
-Mail: rhqo123@gmail.com
