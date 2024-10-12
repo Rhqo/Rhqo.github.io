@@ -3,26 +3,16 @@
 This is a **ByungHa Ko**'s blog.
 
 ```python
-byungha_ko = { 
-	"name": "Byungha Ko", 
-	"affiliation": "Hongik University", 
-	"interests": [ "Computer Vision", 
-		"Multi-modal Understanding" ],
-	...
-}
-
-class Person:
-	def __init__(self, info): 
-		self.name = info.name
-		self.affiliation = info.affiliation
-		self.interests = info.interests
+class Blog:
+	def __init__(self): 
+		self.name = "Byungha Ko"
+		self.affiliation = "Hongik University"
+		self.interests = [ "Computer Vision", 
+				   "Multi-modal Understanding" ]
 		...
 		 
 	def get(self): 
-		return print(self)
-
-Rhqo = Person(byungha_ko)
-Rhqo.get()
+		return self.username.github.io
 ```
 
 Github: https://github.com/Rhqo \
