@@ -9,6 +9,7 @@ byungha_ko = {
 	"interests": [`Computer Vision`, 
 		      `Multi-modal Understanding` ]
 	...
+	"username": `Rhqo`
 }
 
 class Person:
