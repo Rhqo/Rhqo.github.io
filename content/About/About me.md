@@ -19,7 +19,7 @@ class Person:
 		...
 		 
 	def get(self): 
-		return rhqo.github.io
+		return print(self)
 
 Rhqo = Person(byungha_ko)
 Rhqo.get()
