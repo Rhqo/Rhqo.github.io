@@ -4,7 +4,7 @@ This is a **ByungHa Ko**'s blog.
 
 ```python
 byungha_ko = {
-	"name": `고병하, Byungha Ko`
+	"name": `고병하, Byungha Ko''
 	"affiliation": `Hongik University`
 	"interests": [`Computer Vision`, 
 		      `Multi-modal Understanding` ]
