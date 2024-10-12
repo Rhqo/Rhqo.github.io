@@ -4,7 +4,7 @@ draft: false
 tags:
 ---
 
-## 1. [[Video-text Retrieval]]
+## 1. [[Video-text Retrieval/Video-text Retrieval]]
 
 Deep Learning for Video-Text Retrieval: a Review
 ### Text to Video retrieval
@@ -14,7 +14,7 @@ Deep Learning for Video-Text Retrieval: a Review
 ### Video to Text retrieval
 ![[Pasted image 20241008144040.png]]
 
-## 2. [[Composed Retrieval]]
+## 2. [[Composed Retrieval/Composed Retrieval]]
 
 ### CBIR (Content Based Image Retrieval)
 Google Lens
@@ -34,7 +34,7 @@ Google Lens
 - CoVR: Learning Composed Video Retrieval from Web Video Captions (CoVR-BLIP)
 - Composed Video Retrieval via Enriched Context and Discriminative Embeddings
 
-## 3. [[Video-video Retrieval]]
+## 3. [[Video-video Retrieval/Video-video Retrieval]]
 
 ![[Pasted image 20241008161227.png]]
 
