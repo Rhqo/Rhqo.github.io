@@ -4,11 +4,11 @@ draft: false
 tags:
 ---
 
-[[Foundations]]
+## [[Foundations/Foundations]]
 
-[[Conventions]]
+## [[Conventions/Conventions]]
 
-[[Online Action segmentation (Temporal)]]
+## [[Temporal Action Segmentation]]
 
-[[Using LLM]]
+## [[Using LLM]]
 
