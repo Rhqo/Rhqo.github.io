@@ -3,7 +3,7 @@
 This is a **ByungHa Ko**'s blog.
 
 ```python
-class Rhqo:
+class Person:
 	def __init__(self): 
 		self.name = "Byungha Ko"
 		self.affiliation = "Hongik University"
