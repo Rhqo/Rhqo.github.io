@@ -8,7 +8,7 @@ tags:
 
 ## [[Conventions/Conventions]]
 
-## [[Temporal Action Segmentation]]
+## [[Temporal Action Segmentation/Temporal Action Segmentation]]
 
-## [[Using LLM]]
+## [[Using LLM/Using LLM]]
 
