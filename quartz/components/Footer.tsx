@@ -16,7 +16,7 @@ export default ((opts?: Options) => {
         <p>
           {/* {i18n(cfg.locale).components.footer.createdWith}{" "} */}
           {/* <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year} */}
-          <p>First created: May 2023</p>
+          <p>First created: Oct 2023</p>
         </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
