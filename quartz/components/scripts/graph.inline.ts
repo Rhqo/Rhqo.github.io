@@ -206,8 +206,8 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     const numLinks = graphData.links.filter(
       (l) => l.source.id === d.id || l.target.id === d.id,
     ).length
-    if (d.text == "Computer Vision") {
-      return 2 + Math.sqrt(numLinks) +10
+    if (d.text === "Computer Vision") {
+      return 8
     }
     return 2 + Math.sqrt(numLinks)
   }
