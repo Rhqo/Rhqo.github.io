@@ -5,4 +5,4 @@
 [[FoundationsVideoLLM]]  2305
 [[Foundations/InternVideo2]]  2403
 
-![[Foundations_1.png]]
+![[Foundations_0.png]]
