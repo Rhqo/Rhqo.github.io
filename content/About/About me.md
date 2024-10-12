@@ -1,4 +1,6 @@
 ![[../icon.png|300x300]]
 
-This is a ByungHa Ko's blog.
-See the [Github](https://github.com/Rhqo)
+This is a **ByungHa Ko**'s blog.
+
+Github: https://github.com/Rhqo \
+Mail: rhqo123@gmail.com
