@@ -8,13 +8,11 @@ class Rhqo:
 		self.name = "Byungha Ko"
 		self.affilation = "Hongik University"
 		self.interests = ["Computer Vision", 
-				"Multi-modal Understanding",
-				"Video Understanding", ]
+				"Multi-modal Understanding", ]
 		...
 		 
-	def get(): 
+	def get(self): 
 		return rhqo.github.io
-
 ```
 
 Github: https://github.com/Rhqo \
