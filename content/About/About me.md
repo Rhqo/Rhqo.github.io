@@ -8,17 +8,21 @@ byungha_ko = {
 	"affiliation": "Hongik University", 
 	"interests": [ "Computer Vision", 
 		"Multi-modal Understanding" ],
+	...
+}
 
-class Rhqo:
-	def __init__(self): 
-		self.name = "Byungha Ko"
-		self.affiliation = "Hongik University"
-		self.interests = ["Computer Vision", 
-				"Multi-modal Understanding", ]
+class Person:
+	def __init__(self, info): 
+		self.name = info.name
+		self.affiliation = info.affiliation
+		self.interests = info.interests
 		...
 		 
 	def get(self): 
 		return rhqo.github.io
+
+Rhqo = Person(byungha_ko)
+Rhqo.get()
 ```
 
 Github: https://github.com/Rhqo \
