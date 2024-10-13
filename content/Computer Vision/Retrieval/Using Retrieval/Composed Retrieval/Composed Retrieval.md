@@ -7,7 +7,7 @@ tags: []
 ### [[CBIR]] (Content Based Image Retrieval)
 Google Lens
 ### [[CoIR/CoIR]] (Pic2Word)
-![[Pasted image 20241008145822.png]]
+![[CoIR_0.png]]
 - Effective conditioned and composed image retrieval combining CLIP-based features
 - Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval
 - InstructPix2Pix: Learning to Follow Image Editing Instructions
