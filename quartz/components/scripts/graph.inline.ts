@@ -216,12 +216,8 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     const baseRadius = 10; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
   
-    if (d.text === "Computer Vision") {
-      return baseRadius;
-    }
-  
-    function getDepthFromCV(start: NodeData, targetText: string, visited = new Set()): number {
-      if (start.text === targetText) return 0;
+    function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
+      if (start.id === target.id) return 0;
   
       visited.add(start.id);
   
@@ -230,24 +226,27 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
         .map(link => link.target);
   
       for (const neighbor of neighbors) {
-        const depth = getDepthFromCV(neighbor, targetText, visited);
+        const depth = getDepthFromCV(neighbor, target, visited);
         if (depth !== -1) return depth + 1;
       }
   
       return -1;
     }
   
+    if (d.text === "Computer Vision") {
+      return baseRadius;
+    }
     // Find the CV node
     const cvNode = graphData.nodes.find(node => node.text === "Computer Vision");
     if (!cvNode) return minRadius;
   
     // Calculate depth from "CV" node
-    const depth = getDepthFromCV(cvNode, d.id);
+    const depth = getDepthFromCV(cvNode, d);
   
     // Calculate radius based on depth
     if (depth === -1) return minRadius; // Default for nodes not connected to CV
   
-    return baseRadius - depth*3; // Decrease radius with depth
+    return baseRadius - depth*1.5; // Decrease radius with depth
   }
 
   let hoveredNodeId: string | null = null
