@@ -556,7 +556,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
 
           for (const node of nodeRenderData) {
             if (nodeRadius(node.simulationData) >= 7) {
-              node.label.alpha = 0.5; // Always visible for nodes with radius >= 4
+              node.label.alpha = Math.max(0.5, scaleOpacity); // Always visible for nodes with radius >= 4
             } else if (!node.active) {
               node.label.alpha = scaleOpacity;
             }
