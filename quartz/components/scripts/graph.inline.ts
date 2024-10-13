@@ -244,9 +244,9 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     const depth = getDepthFromCV(cvNode, d);
   
     // Calculate radius based on depth
-    if (depth === -1) return minRadius; // Default for nodes not connected to CV
+    if (depth === -1) return 5; // Default for nodes not connected to CV
   
-    return baseRadius - depth*1.5; // Decrease radius with depth
+    return Math.max(baseRadius - depth*1.5, minRadius); // Decrease radius with depth
   }
 
   let hoveredNodeId: string | null = null
