@@ -1,5 +1,6 @@
 # LSTR: Long Short-Term Transformer for Online Action Detection
 
+![[LSTR_0.png]]
 ## 1. Introduction
 
 
