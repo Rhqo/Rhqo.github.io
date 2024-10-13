@@ -11,6 +11,7 @@ VideoLLM-online: Online Video Large Language Model for Streaming Video
 	3. 실세계 비디오 스트림에서 모델 응답을 가속화하는 최적화된 추론 파이프라인
 	LIVE 프레임워크를 사용하여 Llama-2 및 Llama-3을 기반으로 VideoLLM-online 모델을 구축했으며, 스트리밍 비디오를 처리하는 데 있어 뛰어난 성능을 입증했습니다.
 
+
 # 1. Introduction
 
 다양한 상황에서 인간에게 적극적으로 도움을 줄 수 있는, 입력을 episodic memory로 digitize하고, 온라인의 연속적인 환경에서 predict를 할 수 있는, always-on, contextual AI assistant를 구축하는 것은 AI연구에서 중요한 임무 중 하나이다.

@@ -7,6 +7,8 @@ description: "Benefiting from the advancements in large language models and cros
 url: "https://arxiv.org/abs/2406.08085v1"
 ```
 
+![[Flash-VStream_0.png]]
+![[Flash-VStream_1.png]]
 # 3. Flash-VStream
 ## 3.1 Streaming visual encoder
 연속적으로 visual information을 embedding feature들로 인코딩

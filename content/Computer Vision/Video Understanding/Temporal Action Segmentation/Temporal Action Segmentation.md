@@ -8,6 +8,7 @@ url: "https://github.com/nus-cvml/awesome-temporal-action-segmentation?tab=readm
 ```
 [[Evaluation Measures]]
 
+![[Temporal Action Segmentation_0.png]]
 # Online Action segmentation model
 
 ## Fully Supervised
