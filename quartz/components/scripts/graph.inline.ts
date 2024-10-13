@@ -238,7 +238,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     }
     // Find the CV node
     const cvNode = graphData.nodes.find(node => node.text === "Computer Vision");
-    if (!cvNode) return minRadius;
+    if (!cvNode) return 5;
   
     // Calculate depth from "CV" node
     const depth = getDepthFromCV(cvNode, d);
