@@ -220,7 +220,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     const isCVNode = d.text === "Computer Vision";
   
     if (isCVNode) {
-      return 30;
+      return 100;
     }
   
     // Function to calculate the depth (distance in terms of links) from "CV"
