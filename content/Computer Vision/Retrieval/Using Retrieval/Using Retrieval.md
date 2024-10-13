@@ -8,18 +8,18 @@ tags:
 
 Deep Learning for Video-Text Retrieval: a Review
 ### Text to Video retrieval
-![[Screenshot from 2024-10-08 14-37-09.png]]
+![[Video-text Retrieval/Video-text Retrieval_1.png]]
 
 - Videoclip: Contrastive pre-training for zero-shot video-text understanding
 ### Video to Text retrieval
-![[Pasted image 20241008144040.png]]
+![[Video-text Retrieval/Video-text Retrieval_1.png]]
 
 ## 2. [[Composed Retrieval/Composed Retrieval]]
 
 ### CBIR (Content Based Image Retrieval)
 Google Lens
 ### CoIR (Pic2Word)
-![[Pasted image 20241008145822.png]]
+![[CoIR/CoIR_0.png]]
 
 - Effective conditioned and composed image retrieval combining CLIP-based features
 - Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval
