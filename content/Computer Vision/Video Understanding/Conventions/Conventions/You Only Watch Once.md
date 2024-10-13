@@ -1,5 +1,7 @@
 # You Only Watch Once: A Unified CNN Architecture for Real-Time Spatiotemporal Action Localization
 
+![[YOWO_0.png]]
+
 YOWO architecture는 크게 4가지 부분으로 나눌 수 있다.
 - 3D-CNN Branch
 - 2D-CNN Branch

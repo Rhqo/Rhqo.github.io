@@ -1,9 +1,11 @@
+
+![[Uniformer_0.png]]
+
 $$
 X = DPE(X_{in}) + X_{in},\\
 Y = MHRA(Norm(X)) + X,\\
 Z = FFN(Norm(Y)) + Y
 $$
-
 ### DPE (Dynamic Position Embedding)
 
 위치 정보를 인코딩하는 데 사용되는 방법
