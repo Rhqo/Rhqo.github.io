@@ -8,7 +8,7 @@ tags:
 video retrieval
 
 ## Motivation
-![[Pasted image 20241008165522.png]]
+![[Retrieval_0.png]]
 
 - Retrieval-augmented Image Captioning (EXTRA)
 
