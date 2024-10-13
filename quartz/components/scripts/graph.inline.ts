@@ -202,40 +202,6 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     }
   }
 
-  function distanceToComputerVision(startNode: NodeData) {
-    const distances = {};
-    const queue = [startNode];
-    distances[startNode.id] = 0;
-  
-    while (queue.length > 0) {
-      const currentNode = queue.shift();
-      const currentDistance = distances[currentNode.id];
-  
-      // Check if the current node's text is "Computer Vision"
-      if (currentNode.text === "Computer Vision") {
-        return currentDistance;
-      }
-  
-      const neighbors = graphData.links
-        .filter(link => link.source.id === currentNode.id)
-        .map(link => link.target)
-        .concat(
-          graphData.links
-            .filter(link => link.target.id === currentNode.id)
-            .map(link => link.source)
-        );
-  
-      for (const neighbor of neighbors) {
-        if (distances[neighbor.id] === undefined) {
-          distances[neighbor.id] = currentDistance + 1;
-          queue.push(neighbor);
-        }
-      }
-    }
-  
-    return -1; // In case "Computer Vision" node is not found
-  }
-
   function nodeRadius(d: NodeData) {
     const numLinks = graphData.links.filter(
       (l) => l.source.id === d.id || l.target.id === d.id,
