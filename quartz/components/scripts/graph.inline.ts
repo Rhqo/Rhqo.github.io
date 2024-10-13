@@ -548,11 +548,19 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
           let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
           const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
 
-          for (const label of labelsContainer.children) {
-            if (!activeNodes.includes(label)) {
-              label.alpha = 1 //scaleOpacity
+          // for (const label of labelsContainer.children) {
+          //   if (!activeNodes.includes(label)) {
+          //     label.alpha = scaleOpacity
+          //   }
+          // }
+
+          for (const node of nodeRenderData) {
+            if (nodeRadius(node.simulationData) >= 7) {
+              node.label.alpha = 0.5; // Always visible for nodes with radius >= 4
+            } else if (!node.active) {
+              node.label.alpha = scaleOpacity;
             }
-          }
+          }          
         }),
     )
   }
