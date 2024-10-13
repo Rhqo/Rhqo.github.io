@@ -202,14 +202,50 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     }
   }
 
+  // function nodeRadius(d: NodeData) {
+  //   const numLinks = graphData.links.filter(
+  //     (l) => l.source.id === d.id || l.target.id === d.id,
+  //   ).length
+  //   if (d.text === "Computer Vision") {
+  //     return 8
+  //   }
+  //   return 2 + Math.sqrt(numLinks)
+  // }
+
   function nodeRadius(d: NodeData) {
-    const numLinks = graphData.links.filter(
-      (l) => l.source.id === d.id || l.target.id === d.id,
-    ).length
-    if (d.text === "Computer Vision") {
-      return 8
+    const baseRadius = 8;
+  
+    const isCVNode = d.text === "Computer Vision";
+    
+    if (isCVNode) {
+      return 8;
     }
-    return 2 + Math.sqrt(numLinks)
+  
+    function getDepthFromCV(start: NodeData, targetId: string, visited = new Set()): number {
+      if (start.id === targetId) return 0;
+  
+      visited.add(start.id);
+  
+      // Find neighbors
+      const neighbors = graphData.links
+        .filter(link => link.source.id === start.id && !visited.has(link.target.id))
+        .map(link => link.target);
+  
+      for (const neighbor of neighbors) {
+        const depth = getDepthFromCV(neighbor, targetId, visited);
+        if (depth !== -1) return depth + 1;
+      }
+  
+      return -1;
+    }
+  
+    // Find the CV node
+    const cvNode = graphData.nodes.find(node => node.text === "Computer Vision");
+    if (!cvNode) return baseRadius;
+  
+    const depth = getDepthFromCV(cvNode, d.id);
+  
+    return baseRadius - depth;
   }
 
   let hoveredNodeId: string | null = null
