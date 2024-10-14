@@ -236,8 +236,11 @@ SA-1B는 두 번째로 큰 Open Images에 비해 이미지 수가 11배, 마스�
 Relative segmentation mask size(마스크 면적의 제곱근을 이미지 면적으로 나누어 계산한 값)를 보면, 
 SA-1B 데이터셋은 이미지당 더 많은 마스크를 가지고 있기 때문에, 작은 및 중간 크기의 마스크 비율이 더 높음을 확인할 수 있다.
 
-Shape complexity를 분석하기 위해, 우리는 마스크 Concavity(1에서 마스크 면적을 마스크의 볼록 껍질 면적으로 나눈 값을 뺀 값)를 본다.
-형태 복잡성은 마스크 크기와 상관관계를 가지므로, 우리는 먼저 구간 마스크 크기에서 층화 샘플링을 수행하여 데이터셋의 마스크 크기 분포를 제어합니다. 우리는 마스크의 오목도 분포가 다른 데이터셋과 대체로 유사하다는 것을 관찰합니다.
+마스크 Concavity(1에서 마스크 면적을 마스크의 볼록 껍질 면적으로 나눈 값을 뺀 값)를 보면 Shape complexity를 분석할 수 있다.
+
+Shape complexity은 마스크 크기와 상관관계를 가지므로, 우리는 먼저 구간 마스크 크기에서 층화 샘플링을 수행하여 데이터셋의 마스크 크기 분포를 제어한다.
+
+마스크의 오목도 분포가 다른 데이터셋과 대체로 유사하다는 것을 확인할 수 있다.
 
 ## 6. Segment Anything RAI Analysis **(Responsible AI)**
 ### **Geographic and income representation**
@@ -246,7 +249,3 @@ Shape complexity를 분석하기 위해, 우리는 마스크 Concavity(1에서 �
 ![[SAM_2.png]]
 ### **Fairness in segmenting people**
 ![[SAM_3.png]]
-### **7.5 Zero-shot Text-to-Mask**
-### **7.6 Ablations**
-
-## 8. Discussion
