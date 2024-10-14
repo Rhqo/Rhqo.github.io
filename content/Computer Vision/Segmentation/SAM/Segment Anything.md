@@ -7,13 +7,11 @@
 > Meta AI Research, FAIR
 > 5 Apr 2023
 
-### [Getting Started](./examples/README.md)
-
+### [[SAM-Tutorial]]
 
 ### Abstract
 우리는 새로운 작업, 모델, 및 이미지 분할을 위한 데이터셋을 소개하는 Segment Anything (SA) 프로젝트를 소개합니다. 데이터 수집 루프에서 효율적인 모델을 사용하여 11M 개의 라이센스가 부여된 프라이버시를 준수하는 이미지에 대해 10억 개 이상의 마스크를 포함하는 지금까지 가장 큰 분할 데이터셋을 구축했습니다. 이 모델은 프롬프트 가능하도록 설계되고 훈련되어 새로운 이미지 분포와 작업에 제로샷으로 전이할 수 있습니다. 다양한 작업에서 모델의 능력을 평가한 결과, 제로샷 성능이 매우 인상적이며 종종 이전의 완전 감독된 결과와 경쟁하거나 이를 능가하는 것으로 나타났습니다. 우리는 컴퓨터 비전의 기초 모델 연구를 촉진하기 위해 1B 마스크와 11M 이미지가 포함된 Segment Anything Model (SAM) 및 해당 데이터셋 (SA-1B)을 [https://segment-anything.com](https://segment-anything.com/) 에서 공개하고 있습니다.
 
-  
 
 ## 1. Introduction
 
@@ -206,54 +204,23 @@ Segmentation mask가 인터넷에 풍부하지 않기 때문에 저자들은 11�
 
 ## 5. Segment Anything Dataset
 SA-1B dataset은 11M(11,000,000)개의 다양한, 고해상도의, licensed, privacy protecting 된 이미지들과 1.1B(1,100,000,000)개의 high-quality segmentation mask들로 구성된다. 이 데이터셋을 다른 데이터셋과의 mask quality와 property들을 비교한다.
-
 ### **Images**
-
-  
-
 11M의 이미지들은 고해상도이기 때문에 data size가 크며, 접근성이나 저장공간의 문제가 발생한다.
-
-  
 
 그래서, 우리는 최소 길이를 가지는 side가 1500 pixel이 되도록 downsample 했다.
 
-  
-
 Downsampling된 데이터도 다른 데이터셋에 비하면 고해상도 이미지이다.
-
-  
-
 ### **Masks**
-
-  
-
 Data engine으로부터 1.1B의 mask를 생성했고, 99.1%는 fully automatic 하게 만들어졌다.
-
-  
 
 따라서 fully automatic하게 만들어진 mask들의 퀄리티가 중요하다.
 
-  
-
 우리는 전문 주석(사람이 직접 작성한 주석)과 다른 유명한 데이터셋들이 얼마나 다양한 mask 요소들이 있는지 비교했다.
-
-  
 
 우리의 automatic한 mask가 퀄리티가 더 높았고 훈련에 효율적이었다.
 
-  
-
 따라서 SA-1B에는 automatically generated mask들만 포함하였다.
-
-  
-
 ### **Mask quality**
-
-  
-
-500개의 샘플 이미지(50
-
-  
 
 ### **Mask properties**
 
@@ -267,30 +234,12 @@ Data engine으로부터 1.1B의 mask를 생성했고, 99.1%는 fully automatic �
 
   
 
-![Untitled](./images/2.png)
+![[SAM_1.png]]
 
-  
-
-![Untitled](./images/3.png)
-
-  
-
+![[SAM_2.png]]
 ### **Fairness in segmenting people**
-
-  
-
-![Untitled](./images/4.png)
-
-  
-  
-  
-
+![[SAM_3.png]]
 ### **7.5 Zero-shot Text-to-Mask**
-
-  
-
 ### **7.6 Ablations**
-
-  
 
 ## 8. Discussion
