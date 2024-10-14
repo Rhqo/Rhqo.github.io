@@ -6,6 +6,7 @@ Computer vision is a field of technology and study that enables computers to ext
 
 I am interested in studying the following areas.
 
+- **[[Segmentation/Segmentation]]**
 - **[[Video Understanding/Video Understanding]]**
 - **[[Retrieval/Retrieval]]**
 
