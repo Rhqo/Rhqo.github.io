@@ -1,6 +1,4 @@
-# Segment Anyting
-
-  
+# Segment Anything
 
 > arXiv 2023. [[Paper](https://arxiv.org/abs/2304.02643)] [[Page](https://segment-anything.com/)] [[Github](https://github.com/facebookresearch/segment-anything)]
 > Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C. Berg, Wan-Yen Lo, Piotr Dollár, Ross Girshick
@@ -221,19 +219,14 @@ Data engine으로부터 1.1B의 mask를 생성했고, 99.1%는 fully automatic �
 
 따라서 SA-1B에는 automatically generated mask들만 포함하였다.
 ### **Mask quality**
+500개의 이미지를 무작위로 샘플링하고(약 5만 개의 마스크) 전문 주석자에게 이러한 이미지의 모든 마스크의 품질을 향상시킬 것을 요청하였다.
 
 ### **Mask properties**
 
   
 
 ## 6. Segment Anything RAI Analysis **(Responsible AI)**
-
-  
-
 ### **Geographic and income representation**
-
-  
-
 ![[SAM_1.png]]
 
 ![[SAM_2.png]]
