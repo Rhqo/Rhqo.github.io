@@ -1,9 +1,9 @@
 ### [[Supervised]]
 ### [[Unsupervised]]
-### [[Reinforcement]]
+### Reinforcement
 ### [[Semi-supervised]]
-### [[Online]]
-### [[Active]]
+### Online
+### Active
 ### [[Transfer]]
 ### [[Self-supervised]]
 ### [[Contrastive]]
