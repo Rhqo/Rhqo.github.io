@@ -1,1 +1,1 @@
-# Learning Paradigms
+# [[Learning Paradigms]]
