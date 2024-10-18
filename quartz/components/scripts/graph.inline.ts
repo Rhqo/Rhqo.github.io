@@ -233,15 +233,15 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       return -1;
     }
   
-    if (d.text === "Computer Vision") {
+    if (d.text === "Computer Vision" || d.text === "Machine Learning") {
       return baseRadius;
     }
     // Find the CV node
-    const cvNode = graphData.nodes.find(node => node.text === "Computer Vision");
-    if (!cvNode) return 5;
+    const centerNode = graphData.nodes.find(node => node.text === "Computer Vision" || node.text === "Machine Learning");
+    if (!centerNode) return 5;
   
     // Calculate depth from "CV" node
-    const depth = getDepthFromCV(cvNode, d);
+    const depth = getDepthFromCV(centerNode, d);
   
     // Calculate radius based on depth
     if (depth === -1) return 5; // Default for nodes not connected to CV
