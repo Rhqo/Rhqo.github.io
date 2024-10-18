@@ -1,2 +1,4 @@
-# [[Learning Paradigms/Learning Paradigms]]
-# [[Learning Techniques/Learning Techniques]]
+## Machine Learning
+- [[Learning Paradigms/Learning Paradigms]]
+- [[Learning Techniques/Learning Techniques]]
+
