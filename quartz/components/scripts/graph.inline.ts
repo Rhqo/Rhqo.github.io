@@ -233,11 +233,11 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       return -1;
     }
   
-    if (d.text === "Computer Vision") {
+    if (d.text === "Computer Vision" || "Machine Learning") {
       return baseRadius;
     }
     // Find the CV node
-    const cvNode = graphData.nodes.find(node => node.text === "Computer Vision");
+    const cvNode = graphData.nodes.find(node => node.text === "Computer Vision" || "Machine Learning");
     if (!cvNode) return 5;
   
     // Calculate depth from "CV" node
