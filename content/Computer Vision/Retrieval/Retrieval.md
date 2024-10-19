@@ -11,9 +11,10 @@ video retrieval
 
 - Retrieval-augmented Image Captioning (EXTRA)
 
-# [[Using R-A Generation/Using R-A Generation]]
 
-# [[Using Retrieval/Using Retrieval]]
+
+-  [[Using R-A Generation/Using R-A Generation]]
+-  [[Using Retrieval/Using Retrieval]]
 
 
 
