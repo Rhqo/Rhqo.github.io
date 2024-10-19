@@ -213,7 +213,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   // }
 
   function nodeRadius(d: NodeData) {
-    const baseRadius = 15; // Base radius
+    const baseRadius = 10; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
   
     function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
@@ -555,7 +555,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
           // }
 
           for (const node of nodeRenderData) {
-            if (nodeRadius(node.simulationData) >= 7) {
+            if (nodeRadius(node.simulationData) >= 8) {
               node.label.alpha = Math.max(0.7, scaleOpacity); // Always visible for nodes with radius >= 4
             } else if (!node.active) {
               node.label.alpha = scaleOpacity;
