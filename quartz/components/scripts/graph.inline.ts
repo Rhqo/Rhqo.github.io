@@ -213,7 +213,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   // }
 
   function nodeRadius(d: NodeData) {
-    const baseRadius = 20; // Base radius
+    const baseRadius = 15; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
   
     function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
