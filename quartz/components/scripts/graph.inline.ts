@@ -213,7 +213,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   // }
 
   function nodeRadius(d: NodeData) {
-    const baseRadius = 10; // Base radius
+    const baseRadius = 20; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
   
     function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
@@ -233,11 +233,11 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       return -1;
     }
   
-    if (d.text === "Computer Vision" || d.text === "Machine Learning") {
+    if (d.text === "Computer Vision") {
       return baseRadius;
     }
     // Find the CV node
-    const centerNode = graphData.nodes.find(node => node.text === "Computer Vision" || node.text === "Machine Learning");
+    const centerNode = graphData.nodes.find(node => node.text === "Computer Vision");
     if (!centerNode) return 5;
   
     // Calculate depth from "CV" node
