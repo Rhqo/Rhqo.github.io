@@ -119,18 +119,33 @@ Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하�
     
 - **Interpretable Neurons**
     
-    There is a significant body of results finding **neurons which appear to be interpretable**, activating in response to some **understandable property**. This work has faces some skepticism. In response, several papers have aimed to give extremely **detailed accounts of a few specific neurons**, in the hope of dispositively establishing examples of neurons which truly **detect some understandable property**.
-    
     **많은 연구에서 해석 가능한 뉴런들**이 발견되었으며, 이들은 **이해 가능한 특성에 반응**한다. 이에 대한 회의적인 시각이 있어, 일부 연구들은 **특정 뉴런들의 상세한 분석**을 통해 **이해 가능한 특성 감지**를 입증하고자 했다.
     
 - **Universality**
     
-    Many analogous neurons **responding to the same properties** can be found **across networks**.
-    
-    **동일한 특성에 반응**하는 유사한 뉴런들이 **여러 네트워크**에서 발견될 수 있다.
+    **동일한 특성에 반응**하는 유사한 뉴런들이 **여러 네트워크**에서 발견될 수 있다. ([Zoom In: An Introduction to Circuits](https://distill.pub/2020/circuits/zoom-in/))
     
 - **Polysemantic Neurons**
     
-    At the same time, there are also many neurons which appear to **not** respond to an interpretable property of the input, and in particular, many **polysemantic neurons** which appear to **respond to unrelated mixtures of inputs**.
-    
     동시에, 입력의 interpretable한 특성에 반응하지 **않는** 것처럼 보이는 많은 뉴런들이 있으며, 특히 서로 **관련 없는 입력들의 혼합에 반응**하는 것으로 보이는 다수의 **polysemantic 뉴런들이 존재**한다.
+
+
+결과적으로 위와 같은 경험적인 현상들에 의해, 우리는 신경망 표현이 방향으로 표현된 특성으로 구성되어 있다고 생각했다.
+
+## What are Features?
+
+우리가 결론지은 feature의 정의는, 관찰하는 input의 interpretable한 속성 (또는 단어 임베딩 방향)이다. \
+하지만 'feature'에 대한 만족스러운 정의를 만드는 것은 매우 어려운 일이고, 우리가 확신하는 단일 정의를 제시하는 대신, 세 가지 잠재적인 실용적 정의를 고려해보고자 한다. \
+
+- **Features as arbitrary functions (임의의 함수로써의 feature)**
+	
+	Feature를 입력의 임의 함수로 정의하는 것은 불충분하다. 관찰된 feature들은 데이터에 대한 기본적 추상화이며 여러 모델에서 일관되게 나타난다. 또한 개별적으로 구분 가능하다 - 예를 들어 '고양이'와 '자동차'는 개별 feature지만, '고양이+자동차'는 feature의 조합이다.
+	
+- **Features as interpretable properties (해석가능한 속성으로써의 feature)**
+	
+	설명된 feature들은 모두 인간이 이해하기 쉽다. 이를 "인간이 이해할 수 있는 개념의 존재"로 정의할 수 있지만, AlphaFold와 같은 AI가 발견하는 단백질 구조처럼 우리가 처음에는 이해하지 못하는 특징들도 포함해야 한다.
+	
+- **Neurons in Sufficiently Large Models (충분히 큰 모델에서의 뉴런)**
+	
+	마지막으로, 충분히 큰 신경망이 특정 뉴런을 할당하여 표현하는 입력의 속성을 feature로 정의할 수 있다. Curve detectors처럼 정교한 비전 모델에서 안정적으로 나타나는 것이 그 예시이다. 현재는 polysemantic 뉴런에서만 관찰되는 속성들도 충분히 큰 모델에서는 전용 뉴런이 생길 것으로 기대된다. 이는 순환적이지만 이전 정의들의 문제점을 해결한다.
+	
