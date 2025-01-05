@@ -94,7 +94,7 @@ Linear representation에서 이것은, 활성화 공간의 **어떤 방향**이 
 
 - **Privileged Basis (Feature들을 기저 방향과 정렬하도록 유도하는 힘)**
     
-    일부 표현만이 privileged basis를 가지고 있으며, 이는 **feature가 basis의 방향과 일치하도록 유도한다** (즉, 뉴런에 대응하도록 유도합니다)
+    일부 표현만이 privileged basis를 가지고 있으며, 이는 **feature가 basis의 방향과 일치하도록 유도한다** (즉, 뉴런에 대응하도록 유도한다)
     
 - **Superposition (Feature들이 뉴런과 대응되지 않도록 밀어내는 힘)**
     
