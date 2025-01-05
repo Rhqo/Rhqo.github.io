@@ -66,4 +66,9 @@ Sparsity가 높을수록 신경망은 더 많은 특징을 하나의 뉴런에 �
 
 # Definitions and Motivation: Features, Directions and Superposition
 
+> In our work, we often think of neural networks as having features of the input represented as **directions** in activation space. This isn't a trivial claim. It isn't obvious what kind of structure we should expect neural network representations to have. ... \
+> Despite this, we believe this kind of "**linear representation hypothesis**" is supported both by significant empirical findings and theoretical arguments
 > 
+> 우리의 연구에서는 신경망을 활성화 공간에서 입력의 특징이 **방향**으로 표현되는 것으로 생각하는 경우가 많다. 신경망 표현이 어떤 구조를 가질 것으로 기대해야 하는지는 분명하지 않다. ... \
+> 그럼에도 불구하고, 이러한 종류의 "**linear representation hypothesis**"가 중요한 경험적 발견과 이론적 논거에 의해 뒷받침된다고 믿는다.
+
