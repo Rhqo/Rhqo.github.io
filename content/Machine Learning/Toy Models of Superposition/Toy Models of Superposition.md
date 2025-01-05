@@ -90,12 +90,47 @@ Linear representation에서 이것은, 활성화 공간의 **어떤 방향**이 
 
 때로는, feature가 뉴런들과 일치하는 것 처럼 보이기 때문에 feature의 방향을 식별하는 것은 쉽다. \
 하지만, 왜 우리는 때때로 이 매우 유용한 속성을 얻지만, 다른 경우에는 그렇지 않을까? \
-우리는 이에 대해 2가지의 상쇄되는 힘이 있기 때문이라는 가정을 세웠다. \
+우리는 이에 대해 2가지의 상쇄되는 힘이 있기 때문이라는 가정을 세웠다. 
 
 - **Privileged Basis (Feature들을 기저 방향과 정렬하도록 유도하는 힘)**
     
-    Only some representations have a privileged basis which **encourages features to align with basis directions** (i.e. to correspond to neurons)
+    일부 표현만이 privileged basis를 가지고 있으며, 이는 **feature가 basis의 방향과 일치하도록 유도한다** (즉, 뉴런에 대응하도록 유도합니다)
     
 - **Superposition (Feature들이 뉴런과 대응되지 않도록 밀어내는 힘)**
     
-    Linear representations can represent more features than dimensions, using a strategy we call **superposition**. This can be seen as neural networks simulating larger networks. This **pushes features away from corresponding to neurons**.
+    선형 표현은 차원보다 더 많은 특징을 나타낼 수 있으며, 우리는 **superposition**이라고 부르는 전략을 사용한다. 이는 더 큰 네트워크를 시뮬레이션하는 신경망으로 볼 수 있다. 이는 **feature를 뉴런과 일치시키는 것에서 밀어낸다.**
+
+Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하게 발생하는 것이 입증되지는 않았다. \
+이 논문은 이를 입증하고, privileged basis와 어떻게 상호작용 하는지를 탐구하는 것이다. \
+만약 superposition이 network에서 실제로 발생한다면, 그것은 해석 가능성 연구를 위한 접근 방식에 깊이있는 영향을 미칠 것이며, 따라서 명확한 입증이 중요할 것이다.
+
+## Empirical Phenomena
+
+"Feature"와 표현 방식을 논할 때는 여러 관찰된 경험적 현상에 기반한 이론을 만든다. 이를 개념화하기 전에, 우리의 접근 방식에 영향을 준 주요 결과들을 살펴보고자 한다.
+
+- **Word Embeddings**
+    
+    단어 임베딩에는 의미적 속성에 대응하는 **방향**이 존재, 이를 통해 임베딩 산술 벡터 연산이 가능하다. ([Mikolov et al](https://aclanthology.org/N13-1090.pdf)) \
+    ex) V("king") - V("man") + V("woman") = V("queen")
+    
+- **Latent Spaces**
+    
+    GAN에서도 비슷한 "**벡터 연산**"과 **interpretable한 방향성**이 발견되었다. ([Decoding The Thought Vector](https://gabgoh.github.io/ThoughtVectors/))
+    
+- **Interpretable Neurons**
+    
+    There is a significant body of results finding **neurons which appear to be interpretable**, activating in response to some **understandable property**. This work has faces some skepticism. In response, several papers have aimed to give extremely **detailed accounts of a few specific neurons**, in the hope of dispositively establishing examples of neurons which truly **detect some understandable property**.
+    
+    **많은 연구에서 해석 가능한 뉴런들**이 발견되었으며, 이들은 **이해 가능한 특성에 반응**한다. 이에 대한 회의적인 시각이 있어, 일부 연구들은 **특정 뉴런들의 상세한 분석**을 통해 **이해 가능한 특성 감지**를 입증하고자 했다.
+    
+- **Universality**
+    
+    Many analogous neurons **responding to the same properties** can be found **across networks**.
+    
+    **동일한 특성에 반응**하는 유사한 뉴런들이 **여러 네트워크**에서 발견될 수 있다.
+    
+- **Polysemantic Neurons**
+    
+    At the same time, there are also many neurons which appear to **not** respond to an interpretable property of the input, and in particular, many **polysemantic neurons** which appear to **respond to unrelated mixtures of inputs**.
+    
+    동시에, 입력의 interpretable한 특성에 반응하지 **않는** 것처럼 보이는 많은 뉴런들이 있으며, 특히 서로 **관련 없는 입력들의 혼합에 반응**하는 것으로 보이는 다수의 **polysemantic 뉴런들이 존재**한다.
