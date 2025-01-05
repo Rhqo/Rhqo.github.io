@@ -22,20 +22,38 @@ https://github.com/Rhqo/Toy-Models-of-Superposition
 > **왜 일부 모델과 작업에는 이러한 명확한 뉴런이 많이 존재하지만, 다른 모델에서는 그 수가 극히 적은가?** \
 > “**==언제, 어떻게 모델이 차원에 비해 더 많은 feature를 표현할 수 있는가==**”에 대한 고찰
 
-
 다섯 개의 다양한 중요성을 가진 특징들을 2차원에서 임베딩으로 훈련하고, 이후 필터링을 위해 ReLU를 추가하고, feature의 sparsity를 변화시키는 장난감 모델을 생각해 보자.
 
 Sparsity가 증가함에 따라 feature가 어떻게 표현되는지 아래 그림으로 볼 수 있다. \
 ![[Toy Models of Superposition_0.png]]
 
 **0% Sparsity**
-	- 중요한 2가지 특징이 orthogonal dimension에 할당
-	- 덜 중요한 특징 3가지는 0으로 매핑되어 표현되지 않음 (비활성화)
-	- Sparsity가 없으므로 독립적인 특징 표현이 가능하지만, 전체 특징 공간을 비효율적으로 사용한다.
-- **80% Sparsity**
-	- 중요한 4가지 특징이 antipodal pairs로 표현
-	- 덜 중요한 특징은 여전히 0으로 매핑 (비활성화)
-	- 일부 특징은 독립적이지 못하지만, sparsity가 증가하면서 공간 사용이 더 효율적이다.
-- **90% Sparsity**
-	- 5개의 모든 특징이 오각형으로 표현
-	- 특징 간에 positive interference가 발생한다. (한 표현의 특징이 다른 표현의 특징에 영향을 미친다.)
+- 중요한 2가지 특징이 orthogonal dimension에 할당
+- 덜 중요한 특징 3가지는 0으로 매핑되어 표현되지 않음 (비활성화)
+- Sparsity가 없으므로 독립적인 특징 표현이 가능하지만, 전체 특징 공간을 비효율적으로 사용한다.
+
+**80% Sparsity**
+- 중요한 4가지 특징이 antipodal pairs로 표현
+- 덜 중요한 특징은 여전히 0으로 매핑 (비활성화)
+- 일부 특징은 독립적이지 못하지만, sparsity가 증가하면서 공간 사용이 더 효율적이다.
+
+**90% Sparsity**
+- 5개의 모든 특징이 오각형으로 표현
+- 특징 간에 positive interference가 발생한다. (한 표현의 특징이 다른 표현의 특징에 영향을 미친다.)
+
+
+Sparsity가 낮을수록 중요한 특징이 독립적으로 표현되므로 해석 가능성이 높다.
+
+Sparsity가 높을수록 신경망은 더 많은 특징을 하나의 뉴런에 압축하여 표현할 수 있다. 이는 신경망이 더 효율적으로 정보를 저장하고 처리할 수 있게 하지만, 특징들 간의 간섭이 발생할 수 있다.
+
+우리는 장난감 모델들을 통해 다음과 같은 결과를 얻을 수 있었다.
+
+> [!Results] Key resu
+> 
+> ### key results
+
+- **Superposition is a real, observed phenomenon**
+- **Both monosematic and polysemantic neurons can form**
+- **At least some kinds of computation can be performed in superposition**
+- **Whether features are stored in superposition is governed by a phase change**
+- **Superposition organizes features into geometric structures** such as digons, triangles, pentagons, and tetrahedrons.
