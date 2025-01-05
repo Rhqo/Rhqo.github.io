@@ -48,12 +48,14 @@ Sparsity가 높을수록 신경망은 더 많은 특징을 하나의 뉴런에 �
 
 우리는 장난감 모델들을 통해 다음과 같은 결과를 얻을 수 있었다.
 
-> [!Results] Key resu
+> [!RESULTS] Key Results
+> 
 > 
 > ### key results
 
-- **Superposition is a real, observed phenomenon**
-- **Both monosematic and polysemantic neurons can form**
-- **At least some kinds of computation can be performed in superposition**
-- **Whether features are stored in superposition is governed by a phase change**
-- **Superposition organizes features into geometric structures** such as digons, triangles, pentagons, and tetrahedrons.
+- 
+- Superposition은 실제로 관찰되는 현상이다.
+- Monosemantic 뉴런과 polysemantic 뉴런 모두 형성될 수 있다.
+- 적어도 몇 가지의 계산이 superposition된 상태에서 수행될 수 있다.
+- 특징이 superposition 형태로 저장되는지의 여부는 상 변화에 의해 관찰된다.
+- Superposition은 다각형, 삼각형, 오각형, 사면체와 같은 기하학적 구조로 특징들을 정리한다.
