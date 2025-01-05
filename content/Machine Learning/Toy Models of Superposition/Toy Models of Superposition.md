@@ -72,3 +72,30 @@ Sparsity가 높을수록 신경망은 더 많은 특징을 하나의 뉴런에 �
 > 우리의 연구에서는 신경망을 활성화 공간에서 입력의 특징이 **방향**으로 표현되는 것으로 생각하는 경우가 많다. 신경망 표현이 어떤 구조를 가질 것으로 기대해야 하는지는 분명하지 않다. ... \
 > 그럼에도 불구하고, 이러한 종류의 "**linear representation hypothesis**"가 중요한 경험적 발견과 이론적 논거에 의해 뒷받침된다고 믿는다.
 
+Linear representation hypothesis는 high-level의 concept들이 어떤 표현 공간에서 방향으로 선형적으로 표현된다는 개념이다. 이는 2가지 속성을 가지고 있다.
+
+- **Decomposability** 
+	
+	Network의 표현은 독립적으로 이해할 수 있는 특징으로 설명할 수 있다.
+	
+
+- **Linearity** 
+	
+	Feature들은 방향으로 표현된다.
+	
+
+**Decomposability**는 모든 것을 우리 머리 속에 넣지 않고도 모델을 이해할 수 있게 한다. \
+하지만, 분해 가능한 것만으론 충분하지 않고, 어떻게든 분해에 접근해야 하는데, 이를 수행하려면, representation 내의 개별 feature를 식별해야 한다. \
+Linear representation에서 이것은, 활성화 공간의 **어떤 방향**이 **입력의 독립적인 feature**에 해당하는지 결정하는 것에 해당한다.
+
+때로는, feature가 뉴런들과 일치하는 것 처럼 보이기 때문에 feature의 방향을 식별하는 것은 쉽다. \
+하지만, 왜 우리는 때때로 이 매우 유용한 속성을 얻지만, 다른 경우에는 그렇지 않을까? \
+우리는 이에 대해 2가지의 상쇄되는 힘이 있기 때문이라는 가정을 세웠다. \
+
+- **Privileged Basis (Feature들을 기저 방향과 정렬하도록 유도하는 힘)**
+    
+    Only some representations have a privileged basis which **encourages features to align with basis directions** (i.e. to correspond to neurons)
+    
+- **Superposition (Feature들이 뉴런과 대응되지 않도록 밀어내는 힘)**
+    
+    Linear representations can represent more features than dimensions, using a strategy we call **superposition**. This can be seen as neural networks simulating larger networks. This **pushes features away from corresponding to neurons**.
