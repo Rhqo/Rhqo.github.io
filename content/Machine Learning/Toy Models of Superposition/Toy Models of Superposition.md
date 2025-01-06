@@ -281,3 +281,17 @@ Linear 모델에서의 직관은 이것이 불가능하다는 것이다: 선형 
 그러나 약간의 non-linearlity를 추가하면 모델이 근본적으로 다른 방식으로 작동할 수 있다! \
 이것이 superposition의 첫 번째 시연이다. (또한 매우 간단한 신경망의 복잡성에 대한 교훈이 될 것이다.)
 
+## Experiment Setup
+
+목표는 신경망이 고차원 벡터 $x \in R^n$ 를 저차원 벡터 $h \in R^m$ 로 투영한 후 다시 복원할 수 있는지를 탐구하는 것이다.
+-> $n$차원의 정보를 $m$차원에 담고자 할 때, $m$차원에 얼마나 잘 임베딩되는지를 실험
+
+![[Toy Models of Superposition_6.png]]
+
+### ### The Feature Vector ($X$)
+
+고차원의 벡터 $x$ : idealize된, hypothetical disentangled model의 activation.
+
+Feature가 가상의 더 큰 모델의 뉴런과 완벽하게 align되어 있다고 상상하고 있기 때문에, 각 요소 $x_i$를 "feature"라고 부른다. Vision model에서는 이것이 gabor filter, curve detector, or a floppy ear detector일 수 있고, 언어 모델에서는 특정 유명인을 언급하는 토큰이나 특정 종류의 설명이 되는 절을 나타낼 수 있다.
+
+현재 특성에 대한 진실의 기준이 없기 때문에, 우리는 특성이 모델링 측면에서 갖고 있다고 믿는 중요한 속성을 시뮬레이션하는 합성 데이터를 생성해야 한다. 우리는 세 가지 주요 가정을 한다:
