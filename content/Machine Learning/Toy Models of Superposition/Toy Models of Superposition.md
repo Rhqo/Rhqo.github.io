@@ -239,4 +239,35 @@ Feature가 거의 직교하기 때문에, 하나의 feature가 활성화되면 �
 이러한 "noise” 또는 "interference"을 허용하는 데는 비용이 들지만, 신경망의 경우 굉장히 sparse한 feature를 가지고 있기 때문에, 이러한 비용은 더 많은 특징을 표현할 수 있는 이점에 의해 초과될 수 있다! \
 (중요한 것은, sparsity가 크기 때문에 sparse feature는 서로 interfere를 일으키는 경우가 드물고, non-linear activation function들이 소량의 noise를 걸러내는 기회를 제공한다는 것이다.)
 
-![[Pasted image 20250106144548.png]]
+![[Toy Models of Superposition_4.png]]
+Superposition의 좋은 예(왼쪽)와 안좋은 예(오른쪽)
+
+Superposition이 기대하는 대로 특징이 충분히 희소하지 않으면 간섭(interference)이 커지고, 재구성의 불확실성도 증가한다.
+
+![[Toy models of Superposition_5.png]]
+
+- **Hypothetical Disentangled Model**
+    - 모든 뉴런이 각각의 독립적인 특징(disentangled feature)을 표현한다고 가정하는 이상적인 구조
+    - 각 뉴런은 superposition 없이 **하나의 명확하고 독립적인 의미**를 가진다.
+- **Observed Model**
+    - 실제 신경망은 가설적인 네트워크의 저차원 투영(low-dimensional projection)으로 나타난다.
+    - 뉴런 간에 superposition이 발생하여 **다수의 특징이 동일한 뉴런에 인코딩**된다.
+
+## Summary: A Hierarchy of Feature Properties
+
+- **Decomposability** \
+    분해 가능한 신경망 활성화는 **다른 feature 값에 의존하지 않는 의미로서 feature로 분해될 수 있다**. \
+    (이 속성은 궁극적으로 가장 중요하다 - 차원의 저주를 극복하는 데 있어 분해의 역할을 참조.)
+    
+- **Linearity** \
+    **Feature는 방향에 해당**한다. 각 특성 $f_i$는 해당하는 표현 방향 $W_i$를 가지고 있다. 여러 특성 $f_1, f_2, ...$ 이 값 $x_{f_1}, x_{f_2}, ...$ 으로 활성화되는 경우는 $x_{f_1}W_{f_1} + x_{f_2}W_{f_2} ...$ 로 나타낸다. (**선형 결합으로 나타낼 수 있다.**)
+    
+- **Superposition vs Non-superposition** \
+    선형 표현은 $W^TW$ 가 **가역적이지 않으면** **superposition**을 나타내고, **가역적**이라면 **superposition을 나타내지 않는다**.
+    
+- **Basis-Aligned** \
+    표현이 basis-aligned되었다고 할 수 있는 경우, 모든 $W_i$ 가 one-hot basis 벡터이다. 모든 $W_i$ 가 sparse할 경우 표현은 부분적으로 기저 정렬되어 있다고 할 수 있습니다. 이는 특권 있는 기저를 필요로 한다. \
+    → one-hot basis vector : 하나의 성분만 1이고 나머지 성분은 모두 0인 벡터. 특정 차원을 명확히 나타낼 수 있고, 특정 벡터 공간에서의 표준 기저 역할을 한다.
+    
+
+Decomposability, Linearity는 널리 퍼져 있다고 가정하는 속성이고, Superposition, Basis-Aligned는 때때로만 발생한다고 믿는 속성이다.
