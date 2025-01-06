@@ -1,5 +1,5 @@
 논문에서 계속해서 언급하는 "sparsity"에 대해서 다루고 넘어가고자 한다. \
-Sparsity $S$를 다음과 같이 정의한다. \
+Sparsity $S$를 다음과 같이 정의한다. 
 
 > Concretely, our synthetic data is defined as follows: The input vectors $x$ are synthetic data intended to simulate the properties we believe the true underlying features of our task have. We consider each dimension $x_i$ to be a "feature". Each one has an associated sparsity $S_i$ and importance $I_i$. We let $x_i = 0$ with probability $S_i$, but is otherwise uniformly distributed between $[0,1]$. In practice, we focus on the case where all features have the same sparsity, $S = Si$
 > 
@@ -24,4 +24,4 @@ Sparsity는 원본 데이터에서 내가 찾고자 하는 특성이 얼마나 �
 $255\times255\times3$의 원본 데이터를 $512$차원, 혹은 그 이하의 차원을 줄여도 원본 데이터의 정보를 담고 있을 수 있는 이유가 무엇일까 생각해보면, 원본 데이터가 극히 sparse하기 때문임을 알 수 있다. \
 요약하자면, sparsity는 원본 데이터에서 내가 찾고자 하는 정보(유용한 정보)의 비율이 될 것이다. 
 
-후속 연구에서는, 원본 데이터를 차원축소한 결과인 단어 임베딩들을 sparse autoencoder를 ㅅ
+후속 연구에서는, 원본 데이터를 차원축소한 결과인 단어 임베딩들을 sparse autoencoder를 사용하여 해석하고자 하기도 한다.
