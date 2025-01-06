@@ -153,3 +153,42 @@ Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하�
 	마지막으로, 충분히 큰 신경망이 특정 뉴런을 할당하여 표현하는 입력의 속성을 feature로 정의할 수 있다. Curve detectors처럼 정교한 비전 모델에서 안정적으로 나타나는 것이 그 예시이다. 현재는 polysemantic 뉴런에서만 관찰되는 속성들도 충분히 큰 모델에서는 전용 뉴런이 생길 것으로 기대된다. 이는 순환적이지만 이전 정의들의 문제점을 해결한다.
 	
 ## Features as Directions
+
+이전 섹션에서 언급했듯이, 특징들은 방향성으로 표현된다. \
+단어 임베딩에서 "성별"과 "왕족"은 방향성을 가지며 V("왕") - V("남자") + V("여자") = V("여왕")과 같은 연산이 가능하다. \
+뉴런의 활성화 정도 역시 표현의 basis 방향과 대응된다.
+
+![[Toy Models of Superposition_1.png]]
+
+활성화 공간에서 특징들이 방향과 대응될 때 신경망 표현을 선형이라고 하자. \
+선형 표현에서는 각 특징 $f_i$이 대응되는 표현 방향 $W_i$를 갖는다. \
+값 $x_{f_1}, x_{f_2}, ...$로 활성화되는 다수의 특징 $f_1, f_2, ...$의 존재는 $x_{f_1}W_{f_1} + x_{f_2}W_{f_2} ...$로 표현된다. \
+분명히 하자면, 표현되는 특징들은 거의 확실히 입력의 비선형 함수이다. \
+오직 feature에서 활성화 벡터로의 매핑만이 선형이다. \
+어떤 것이 선형 표현인지는 무엇을 특징으로 간주하는지에 따라 달라진다는 점에 주목하자.
+
+신경망이 실증적으로 linear representation을 가지는 것은 우연이 아니라고 생각한다. \
+신경망은 **non-linearlity가 산재된 linear function들로 구성**되어 있다. \
+어떤 의미에서는 선형 함수가 계산의 대부분을 차지한다(FLOPs로 측정). \
+선형 표현은 신경망이 정보를 표현하는 데 있어 자연스러운 형식이다! 구체적으로 **세 가지 주요 이점**이 있다:
+
+- Linear representations are the natural outputs of obvious algorithms a layer might implement \
+	특정 가중치 템플릿과 패턴을 매칭하도록 뉴런을 설정하면, 자극이 템플릿과 더 잘 일치할수록 더 강하게 활성화되고 덜 일치할수록 더 약하게 활성화된다.
+- Linear representations make features “linearly accessible” \
+	일반적인 신경망 계층은 선형 함수 뒤에 비선형성이 따라오는 구조이다. 이전 계층의 특징이 선형적으로 표현되는 경우, 다음 계층의 뉴런은 이를 '선택'하여 일관되게 해당 뉴런을 활성화하거나 억제할 수 있다. 만약 특징이 비선형적으로 표현된다면, 모델은 한 단계에서 이를 수행할 수 없을 것이다.
+- Statistical Efficiency \
+	서로 다른 방향으로 특징을 표현하면 선형 변환을 가진 모델에서 non-local generalization가 가능해져 통계적 효율성이 높아진다. [Representation learning](https://arxiv.org/pdf/1206.5538)과 [Deep Learning, NLP, and Representations](https://colah.github.io/posts/2014-07-NLP-RNNs-Representations/#word-embeddings)에서 자세한 설명을 확인할 수 있다.
+
+## Privileged vs Non-privileged Bases
+
+Feature들이 방향으로 인코딩된다고 하더라도, 어떤 방향일 것인지에 대한 것을 생각해보고자 한다. \
+어떨 때는 basis direction을 고려하는 것이 유용해 보이지만, 다른 때는 그렇지 않다. \
+왜 이럴까?
+
+연구자들이 단어 임베딩을 연구할 때 basis direction을 분석하는 것은 의미가 없다. \ **Basis dimension이 special할 것이라는 이유가 없기 때문이다**. \
+예를 들면, 단어 임베딩에 임의의 linear transformation $M$을 적용하고 $M^{-1}$을 후속 가중치에 적용해보면, 이는 basis dimension이 완전히 다른 동일한 모델을 만들어낼 것이다. \
+이것이 우리가 말하는 non-privileged basis이다.
+
+(사실 Privileged bases 없이도 활성화 연구하는 것이 가능하다. "남자"와 "여자" 사이의 차이 벡터를 취해 단어 임베딩에서 성별 방향을 만드는 것처럼, 단지 연구할 direction을 어떻게든 찾아내기만 하면 privileged bases 없이도 활성화를 연구하는 것이 가능하다.)
+
+하지만 많은 신경망 레이어는 이와 같지 않다. 종종 아키텍처의 어떤 특성 때문에 **basis 방향이 special해진다**. 예를 들어, activation function을 적용하는 것과 같은 경우이다. 이는 "대칭을 깨뜨려" 이러한 방향을 특별하게 만들고, 잠재적으로 특징들이 basis dimensions과 정렬되도록 유도한다. 우리는 이를 privileged basis이라고 부르며, privileged direction을 "neurons"라고 부른다. 이러한 뉴런은 일반적으로 interpretable feature에 해당한다.
