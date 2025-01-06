@@ -368,3 +368,8 @@ Feature들은 가장 중요한 것부터 덜 중요한 순으로 배열된다는
 우리가 이전에 살펴본 모델을 이렇게 시각화할 수 있다: 이제 모델을 시각화하는 방법이 생겼으니, 실제로 실험을 시작할 수 있다. 우리는 특징이 몇 개 없는 모델만 고려할 것이다 (n=20; m=5; I=0.7). 이를 통해 무슨 일이 일어나는지 시각적으로 쉽게 볼 수 있을 것이다. 우리는 선형 모델과 서로 다른 특징 희소성을 가진 데이터로 훈련된 여러 ReLU 출력 모델을 고려한다.
 
 ![[TMS_11.png]]
+ReLU Output Model에서, synthetic data의 sparsity $S$를 늘렸을 때, 점점 늘어나는 모습
+
+Superposition은 모델이 더 많은 feature를 표현하는 것을 가능하게 한다. 그중에서도 가장 중요한 feature는 초기에는 건드려지지 않는 모습. (아마도 antipodal pair들일 것이다.)
+
+Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 되며, 더 많은 정보를 저장할 수 있게 된다. 이 지점에서 positive interference와 negative biases가 발생하게 되는 것에 주목하자.
