@@ -319,10 +319,29 @@ ReLU output model은 superposition이 나타나는 아주 간단한 모델이다
 
 **Why these models?**
 
-Superposition hypothesis에 따르면, higher-dimensional model의 각 feature는 lower-dimensional space의 direction에 해당한다. 이것은 우리가 $h = Wx$ 의 선형 맵으로의 down projection이 가능하다는 것을 의미한다. 각 열 $W_i$ 가 lower-dimesional space에 feature $x_i$ 를 의미한다는 것을 주목하자.
+Superposition hypothesis에 따르면, higher-dimensional model의 각 feature는 lower-dimensional space의 direction에 해당한다. \
+이것은 우리가 $h = Wx$ 의 선형 맵으로의 down projection이 가능하다는 것을 의미한다. \
+각 열 $W_i$ 가 lower-dimesional space에 feature $x_i$ 를 의미한다는 것을 주목하자.
 
-Original vector를 복원하기 위해서, 우리는 같은 행렬의 transpose $W^T$ 를 사용할 것이다. 이것은 lower-dimensional space에서의 direction이 실제 feature에 해당하는 것인지에 관한 ambiguity를 피하는 것에 이점이 있다. 또한 수학적으로도 상대적으로 원칙적이며, 경험적으로도 효과가 있다.
+Original vector를 복원하기 위해서, 우리는 같은 행렬의 transpose $W^T$ 를 사용할 것이다. \
+이것은 lower-dimensional space에서의 direction이 실제 feature에 해당하는 것인지에 관한 ambiguity를 피하는 것에 이점이 있다. \
+또한 수학적으로도 상대적으로 원칙적이며, 경험적으로도 효과가 있다.
 
 또한, bias도 추가한다. Bias는 모델이 표현하지 않는 특성을 기댓값으로 설정할 수 있도록 해 준다. 나중에 보겠지만, negative bias를 설정하는 것은 2번째 이유로 인해, superposition에 중요하다. (대략적으로 말하자면, 모델이 약간의 noise를 무시할 수 있게 해 준다.)
 
 마지막은 activation function을 추가할 것인지의 여부이다. 이는 superposition이 발생하는지의 여부와 매우 중요하다. 실제 신경망에서 특성이 실제로 모델에 의해 계산에 사용될 때, 활성화 함수가 존재할 것이므로, 마지막에 활성화 함수를 포함하는 것이 원칙적이다.
+
+### The Loss
+
+Loss는 위에서 설명한 특성 중요도 $I_i$ 로 가중치가 부여된 MSE(mean squared error) 이다:
+$$L = \sum_x\sum_iI_i(x_i-x'_i)^2$$
+
+## Basic Results
+
+첫 번째 실험은 단순하게 서로 다른 sparsity 수준을 가진 몇 가지 ReLU 출력 모델을 훈련하고 결과를 시각화하는 것이다.
+
+![[TMS_8.png]]
+
+가장 중요한 질문은 ‘어떻게 결과를 시각화할 것인가‘이다. 가장 단순한 방법은 $W^TW$ (a features by features matrix)와 $b$ (a feature length vector)를 시각화하는 것이다. Feature들은 가장 중요한 것부터 덜 중요한 순으로 배열된다는 점에 주목하면, 결과는 꽤나 좋은 구조를 가질 것이다.
+
+다음은 작은 모델인 ($n=20; \; m=5;)$ 인 작은 모델에 대한 예시이다. 이 모델은 "예상되는 선형 모델과 유사한" 방식으로 동작하며, 그 차원만큼의 feature만을 나타낸다:
