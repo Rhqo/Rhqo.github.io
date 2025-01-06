@@ -172,11 +172,11 @@ Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하�
 어떤 의미에서는 선형 함수가 계산의 대부분을 차지한다(FLOPs로 측정). \
 선형 표현은 신경망이 정보를 표현하는 데 있어 자연스러운 형식이다! 구체적으로 **세 가지 주요 이점**이 있다:
 
-- Linear representations are the natural outputs of obvious algorithms a layer might implement \
+- **Linear representations are the natural outputs of obvious algorithms a layer might implement** \
 	특정 가중치 템플릿과 패턴을 매칭하도록 뉴런을 설정하면, 자극이 템플릿과 더 잘 일치할수록 더 강하게 활성화되고 덜 일치할수록 더 약하게 활성화된다.
-- Linear representations make features “linearly accessible” \
+- **Linear representations make features “linearly accessible”** \
 	일반적인 신경망 계층은 선형 함수 뒤에 비선형성이 따라오는 구조이다. 이전 계층의 특징이 선형적으로 표현되는 경우, 다음 계층의 뉴런은 이를 '선택'하여 일관되게 해당 뉴런을 활성화하거나 억제할 수 있다. 만약 특징이 비선형적으로 표현된다면, 모델은 한 단계에서 이를 수행할 수 없을 것이다.
-- Statistical Efficiency \
+- **Statistical Efficiency** \
 	서로 다른 방향으로 특징을 표현하면 선형 변환을 가진 모델에서 non-local generalization가 가능해져 통계적 효율성이 높아진다. [Representation learning](https://arxiv.org/pdf/1206.5538)과 [Deep Learning, NLP, and Representations](https://colah.github.io/posts/2014-07-NLP-RNNs-Representations/#word-embeddings)에서 자세한 설명을 확인할 수 있다.
 
 ## Privileged vs Non-privileged Bases
@@ -206,10 +206,6 @@ Privileged basis가 있다고 해서 특징들이 **basis-aligned된다고 보�
 우리는 흔히 그렇지 않다는 것을 알게 될 것이다! \
 하지만 이것은 질문이 의미가 있게 만들기 위한 최소한의 조건이 될 것이다.
 
-> [!Tip]
-> 위의 얘기를 들어보면, non-privileged basis를 연구하는 것이 의미없어 보이지만, 사실 privileged bases 없이도 활성화 연구하는 것이 가능하다. "남자"와 "여자" 사이의 차이 벡터를 취해 단어 임베딩에서 성별 방향을 만드는 것처럼, 단지 연구할 direction을 어떻게든 찾아내기만 하면 privileged bases 없이도 활성화를 연구하는 것이 가능하다.
-
-
 | **특징**       | **Privileged Basis** | **Non-privileged Basis**                    |
 | ------------ | -------------------- | ------------------------------------------- |
 | **기저의 중요성**  | 특정 방향(뉴런)이 중요        | 모든 방향이 동일한 중요성                              |
@@ -217,9 +213,27 @@ Privileged basis가 있다고 해서 특징들이 **basis-aligned된다고 보�
 | **대칭성**      | 대칭성이 깨짐              | 대칭성이 유지됨                                    |
 | **해석 가능성**   | 높은 해석 가능성            | 낮은 해석 가능성                                   |
 | **대표적인 사례**  | CNN, MLP 뉴런          | Word Embedding, Transformer Residual Stream |
+
+> [!Tip]
+> 위의 얘기를 들어보면, non-privileged basis를 연구하는 것이 의미없어 보이지만, 사실 privileged bases 없이도 활성화 연구하는 것이 가능하다. "남자"와 "여자" 사이의 차이 벡터를 취해 단어 임베딩에서 성별 방향을 만드는 것처럼, 단지 연구할 direction을 어떻게든 찾아내기만 하면 privileged bases 없이도 활성화를 연구하는 것이 가능하다.
+
 ## The Superposition Hypothesis
 
 Privileged basis가 있을 때조차도, 뉴런들이 "polysemantic"해서 여러 무관한 특징에 반응하는 경우가 많다. \
 이에 대한 한 가지 설명은 superposition hypothesis이다. \
 대략적으로 superposition의 아이디어는 신경망이 "뉴런보다 더 많은 특징을 표현하고 싶어한다"는 것이다. \
 그래서 그들은 고차원 공간의 특성을 이용하여 훨씬 더 많은 뉴런을 가진 모델을 시뮬레이션한다.
+
+![[Toy Models of Superposition_3.png]]
+
+몇몇의 수학적인 근거가 있다:
+- **Almost Orthogonal Vectors** \
+	$n$-dimensional 공간에서는 $n$개의 직교 벡터를 가질 수만 있지만, 고차원 공간에서는 $\exp(n)$ 만큼의 "almost orthogonal"한 ( $< \epsilon$ 코사인 유사도) 벡터를 가질 수 있다. \
+	([Johnson-Lindenstrauss lemma](https://en.wikipedia.org/wiki/Johnson%E2%80%93Lindenstrauss_lemma): 고차원 공간의 점들을 측정한 거리를 거의 보존하면서 저차원 공간에 투영할 수 있음을 보장하는 수학적 결과)
+	
+- **Compressed Sensing** \
+	일반적으로, 벡터를 저차원 공간에 투영하면 원래 벡터를 재구성할 수 없다. 그러나 원래 벡터가 sparse하다는 것을 알면 상황이 달라지는데, 이러한 경우 종종 원래 벡터를 복구할 수 있다
+
+구체적으로, superposition hypothesis에서는 feature가 뉴런 출력의 벡터 공간에서 almost orthogonal한 방향으로 표현된다. \
+Feature가 거의 직교하기 때문에, 하나의 feature가 활성화되면 다른 feature들이 약간 활성화되는 것처럼 보인다. \
+이러한 "noise” 또는 "interference"을 허용하는 데는 비용이 들지만, 신경망의 경우 굉장히 sparse한 feature를 가지고 있기 때문에, 이러한 비용은 더 많은 특징을 표현할 수 있는 이점에 의해 초과될 수 있다! (중요한 것은, sparsity가 크기 때문에 sparse feature는 서로 interfere를 일으키는 경우가 드물고, non-linear activation function들이 소량의 noise를 걸러내는 기회를 제공한다는 것이다.)
