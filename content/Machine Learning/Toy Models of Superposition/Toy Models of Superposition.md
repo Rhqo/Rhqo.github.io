@@ -271,3 +271,14 @@ Superposition이 기대하는 대로 특징이 충분히 희소하지 않으면 
     
 
 Decomposability, Linearity는 널리 퍼져 있다고 가정하는 속성이고, Superposition, Basis-Aligned는 때때로만 발생한다고 믿는 속성이다.
+
+# Demonstrating Superposition
+
+> If one takes the superposition hypothesis seriously, a natural first question is **whether neural networks can actually noisily represent more features than they have neurons**. If they can't, the superposition hypothesis may be comfortably dismissed.
+> 
+> Superposition hypothesis를 진지하게 받아들인다면, 자연스러운 첫 번째 질문은 **neruon들이 실제로 그들보다 더 많은 특성을 noisily하게 표현할 수 있는지 여부**이다. 만약 그렇지 않다면, 중첩 가설은 안심하고 기각될 수 있다.
+
+Linear 모델에서의 직관은 이것이 불가능하다는 것이다: 선형 모델이 할 수 있는 최선은 주성분을 저장하는 것(PCA)이다. \
+그러나 약간의 non-linearlity를 추가하면 모델이 근본적으로 다른 방식으로 작동할 수 있다! \
+이것이 superposition의 첫 번째 시연이 될 것이다. (또한 매우 간단한 신경망의 복잡성에 대한 교훈이 될 것이다.)
+
