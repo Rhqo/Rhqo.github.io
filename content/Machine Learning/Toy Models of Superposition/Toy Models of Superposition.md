@@ -25,7 +25,7 @@ https://github.com/Rhqo/Toy-Models-of-Superposition
 다섯 개의 다양한 중요성을 가진 특징들을 2차원에서 임베딩으로 훈련하고, 이후 필터링을 위해 ReLU를 추가하고, feature의 sparsity를 변화시키는 장난감 모델을 생각해 보자.
 
 Sparsity가 증가함에 따라 feature가 어떻게 표현되는지 아래 그림으로 볼 수 있다. \
-![[Toy Models of Superposition_0.png]]
+![[TMS_0.png]]
 
 - **0% Sparsity**
 	- 중요한 2가지 특징이 orthogonal dimension에 할당
@@ -154,7 +154,7 @@ Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하�
 단어 임베딩에서 "성별"과 "왕족"은 방향성을 가지며 V("왕") - V("남자") + V("여자") = V("여왕")과 같은 연산이 가능하다. \
 뉴런의 활성화 정도 역시 표현의 basis 방향과 대응된다.
 
-![[Toy Models of Superposition_1.png]]
+![[TMS_1.png]]
 
 활성화 공간에서 특징들이 방향과 대응될 때 신경망 표현을 선형이라고 하자. \
 선형 표현에서는 각 특징 $f_i$이 대응되는 표현 방향 $W_i$를 갖는다. \
@@ -181,7 +181,7 @@ Feature들이 방향으로 인코딩된다고 하더라도, 어떤 방향일 것
 어떨 때는 basis direction을 고려하는 것이 유용해 보이지만, 다른 때는 그렇지 않다. \
 왜 이럴까?
 
-![[Toy Models of Superposition_2.png]]
+![[TMS_2.png]]
 
 연구자들이 단어 임베딩을 연구할 때 basis direction을 분석하는 것은 의미가 없다. \
 **Basis dimension이 special할 것이라는 이유가 없기 때문이다**. \
@@ -220,7 +220,7 @@ Privileged basis가 있을 때조차도, 뉴런들이 "polysemantic"해서 여�
 대략적으로 superposition의 아이디어는 신경망이 "뉴런보다 더 많은 특징을 표현하고 싶어한다"는 것이다. \
 그래서 그들은 고차원 공간의 특성을 이용하여 훨씬 더 많은 뉴런을 가진 모델을 시뮬레이션한다.
 
-![[Toy Models of Superposition_3.png]]
+![[TMS_3.png]]
 
 몇몇의 수학적인 근거가 있다:
 - **Almost Orthogonal Vectors** \
@@ -235,12 +235,12 @@ Feature가 거의 직교하기 때문에, 하나의 feature가 활성화되면 �
 이러한 "noise” 또는 "interference"을 허용하는 데는 비용이 들지만, 신경망의 경우 굉장히 sparse한 feature를 가지고 있기 때문에, 이러한 비용은 더 많은 특징을 표현할 수 있는 이점에 의해 초과될 수 있다! \
 (중요한 것은, sparsity가 크기 때문에 sparse feature는 서로 interfere를 일으키는 경우가 드물고, non-linear activation function들이 소량의 noise를 걸러내는 기회를 제공한다는 것이다.)
 
-![[Toy Models of Superposition_4.png]]
+![[TMS_4.png]]
 Superposition의 좋은 예(왼쪽)와 안좋은 예(오른쪽)
 
 Superposition이 기대하는 대로 특징이 충분히 희소하지 않으면 간섭(interference)이 커지고, 재구성의 불확실성도 증가한다.
 
-![[Toy models of Superposition_5.png]]
+![[TMS_5.png]]
 
 - **Hypothetical Disentangled Model**
     - 모든 뉴런이 각각의 독립적인 특징(disentangled feature)을 표현한다고 가정하는 이상적인 구조
@@ -283,7 +283,7 @@ Linear 모델에서의 직관은 이것이 불가능하다는 것이다: 선형 
 목표는 신경망이 고차원 벡터 $x \in R^n$ 를 저차원 벡터 $h \in R^m$ 로 투영한 후 다시 복원할 수 있는지를 탐구하는 것이다.
 -> $n$차원의 정보를 $m$차원에 담고자 할 때, $m$차원에 얼마나 잘 임베딩되는지를 실험
 
-![[Toy Models of Superposition_6.png]]
+![[TMS_6.png]]
 
 ### The Feature Vector ($X$)
 
@@ -307,3 +307,22 @@ Feature가 가상의 더 큰 모델의 뉴런과 완벽하게 align되어 있다
 	예를 들면, 서로 다른 개 품종을 분류하는 것이 주요 작업인 ImageNet 모델의 경우, 늘어진 귀 탐지기는 그것이 가질 수 있는 가장 중요한 특성 중 하나겠지만, 다른 특성들은 성능을 아주 조금만 향상시킬 수 있다.
 
 > [!tip] [[What is Sparsity?]]
+
+### The Model ($X \to X'$)
+
+우리는 아래의 두가지 모델을 고려한다. \
+Linear model은 superposition이 나타나지 않는, 잘 이해되는 baseline이다. \
+ReLU output model은 superposition이 나타나는 아주 간단한 모델이다. \
+두 모델은 마지막 activation function만 다르다.
+
+![[TMS_7.png]]
+
+**Why these models?**
+
+Superposition hypothesis에 따르면, higher-dimensional model의 각 feature는 lower-dimensional space의 direction에 해당한다. 이것은 우리가 $h = Wx$ 의 선형 맵으로의 down projection이 가능하다는 것을 의미한다. 각 열 $W_i$ 가 lower-dimesional space에 feature $x_i$ 를 의미한다는 것을 주목하자.
+
+Original vector를 복원하기 위해서, 우리는 같은 행렬의 transpose $W^T$ 를 사용할 것이다. 이것은 lower-dimensional space에서의 direction이 실제 feature에 해당하는 것인지에 관한 ambiguity를 피하는 것에 이점이 있다. 또한 수학적으로도 상대적으로 원칙적이며, 경험적으로도 효과가 있다.
+
+또한, bias도 추가한다. Bias는 모델이 표현하지 않는 특성을 기댓값으로 설정할 수 있도록 해 준다. 나중에 보겠지만, negative bias를 설정하는 것은 2번째 이유로 인해, superposition에 중요하다. (대략적으로 말하자면, 모델이 약간의 noise를 무시할 수 있게 해 준다.)
+
+마지막은 activation function을 추가할 것인지의 여부이다. 이는 superposition이 발생하는지의 여부와 매우 중요하다. 실제 신경망에서 특성이 실제로 모델에 의해 계산에 사용될 때, 활성화 함수가 존재할 것이므로, 마지막에 활성화 함수를 포함하는 것이 원칙적이다.
