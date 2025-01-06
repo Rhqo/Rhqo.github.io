@@ -218,3 +218,8 @@ Privileged basis가 있다고 해서 특징들이 **basis-aligned된다고 보�
 | **해석 가능성**   | 높은 해석 가능성            | 낮은 해석 가능성                                   |
 | **대표적인 사례**  | CNN, MLP 뉴런          | Word Embedding, Transformer Residual Stream |
 ## The Superposition Hypothesis
+
+Privileged basis가 있을 때조차도, 뉴런들이 "polysemantic"해서 여러 무관한 특징에 반응하는 경우가 많다. \
+이에 대한 한 가지 설명은 superposition hypothesis이다. \
+대략적으로 superposition의 아이디어는 신경망이 "뉴런보다 더 많은 특징을 표현하고 싶어한다"는 것이다. \
+그래서 그들은 고차원 공간의 특성을 이용하여 훨씬 더 많은 뉴런을 가진 모델을 시뮬레이션한다.
