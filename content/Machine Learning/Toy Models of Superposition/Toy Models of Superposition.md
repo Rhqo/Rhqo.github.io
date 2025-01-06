@@ -288,10 +288,21 @@ Linear 모델에서의 직관은 이것이 불가능하다는 것이다: 선형 
 
 ![[Toy Models of Superposition_6.png]]
 
-### ### The Feature Vector ($X$)
+### The Feature Vector ($X$)
 
 고차원의 벡터 $x$ : idealize된, hypothetical disentangled model의 activation.
 
-Feature가 가상의 더 큰 모델의 뉴런과 완벽하게 align되어 있다고 상상하고 있기 때문에, 각 요소 $x_i$를 "feature"라고 부른다. Vision model에서는 이것이 gabor filter, curve detector, or a floppy ear detector일 수 있고, 언어 모델에서는 특정 유명인을 언급하는 토큰이나 특정 종류의 설명이 되는 절을 나타낼 수 있다.
+Feature가 가상의 더 큰 모델의 뉴런과 완벽하게 align되어 있다고 상상하고 있기 때문에, 각 요소 $x_i$를 "feature"라고 부른다. \
+(Vision model에서는 이것이 gabor filter, curve detector, or a floppy ear detector일 수 있고, 언어 모델에서는 특정 유명인을 언급하는 토큰이나 특정 종류의 설명이 되는 절을 나타낼 수 있다.)
 
-현재 특성에 대한 진실의 기준이 없기 때문에, 우리는 특성이 모델링 측면에서 갖고 있다고 믿는 중요한 속성을 시뮬레이션하는 합성 데이터를 생성해야 한다. 우리는 세 가지 주요 가정을 한다:
+현재 특성에 대한 진실의 기준이 없기 때문에, 우리는 특성이 모델링 측면에서 갖고 있다고 믿는 중요한 속성을 시뮬레이션하는 synthetic data를 생성해야 한다. \
+우리는 세 가지 주요 가정을 한다:
+
+- **Feature Sparsity** \
+    자연 세계에서, **많은 feature는 드물게 발생한다는 점에서 sparse해 보인다**. 예를 들어, vision에서는 이미지의 대부분 위치에 수평 모서리, 곡선, 또는 개의 머리가 포함되지 않으며, 언어에서는 대부분의 토큰이 마틴 루터 킹을 언급하지 않거나 음악을 설명하는 절의 일부가 아니다. 이 아이디어는 시각과 자연 이미지 통계에 대한 고전적인 연구로 거슬러 올라간다 (참조: Olshausen, 1997, "Why Sparseness?" 섹션). 이러한 이유로 우리는 **feature에 대해 sparse distribution을 선택할 것**이다.
+    
+- **More Features Than Neurons** \
+    모델이 표현할 수 있는 **잠재적으로 유용한 feature**가 엄청 많다. 실제 모델에서 feature와 neuron간의 이러한 불균형은 신경망 표현에서 **central tension**으로 보인다.
+    
+- **Features Vary in Importance** \
+    **모든 features가 주어진 작업에 대해 동일하게 유용하지는 않다**. 일부는 다른 것보다 손실을 더 많이 줄일 수 있다. 서로 다른 개 품종을 분류하는 것이 주요 작업인 ImageNet 모델의 경우, 늘어진 귀 탐지기는 그것이 가질 수 있는 가장 중요한 특성 중 하나일 수 있지만, 다른 특성은 성능을 아주 조금만 향상시킬 수 있다.
