@@ -185,10 +185,36 @@ Feature들이 방향으로 인코딩된다고 하더라도, 어떤 방향일 것
 어떨 때는 basis direction을 고려하는 것이 유용해 보이지만, 다른 때는 그렇지 않다. \
 왜 이럴까?
 
-연구자들이 단어 임베딩을 연구할 때 basis direction을 분석하는 것은 의미가 없다. \ **Basis dimension이 special할 것이라는 이유가 없기 때문이다**. \
+![[Toy Models of Superposition_2.png]]
+
+연구자들이 단어 임베딩을 연구할 때 basis direction을 분석하는 것은 의미가 없다. \
+**Basis dimension이 special할 것이라는 이유가 없기 때문이다**. \
 예를 들면, 단어 임베딩에 임의의 linear transformation $M$을 적용하고 $M^{-1}$을 후속 가중치에 적용해보면, 이는 basis dimension이 완전히 다른 동일한 모델을 만들어낼 것이다. \
 이것이 우리가 말하는 non-privileged basis이다.
 
-(사실 Privileged bases 없이도 활성화 연구하는 것이 가능하다. "남자"와 "여자" 사이의 차이 벡터를 취해 단어 임베딩에서 성별 방향을 만드는 것처럼, 단지 연구할 direction을 어떻게든 찾아내기만 하면 privileged bases 없이도 활성화를 연구하는 것이 가능하다.)
+하지만 많은 신경망 레이어는 이와 같지 않다. \
+종종 아키텍처의 어떤 특성 때문에 **basis 방향이 special해진다**. \
+예를 들어, activation function을 적용하는 것과 같은 경우이다. \
+이는 "대칭을 깨뜨려" 이러한 방향을 특별하게 만들고, 잠재적으로 특징들이 basis dimensions과 정렬되도록 유도한다. \
+우리는 이를 privileged basis이라고 부르며, privileged direction을 "neurons"라고 부른다. \
+이러한 뉴런은 일반적으로 interpretable feature에 해당한다.
 
-하지만 많은 신경망 레이어는 이와 같지 않다. 종종 아키텍처의 어떤 특성 때문에 **basis 방향이 special해진다**. 예를 들어, activation function을 적용하는 것과 같은 경우이다. 이는 "대칭을 깨뜨려" 이러한 방향을 특별하게 만들고, 잠재적으로 특징들이 basis dimensions과 정렬되도록 유도한다. 우리는 이를 privileged basis이라고 부르며, privileged direction을 "neurons"라고 부른다. 이러한 뉴런은 일반적으로 interpretable feature에 해당한다.
+이 관점에서 볼 때, **뉴런이 interpretable한지를 묻는 것은 그것이 privileged basis에 있을 때만 의미가 있다**. \
+실제로 우리는 일반적으로 "neurons"이라는 단어를 privileged basis에 있는 기준 방향에 대해서만 사용한다.
+
+Privileged basis가 있다고 해서 특징들이 **basis-aligned된다고 보장되는 것은 아니다**. \
+우리는 흔히 그렇지 않다는 것을 알게 될 것이다! \
+하지만 이것은 질문이 의미가 있게 만들기 위한 최소한의 조건이 될 것이다.
+
+> [!Tip]
+> 위의 얘기를 들어보면, non-privileged basis를 연구하는 것이 의미없어 보이지만, 사실 privileged bases 없이도 활성화 연구하는 것이 가능하다. "남자"와 "여자" 사이의 차이 벡터를 취해 단어 임베딩에서 성별 방향을 만드는 것처럼, 단지 연구할 direction을 어떻게든 찾아내기만 하면 privileged bases 없이도 활성화를 연구하는 것이 가능하다.
+
+
+| **특징**       | **Privileged Basis** | **Non-privileged Basis**                    |
+| ------------ | -------------------- | ------------------------------------------- |
+| **기저의 중요성**  | 특정 방향(뉴런)이 중요        | 모든 방향이 동일한 중요성                              |
+| **특징 표현 방식** | 뉴런과 특징이 1:1로 매핑      | 특징이 여러 방향에 걸쳐 분산됨                           |
+| **대칭성**      | 대칭성이 깨짐              | 대칭성이 유지됨                                    |
+| **해석 가능성**   | 높은 해석 가능성            | 낮은 해석 가능성                                   |
+| **대표적인 사례**  | CNN, MLP 뉴런          | Word Embedding, Transformer Residual Stream |
+## The Superposition Hypothesis
