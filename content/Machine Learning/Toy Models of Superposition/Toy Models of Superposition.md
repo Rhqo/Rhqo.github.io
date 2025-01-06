@@ -236,4 +236,5 @@ Privileged basis가 있을 때조차도, 뉴런들이 "polysemantic"해서 여�
 
 구체적으로, superposition hypothesis에서는 feature가 뉴런 출력의 벡터 공간에서 almost orthogonal한 방향으로 표현된다. \
 Feature가 거의 직교하기 때문에, 하나의 feature가 활성화되면 다른 feature들이 약간 활성화되는 것처럼 보인다. \
-이러한 "noise” 또는 "interference"을 허용하는 데는 비용이 들지만, 신경망의 경우 굉장히 sparse한 feature를 가지고 있기 때문에, 이러한 비용은 더 많은 특징을 표현할 수 있는 이점에 의해 초과될 수 있다! (중요한 것은, sparsity가 크기 때문에 sparse feature는 서로 interfere를 일으키는 경우가 드물고, non-linear activation function들이 소량의 noise를 걸러내는 기회를 제공한다는 것이다.)
+이러한 "noise” 또는 "interference"을 허용하는 데는 비용이 들지만, 신경망의 경우 굉장히 sparse한 feature를 가지고 있기 때문에, 이러한 비용은 더 많은 특징을 표현할 수 있는 이점에 의해 초과될 수 있다! \
+(중요한 것은, sparsity가 크기 때문에 sparse feature는 서로 interfere를 일으키는 경우가 드물고, non-linear activation function들이 소량의 noise를 걸러내는 기회를 제공한다는 것이다.)
