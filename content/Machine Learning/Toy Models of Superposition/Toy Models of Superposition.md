@@ -135,7 +135,7 @@ Superposition은 이전부터 연구되어 왔지만, 신경망에서 명확하�
 ## What are Features?
 
 우리가 결론지은 feature의 정의는, 관찰하는 input의 interpretable한 속성 (또는 단어 임베딩 방향)이다. \
-하지만 'feature'에 대한 만족스러운 정의를 만드는 것은 매우 어려운 일이고, 우리가 확신하는 단일 정의를 제시하는 대신, 세 가지 잠재적인 실용적 정의를 고려해보고자 한다. \
+하지만 'feature'에 대한 만족스러운 정의를 만드는 것은 매우 어려운 일이고, 우리가 확신하는 단일 정의를 제시하는 대신, 세 가지 잠재적인 실용적 정의를 고려해보고자 한다.
 
 - **Features as arbitrary functions (임의의 함수로써의 feature)**
 	
