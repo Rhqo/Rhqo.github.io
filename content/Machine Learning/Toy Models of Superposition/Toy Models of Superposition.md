@@ -376,4 +376,20 @@ Superposition은 모델이 더 많은 feature를 표현하는 것을 가능하�
 Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 되며, 더 많은 정보를 저장할 수 있게 된다. \
 이 지점에서 positive interference와 negative biases가 발생하게 되는 것에 주목하자.
 
-## Mathe
+## Mathematical understanding
+
+# Superposition as a Phase Change
+
+> The results in the previous section seem to suggest that there are three outcomes for a feature when we train a model: **(1) the feature may simply not be learned**; **(2) the feature may be learned, and represented in superposition**; or **(3) the model may represent a feature with a dedicated dimension**. The transitions between these three outcomes seem sharp. Possibly, there's some kind of phase change.
+> 
+> 앞서의 결과는 우리가 모델을 훈련할 때 반복되는 세 가지 결과를 제시하는 것 같다: **(1) 특징이 단순히 학습되지 않을 수 있다**; **(2) 특징이 학습되고 중첩으로 표현될 수 있다**; 또는 **(3) 모델이 특정 차원으로 특징을 표현할 수 있다**. 이 세 가지 결과 간의 전환은 뚜렷해 보인다. 아마도 어떤 형태의 위상 변화가 있을 것이다.
+
+이걸 더 잘 이해하는 한 가지 방법은 물리학에서 "phase diagram" 같은 것이 있는지 탐구하여 특정 특징이 어느 이러한 영역에 있을 것으로 예상되는지를 파악하는 것이다. \
+이전 실험에서 이러한 힌트를 볼 수 있지만, 많은 특징이 동시에 변하고 상호작용 효과가 있을 수 있기 때문에 실제로 무슨 일이 일어나고 있는지를 분리하기 어렵다. \
+결과적으로, 효과를 더 잘 분리하기 위해 다음과 같은 실험을 설정했다.
+
+초기 실험으로, ReLU output 모델에서, 2개의 feature가 있고, 1개의 hidden layer 차원이 있는 모델을 고려한다. ($n=2, m=1)$ \
+첫 번째 특징의 중요도를 1.0으로 하고, 한 축에서 2번째 "추가" feature의 중요도를 0.1에서 10까지 변화시킨다. \
+다른 축에서는 모든 feature의 sparsity를 1.0에서 0.01로 변화시킨다. \
+이후 우리는 2번째 "추가" feature가 학습되지 않았는지, superposition으로 학습되었는지, 또는 직교로 표현되었는지를 나타내는 플롯을 작성합니다. 노이즈를 줄이기 위해 각 지점에 대해 10개의 모델을 훈련하고 결과를 평균하여 최고 손실을 가진 모델은 제외합니다.
+이 결과를 이론적 "장난감 모델의 장난감 모델"과 비교할 수 있습니다. 여기서는 중요도와 희소성을 함수로 하여 다양한 가중치 구성에서 손실에 대한 닫힌 형태의 솔루션을 얻을 수 있습니다. 1차원에 2개의 특징을 저장하는 자연스러운 방법에는 세 가지가 있습니다: (1) 추가 특징을 버리기 위해 무시하고, (2) 첫 번째 특징을 버림으로써 추가 특징에 전용 차원을 부여하고, (3) 특징을 중첩으로 저장하되 두 특징의 조합을 동시에 표현할 능력을 잃습니다. 우리는 이 마지막 솔루션을 "반대 양극"이라고 부릅니다. 왜냐하면 두 기저 벡터가 정반대 방향으로 매핑되기 때문입니다. 이들 솔루션에 대한 손실을 분석적으로 결정할 수 있는 것으로 나타납니다 (자세한 내용은 이 노트북에서 확인할 수 있습니다).
