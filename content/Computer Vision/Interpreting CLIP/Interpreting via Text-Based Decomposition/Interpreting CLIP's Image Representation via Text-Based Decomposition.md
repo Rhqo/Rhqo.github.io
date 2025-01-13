@@ -109,12 +109,12 @@ $$
 실험에서는, ImageNet validation set에서 각 구성 요소의 평균을 계산하고 ImageNet classification의 정확도의 감소를 평가한다. LAION-2B에서 훈련된 OpenCLIP ViT-H-14, L-14, B-16 모델을 분석한다.
 ### MLPs have a negligible direct effect
 
-![image.png](Interpreting%20CLIP's%20Image%20Representation%20via%20Text-%20170d2791976480879002cdd25e77e35e/image.png)
+![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_0.png]]
 
 표 1은 모든 MLP를 동시에 평균 제거한 결과를 보여준다. MLP는 이미지 표현에 유의미한 직접 효과가 없으며, 모두 제거해도 정확도가 1%-3%만 떨어지게 된다.
 ### Only the last MSAs have a significant direct effect
 
-![image.png](Interpreting%20CLIP's%20Image%20Representation%20via%20Text-%20170d2791976480879002cdd25e77e35e/image%201.png)
+![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_1.png]]
 
 다음으로 다양한 MSA 계층의 직접 효과를 평가한다. 이를 위해, 우리는 어떤 계층 $l$ 까지 모든 MSA 계층을 평균 제거합니다. 그림 2는 결과를 보여준다: 초기 MSA 계층(마지막 4개까지)을 제거해도 정확도에 큰 변화가 없지만, 마지막 MSA를 평균 제거하면 성능이 급격히 감소하게 된다.
 
@@ -155,9 +155,9 @@ $c_{i,l,h}$ , $c^{l,h}_{head}$ , $c^i_{token}$ 은 모두 $d'$ - 차원의 text-
 
 3.2에서 보았듯이, CLIP의 후기의 MSA layer를 이해하는 것에 초점을 맞춘다. 섹션 3.3에서 보았듯이, 개별 attention head로의 분해를 사용하고, 각 헤드의 latent direction에 텍스트 설명으로 레이블을 부여하는 알고리즘을 제시한다.
 
-![image.png](Interpreting%20CLIP's%20Image%20Representation%20via%20Text-%20170d2791976480879002cdd25e77e35e/image%202.png)
+![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_2.png]]
 
-![image.png](Interpreting%20CLIP's%20Image%20Representation%20via%20Text-%20170d2791976480879002cdd25e77e35e/image%203.png)
+![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_3.png]]
 
 이 레이블링의 예시는 표 2와 그림 4에 나타나 있으며, 64개의 늦은 주의 헤드에 대한 레이블링은 섹션 A.5에서 주어진다.
 
@@ -171,7 +171,7 @@ MSA의 출력을 조합 표현 공간의 텍스트 관련 방향으로 분해한
 
 섹션 3.3에서 이미지 표현의 MSA 항(식 4)이 헤드에 대한 합으로 표현될 수 있다는 것을 기억하자: $\sum_{l,h}c^{l,h}_{head}$ . 헤드의 기여 $c^{l,h}_{head}$ 를 해석하기 위해, 헤드의 출력 변화 대부분을 설명하는 텍스트 설명 집합을 찾는다. (헤드의 “principal component (PC)”
 
-이걸 공식화하기 위해, 입력 이미지 $I_1, ..., I_K$ 및 관련된 헤드 출력 $c_1, ..., c_K$ 를 사용한다. $c_1, ..., c_K$ 가 joint text-image represent space에 존재하는 벡터이기 때문에, 각 text input $t$ 는 $M_{text}(t)$ 의 방향을 정의한다. 텍스트 방향 집합 $\Tau$ 가 주어지면, $\text{Proj}T$*는 $\{M_{\text{text}}(t) | t \in T\}$* 의 스팬에 대한 투영을 의미한다. $T$ 에 의해 설명된 분산을 다음과 같이 정의한다:
+이걸 공식화하기 위해, 입력 이미지 $I_1, ..., I_K$ 및 관련된 헤드 출력 $c_1, ..., c_K$ 를 사용한다. $c_1, ..., c_K$ 가 joint text-image represent space에 존재하는 벡터이기 때문에, 각 text input $t$ 는 $M_{text}(t)$ 의 방향을 정의한다. 텍스트 방향 집합 $T$ 가 주어지면, $\text{Proj}T$*는 $\{M_{\text{text}}(t) | t \in T\}$* 의 스팬에 대한 투영을 의미한다. $T$ 에 의해 설명된 분산을 다음과 같이 정의한다:
 
 $$
 
@@ -181,14 +181,8 @@ $$
 
 우리는 각 헤드에 대해 $V_{\text{explained}}(T)$ 를 최대화하는 $m$ 개의 설명 집합 $T$ 를 찾고자 한다. 일반적인 PCA와 달리 이 최적화 문제에 대한 닫힌 형태의 해가 없으므로, 우리는 탐욕적 접근 방식을 취한다.
 
-  
-
 ### Greedy algorithm for descriptive set mining
-
-  
 
 식 (7)에서 설명된 분산을 대략 최대화하기 위해, 우선 M개의 후보 설명 $\{t_i\}_{i=1}^{M}$ 의 대규모 풀에서 탐욕적으로 선택하여 집합 $T$ 를 얻는다.
 
-  
-
-![image.png](Interpreting%20CLIP's%20Image%20Representation%20via%20Text-%20170d2791976480879002cdd25e77e35e/image%204.png)
+![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_4.png]]
