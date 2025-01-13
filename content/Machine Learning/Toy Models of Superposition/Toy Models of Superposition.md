@@ -262,7 +262,7 @@ Superposition이 기대하는 대로 특징이 충분히 희소하지 않으면 
     선형 표현은 $W^TW$ 가 **가역적이지 않으면** **superposition**을 나타내고, **가역적**이라면 **superposition을 나타내지 않는다**.
     
 - **Basis-Aligned** \
-    표현이 basis-aligned되었다고 할 수 있는 경우, 모든 $W_i$ 가 one-hot basis 벡터이다. 모든 $W_i$ 가 sparse할 경우 표현은 부분적으로 기저 정렬되어 있다고 할 수 있습니다. 이는 특권 있는 기저를 필요로 한다. \
+    표현이 basis-aligned되었다고 할 수 있는 경우, 모든 $W_i$ 가 one-hot basis 벡터이다. 모든 $W_i$ 가 sparse할 경우 표현은 부분적으로 기저 정렬되어 있다고 할 수 있다. 이는 특권 있는 기저를 필요로 한다. \
     → one-hot basis vector : 하나의 성분만 1이고 나머지 성분은 모두 0인 벡터. 특정 차원을 명확히 나타낼 수 있고, 특정 벡터 공간에서의 표준 기저 역할을 한다.
     
 
@@ -375,3 +375,5 @@ Superposition은 모델이 더 많은 feature를 표현하는 것을 가능하�
 
 Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 되며, 더 많은 정보를 저장할 수 있게 된다. \
 이 지점에서 positive interference와 negative biases가 발생하게 되는 것에 주목하자.
+
+## Mathe
