@@ -8,5 +8,6 @@ I am interested in studying the following areas.
 - **[[Segmentation/Segmentation]]**
 - **[[Video Understanding/Video Understanding]]**
 - **[[Retrieval/Retrieval]]**
-- 
+- **[[Interpreting CLIP/Interpreting CLIP]]**
+
 
