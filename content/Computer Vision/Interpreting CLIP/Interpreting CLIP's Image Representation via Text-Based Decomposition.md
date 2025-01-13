@@ -171,19 +171,13 @@ MSA의 출력을 조합 표현 공간의 텍스트 관련 방향으로 분해한
 
 섹션 3.3에서 이미지 표현의 MSA 항(식 4)이 헤드에 대한 합으로 표현될 수 있다는 것을 기억하자: $\sum_{l,h}c^{l,h}_{head}$ . 헤드의 기여 $c^{l,h}_{head}$ 를 해석하기 위해, 헤드의 출력 변화 대부분을 설명하는 텍스트 설명 집합을 찾는다. (헤드의 “principal component (PC)”
 
-  
-
 이걸 공식화하기 위해, 입력 이미지 $I_1, ..., I_K$ 및 관련된 헤드 출력 $c_1, ..., c_K$ 를 사용한다. $c_1, ..., c_K$ 가 joint text-image represent space에 존재하는 벡터이기 때문에, 각 text input $t$ 는 $M_{text}(t)$ 의 방향을 정의한다. 텍스트 방향 집합 $\Tau$ 가 주어지면, $\text{Proj}T$*는 $\{M_{\text{text}}(t) | t \in T\}$* 의 스팬에 대한 투영을 의미한다. $T$ 에 의해 설명된 분산을 다음과 같이 정의한다:
-
-  
 
 $$
 
 \begin{equation}V_{explained}(T) = \frac1K\sum^K_{k=1}||Proj_T(c_k - c_{avg})||^2_2, \;\; where\;c_{avg} = \frac1K\sum^K_{k=1}c_k\end{equation}
 
 $$
-
-  
 
 우리는 각 헤드에 대해 $V_{\text{explained}}(T)$ 를 최대화하는 $m$ 개의 설명 집합 $T$ 를 찾고자 한다. 일반적인 PCA와 달리 이 최적화 문제에 대한 닫힌 형태의 해가 없으므로, 우리는 탐욕적 접근 방식을 취한다.
 
