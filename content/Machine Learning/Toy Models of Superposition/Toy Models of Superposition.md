@@ -424,6 +424,6 @@ Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 �
 
 ![[TMS_15.png|400]]
 
-> [!tip] [[Why does it happened?]]
+> [!tip] [[Why does it happen?]]
 
 이 diagram들은 특성을 인코딩하기 위한 서로 다른 전략 간의 실제로 phase change가 존재한다는 것을 제안한다. 그러나 다음 섹션에서는 이 예비적인 관점이 포착하지 못하는 더 복잡한 구조가 있다는 것을 볼 것이다.

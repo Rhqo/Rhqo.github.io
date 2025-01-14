@@ -23,4 +23,5 @@ $x’_1$은 $x’_2$와 서로 orthogonal 하며, $x’_3$는 거의 활성화�
 평면은 $x_1$과 $x_2$를 span한 평면으로, projection되는 평면을 의미한다. ($x_1$과 $x_2$가 basis) \
 $x’_1$은 $x’_2$, $x’_3$와 모두 orthogonal 하며, $x’_2$와 $x’_3$는 서로 antipodal pair가 되는 모습을 보인다.
 
-그렇다면, projection 평면을 위와 같이 조절했을 때, 구체적으로 loss가 어떤 형식으로 생성되는지를 살펴 보겠다.
+그렇다면, projection 평면을 위와 같이 조절했을 때, 구체적으로 loss가 어떤 형식으로 생성되는지를 살펴 보겠다. \
+위의 예시의 경우, linear model은 x, y축에 대한 loss
