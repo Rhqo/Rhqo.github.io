@@ -30,4 +30,10 @@ $x’_1$은 $x’_2$, $x’_3$와 모두 orthogonal 하며, $x’_2$와 $x’_3$
 
 ReLU output model은 Linear model에 비해 z축에 대한 loss가 천천히 증가하는 모습이다.
 
-$W^TWx+b$ 의 Linear model과 $ReLU(W^TWx+b)$ 의 ReLU output model을 forward를 사용하여, 기존의 좌표를 얼마나 잘 복구하는지를 살펴보면, 다음 두 그림과 같은 결과가 나오게 된다.
+$W^TWx+b$ 의 Linear model과 $ReLU(W^TWx+b)$ 의 ReLU output model의 forward를 사용하여, $h$ 와 $x'$ 을 시각화하여 기존의 좌표를 얼마나 잘 복구하는지를 살펴보면, 다음 두 그림과 같은 결과가 나오게 된다. \ 회색 테두리를 가지고 있는 것이 $h$ (projection된 점들) 이다.
+
+![[Why does it happen?_6.png]]
+![[Why does it happen?_7.png]]
+
+ReLU output model이 Linear model에 비해 원래의 데이터를 더 잘 복원함을 알 수 있다.
+
