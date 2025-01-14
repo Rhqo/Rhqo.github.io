@@ -2,11 +2,11 @@
 3차원에서 2차원으로 projection시키는, 비정사각행렬인 W를 가정해보자.
 
 Linear model에 대해서, $W^TW$ 가 $I$ 에 수렴하게 될 것이므로, $W$ 의 열벡터가 linearly independent 해질 것이다.
-![[Why-does-it-happened_3.png]]
+![[Why-does-it-happen_3.png]]
 
 하지만, ReLU output model에 대해서, $W^TW$ 는 $I$ 에 수렴하게 될 필요성이 떨어지게 되므로, $W$ 의 열벡터가 linearly independent 해질 이유가 없어진다. \
 결과적으로 $W$ 는 어느정도의 자유도를 갖게 될 것이다.
-![[Why-does-it-happened_4.png]]
+![[Why-does-it-happen_4.png]]
 
 $2\times3$ 행렬인 W에 대해서, \
 $W$의 column vector 2개는 3차원에서 표현한 2차원의 basis가 될 것이고, \
@@ -19,7 +19,7 @@ Linear model의 $W$를 시각화해보면, 다음과 같다.
 $x’_1$은 $x’_2$와 서로 orthogonal 하며, $x’_3$는 거의 활성화되지 않는 모습을 보인다.
 
 다음으로 ReLU output model의 $W$를 시각화해보면, 다음과 같다.
-![[Why-does-it-happened_2.png]]
+![[Why-does-it-happen_2.png]]
 평면은 $x_1$과 $x_2$를 span한 평면으로, projection되는 평면을 의미한다. ($x_1$과 $x_2$가 basis) \
 $x’_1$은 $x’_2$, $x’_3$와 모두 orthogonal 하며, $x’_2$와 $x’_3$는 서로 antipodal pair가 되는 모습을 보인다.
 
