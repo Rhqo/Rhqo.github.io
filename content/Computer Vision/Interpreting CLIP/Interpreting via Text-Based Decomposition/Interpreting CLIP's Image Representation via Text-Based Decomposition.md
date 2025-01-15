@@ -15,7 +15,7 @@
 > We use these properties to decompose the representation into text-explainable directions that are attributed to specific attention heads and image locations.
 
 
-Residual structure를 사용하여 어떤 레이어가 출력에 상당한 직접 효과를 미치는지 조사한다. \
+Residual structure를 사용하여 어떤 레이어가 출력에 상당한 direct effect를 미치는지 조사한다. \
 마지막 4개의 attention layer를 제외한 모든 layer를 가리는 경우 CLIP의 제로샷 분류 정확도에 거의 영향을 미치지 않음을 발견했다.
 
 → CLIP 이미지 표현이 주로 이러한 후기의 attention layer에 의해 구성된다는 결론
@@ -102,23 +102,23 @@ $$
 
 ### Evaluating the direct contribution of layers
 
-식 (4)에서 어떤 구성 요소가 최종 이미지 표현에 유의미한 영향을 미치는지 연구했고, 대다수의 직접 효과가 후반 attention layer에서 온다는 것을 발견했다.
+식 (4)에서 어떤 구성 요소가 최종 이미지 표현에 유의미한 영향을 미치는지 연구했고, 대다수의 direct effect가 후반 attention layer에서 온다는 것을 발견했다.
 
-구성 요소(또는 구성 요소 집합)의 직접 효과를 연구하기 위해, 평균 제거(mean-ablation) 기법을 사용하여 구성 요소를 이미지 데이터셋의 평균 값으로 대체한다. 구체적으로, 제거 전후의 classification 작업에서 zero-shot 정확도의 감소를 측정한다. 더 큰 직접 효과를 가진 구성 요소는 더 큰 정확도 감소를 가져야 한다.
+구성 요소(또는 구성 요소 집합)의 direct effect를 연구하기 위해, 평균 제거(mean-ablation) 기법을 사용하여 구성 요소를 이미지 데이터셋의 평균 값으로 대체한다. 구체적으로, 제거 전후의 classification 작업에서 zero-shot 정확도의 감소를 측정한다. 더 큰 direct effect를 가진 구성 요소는 더 큰 정확도 감소를 가져야 한다.
 
 실험에서는, ImageNet validation set에서 각 구성 요소의 평균을 계산하고 ImageNet classification의 정확도의 감소를 평가한다. LAION-2B에서 훈련된 OpenCLIP ViT-H-14, L-14, B-16 모델을 분석한다.
 ### MLPs have a negligible direct effect
 
 ![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_0.png]]
 
-표 1은 모든 MLP를 동시에 평균 제거한 결과를 보여준다. MLP는 이미지 표현에 유의미한 직접 효과가 없으며, 모두 제거해도 정확도가 1%-3%만 떨어지게 된다.
+표 1은 모든 MLP를 동시에 평균 제거한 결과를 보여준다. MLP는 이미지 표현에 유의미한 direct effect가 없으며, 모두 제거해도 정확도가 1%-3%만 떨어지게 된다.
 ### Only the last MSAs have a significant direct effect
 
 ![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_1.png]]
 
-다음으로 다양한 MSA 계층의 직접 효과를 평가한다. 이를 위해, 우리는 어떤 계층 $l$ 까지 모든 MSA 계층을 평균 제거합니다. 그림 2는 결과를 보여준다: 초기 MSA 계층(마지막 4개까지)을 제거해도 정확도에 큰 변화가 없지만, 마지막 MSA를 평균 제거하면 성능이 급격히 감소하게 된다.
+다음으로 다양한 MSA 계층의 direct effect를 평가한다. 이를 위해, 우리는 어떤 계층 $l$ 까지 모든 MSA 계층을 평균 제거합니다. 그림 2는 결과를 보여준다: 초기 MSA 계층(마지막 4개까지)을 제거해도 정확도에 큰 변화가 없지만, 마지막 MSA를 평균 제거하면 성능이 급격히 감소하게 된다.
 
-요약하자면, 출력에 대한 직접 효과는 마지막 4개의 MSA 계층에 집중되어 있다. 따라서 이후 분석에서는 이러한 계층에만 초점을 맞추고 MLP와 초기 MSA 계층은 무시한다.
+요약하자면, 출력에 대한 direct effect는 마지막 4개의 MSA 계층에 집중되어 있다. 따라서 이후 분석에서는 이러한 계층에만 초점을 맞추고 MLP와 초기 MSA 계층은 무시한다.
 
 ## 3.3 Fine-Grained Decomposition into Heads and Positions
 
@@ -137,7 +137,7 @@ $$
 
 
 $W^{l,h}_{VO} \in \R^{d\times d}$ 는 transition 행렬이며, $\alpha^{l,h}_i \in \R$ 는 class 토큰에서 i번째 토큰까지의 attention 가중치이다. $(\sum^N_{i=0}\alpha^{l,h}_i = 1)$ \
-따라서, MSA 출력은 개별 head와 토큰의 직접 효과로 분해될 수 있다. \
+따라서, MSA 출력은 개별 head와 토큰의 direct effect로 분해될 수 있다. \
 식 (5)의 MSA 출력 정의를 식 (4)의 MSA 항에 대입하면 다음과 같이 나타낼 수 있다:
 $$
 
@@ -145,7 +145,7 @@ $$
 
 $$
 
-모든 attention block의 총 직접 효과는 텐서 $c$ 를 모든 차원에서 수축한 결과이다. 일부 차원에서만 수축함으로써 다양한 유용한 방식으로 효과를 분해할 수 있다.
+모든 attention block의 총 direct effect는 텐서 $c$ 를 모든 차원에서 수축한 결과이다. 일부 차원에서만 수축함으로써 다양한 유용한 방식으로 효과를 분해할 수 있다.
 
 예를 들어, 공간 차원 $i$ 를 따라 수축하여 각 헤드에 대한 기여를 얻을 수 있다: $c^{l,h}_{head} = \sum^N_{i=0}c_{i,l,h}$ . 대신, layer와 head에 따라 수축해서 각 이미지 토큰으로부터 기여를 얻을 수 있다: $c^i_{token} = \sum^L_{l=1}\sum^H_{h=1}c_{i,l,h}$ .
 
