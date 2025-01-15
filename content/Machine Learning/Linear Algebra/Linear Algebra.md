@@ -1,6 +1,4 @@
-![[Pasted image 20250115154511.png]]
-![[Linear Algebra and Its Applications, Global Edition, 6ed.png]]
-
+![[Linear Algebra and Its Applications, Global Edition, 6ed.png|400]]
 - Chapter 1: [[Linear Equations in Linear Algebra/Linear Equations in Linear Algebra]]
 - Chapter 2: [[Matrix Algebra/Matrix Algebra]]
 - Chapter 3: Determinants
