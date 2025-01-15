@@ -451,3 +451,11 @@ Feature의 수를 측정하기 위해 Frobenius norm인 $||W||_F^2$ 를 살펴�
 
 "Dimensions per feature"을 의미하는 $D^* = \frac{m}{||W||^2_F}$ 을 그래프로 나타내면, 다음과 같다.
 ![[TMS_16.png]]
+
+흥미로운 점은, 이 그래프가 1과 1/2에서 "sticky"하다는 것이다. \
+살펴보면, "sticky point"는 feature가 "**antipodal pairs**"로 구성된 정밀한 기하학적 배열에 해당하는 것으로 보이며, 각 쌍은 서로의 정확한 음수로, 두 feature가 각 hidden dimension에 공존할 수 있게 한다. \
+Antipodal pairs가 매우 효과적이라서 모델이 넓은 sparsity 영역에서 이를 선호하여 사용한다고 볼 수 있을 것이다.
+
+## Feature Dimensionality
+
+앞선 그래프에서 모델이 어떤 의미에서 "half a dimension per fe"을 가지는 고착된 영역이 존재한다는 것을 살펴보았습니다. 이는 모델이 표현하는 특성의 평균 통계적 특성이지만, 흥미로운 무언가를 암시하는 것 같습니다. 특정 특성이 얻는 "차원의 비율"을 이해할 방법이 있을까요?
