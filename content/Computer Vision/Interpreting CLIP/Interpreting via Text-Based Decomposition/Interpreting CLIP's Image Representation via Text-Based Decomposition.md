@@ -204,7 +204,7 @@ $$
 - 모든 head들이 뚜렷한 role을 가지고 있는 것은 아니다
 - 상당수의 head들이 뚜렷한 role을 가지고 있고, 그 role들이 굉장히 세분화 되어있는 모습이다.
 
-> [!tip] [[TEXTSPAN results]]
+> [!tip] Appendix - [[More TEXTSPAN results]]
 
 ### Property(role) based image retrieval
 
