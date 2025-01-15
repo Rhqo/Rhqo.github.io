@@ -1,3 +1,4 @@
+![[Pasted image 20250115154511.png]]
 ![[Linear Algebra and Its Applications, Global Edition, 6ed.png]]
 
 - Chapter 1: [[Linear Equations in Linear Algebra/Linear Equations in Linear Algebra]]
