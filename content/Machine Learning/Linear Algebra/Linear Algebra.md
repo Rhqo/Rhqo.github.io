@@ -1,0 +1,12 @@
+![[Linear Algebra and Its Applications, Global Edition, 6ed.png]]
+
+- Chapter 1: [[Linear Equations in Linear Algebra]]
+- Chapter 2: [[Matrix Algebra]]
+- Chapter 3: [[Determinants]]
+- Chapter 4: [[Vector Spaces]]
+- Chapter 5: [[Eigenvalues and Eigenvectors]]
+- Chapter 6: [[Orthogonality and Least Squares]]
+- Chapter 7: [[Symmetric Matrices and Quadratic Forms]]
+- Chapter 8: [[The Geometry of Vector Spaces]]
+- Chapter 9: [[Optimization]]
+- Chapter 10: [[Finite-State Markov Chains]]
