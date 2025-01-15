@@ -6,7 +6,7 @@
 > 우리는 개별 모델 구성 요소가 최종 표현에 어떤 영향을 미치는지 분석하여 CLIP 이미지 인코더를 조사합니다. 이미지 표현을 개별 **image patches**, **model layers**, **attention head**에 걸쳐 합으로 분해하고, CLIP의 텍스트 표현을 사용하여 요약을 해석합니다. 주의 헤드를 해석하여 출력 공간에 걸쳐 있는 텍스트 표현을 자동으로 찾아 각 헤드의 역할을 특성화하고, 이는 많은 헤드(예: 위치 또는 모양)에 대한 속성별 역할을 드러냅니다. 다음으로, 이미지 패치를 해석하여 CLIP 내에서 새로운 공간적 위치를 발견합니다. 마지막으로, 이러한 이해를 바탕으로 CLIP에서 가짜 특징을 제거하고 강력한 제로샷 이미지 세그먼트를 생성합니다. 우리의 결과는 트랜스포머 모델에 대한 확장 가능한 이해가 가능하며 모델을 복구하고 개선하는 데 사용할 수 있음을 나타냅니다.
 
 
-# 1. Introduction
+# Introduction
 
 > To better understand CLIP, we design methods to study its internal structure, focusing on CLIP-ViT. Our methods leverage several aspects of CLIP-ViT’s architecture:
 > First, the architecture uses **residual connections**, so the output is a **sum of individual layer outputs.**
@@ -47,12 +47,12 @@ ex) 한 head의 상위 3개 basis 방향은 "반원형 아치", "이등변 삼�
 
 이를 통해 Property specific heads와 emergent localization을 발견하고, 우리의 발견을 사용하여 가짜 신호를 줄이고 zero-shot segmentation을 개선하여, 이해가 다운스트림 성능을 향상시킬 수 있음을 보여준다.
 
-# 3. Decomposing CLIP image representation into layers
+# Decomposing CLIP image representation into layers
 
 ## 3.1 CLIP-ViT Preliminaries
 ### Contrastive pre-training
 
-Text encoder $M_{text}$ 와 Image encoder $M_{image}$ 를 사용, 동일한 latent space에 매핑되어 cosine similarity를 통해 텍스트 간의 유사성을 측정할 수 있다. \
+Text encoder $M_{text}$ 와 Image encoder $M_{image}$ 를 사용, 동일한 latent space에 매핑되어 cosine similarity를 통해 텍스트 간의 유사성을 측정할 수 있다.
 
 $$
 \begin{equation}\text{sim}(I,t) = \frac{\langle M_{\text{image}}(I), M_{\text{text}}(t) \rangle}{\|M_{\text{image}}(I)\|_2 \|M_{\text{text}}(t)\|_2}\end{equation}
@@ -100,6 +100,7 @@ $$
 
 식 (4)는 Image representation을 MLP, MSA, input class token의 direct contribution들로 분해할 수 있으며, 이를 통해 각 항목을 개별적으로 분석할 수 있다. 여기서는 한 layer의 출력이 downstream 계층에 미치는 간접 효과를 무시한다. 이 분해(및 추가 분해)를 사용하여 다음 섹션에서 CLIP의 표현을 분석한다.
 
+![[ICIRTBD_12.png]]
 ### Evaluating the direct contribution of layers
 
 식 (4)에서 어떤 구성 요소가 최종 이미지 표현에 유의미한 영향을 미치는지 연구했고, 대다수의 direct effect가 후반 attention layer에서 온다는 것을 발견했다.
@@ -109,12 +110,12 @@ $$
 실험에서는, ImageNet validation set에서 각 구성 요소의 평균을 계산하고 ImageNet classification의 정확도의 감소를 평가한다. LAION-2B에서 훈련된 OpenCLIP ViT-H-14, L-14, B-16 모델을 분석한다.
 ### MLPs have a negligible direct effect
 
-![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_0.png]]
+![[ICIRTBD_0.png]]
 
 표 1은 모든 MLP를 동시에 평균 제거한 결과를 보여준다. MLP는 이미지 표현에 유의미한 direct effect가 없으며, 모두 제거해도 정확도가 1%-3%만 떨어지게 된다.
 ### Only the last MSAs have a significant direct effect
 
-![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_1.png]]
+![[ICIRTBD_1.png]]
 
 다음으로 다양한 MSA 계층의 direct effect를 평가한다. 이를 위해, 우리는 어떤 계층 $l$ 까지 모든 MSA 계층을 평균 제거합니다. 그림 2는 결과를 보여준다: 초기 MSA 계층(마지막 4개까지)을 제거해도 정확도에 큰 변화가 없지만, 마지막 MSA를 평균 제거하면 성능이 급격히 감소하게 된다.
 
@@ -151,13 +152,13 @@ $$
 
 $c_{i,l,h}$ , $c^{l,h}_{head}$ , $c^i_{token}$ 은 모두 $d'$ - 차원의 text-image representation space에 존재하며, 이를 통해 텍스트를 해석할 수 있다. 예를 들면, 텍스트 설명 $t$ 가 주어졌을 때 $\lang M_{text}(t), c^{l,h}_{head} \rang$ 는 해당 헤드의 출력과 $t$ 의 유사성을 직관적으로 측정한다.
 
-# 4. Decomposition into attention heads
+# Decomposition into attention heads
 
 3.2에서 보았듯이, CLIP의 후기의 MSA layer를 이해하는 것에 초점을 맞춘다. 섹션 3.3에서 보았듯이, 개별 attention head로의 분해를 사용하고, 각 헤드의 latent direction에 텍스트 설명으로 레이블을 부여하는 알고리즘을 제시한다.
 
-![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_2.png]]
+![[ICIRTBD_2.png]]
 
-![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_3.png]]
+![[ICIRTBD_3.png]]
 
 이 레이블링의 예시는 표 2와 그림 4에 나타나 있으며, 64개의 늦은 주의 헤드에 대한 레이블링은 섹션 A.5에서 주어진다.
 
@@ -185,7 +186,7 @@ $$
 
 식 (7)에서 설명된 분산을 대략 최대화하기 위해, 우선 M개의 후보 설명 $\{t_i\}_{i=1}^{M}$ 의 대규모 풀에서 탐욕적으로 선택하여 집합 $T$ 를 얻는다.
 
-![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_4.png]]
+![[ICIRTBD_4.png]]
 
 ![[ICIRTBD_5.png]]
 
@@ -203,7 +204,10 @@ $$
 - 모든 head들이 뚜렷한 role을 가지고 있는 것은 아니다
 - 상당수의 head들이 뚜렷한 role을 가지고 있고, 그 role들이 굉장히 세분화 되어있는 모습이다.
 
+> [!tip] [[TEXTSPAN results]]
+
 ### Property(role) based image retrieval
+
 $$
 
 \lang c^{l,h}_{head}(I), c^{l,h}_{head}(I') \rang
@@ -239,3 +243,35 @@ $$
 \lang c^{l,h}_{head}(I), M_{text}(t) \rang
 
 $$
+![[ICIRTBD_11.png]]
+
+- Head에 부여된 role이 patch 수준에서도 올바르게 동작함
+
+# Conclusion
+## Contribution
+
+**CLIP의 image encoder 내 요소들이 최종 representation을 생성하는 데 기여하는 바를 밝힘**
+
+1. ViT의 image representation을 MSA와 MLP 두 요소의 합으로 표현하고 각 요소가 최종 image representation을 생성할 때 미치는 영향을 mean-ablating을 이용하여 정량적으로 밝힘
+    - 모든 MLP 연산은 최종 representation에 있어 중요하지 않음
+    - 후반부 4개 layer의 MSA 연산이 매우 중요함
+2. 후반부 4개 layer의 모든 attention head의 role을 TEXTSPAN 방식을 통해 밝힘
+    - 상당 수의 head가 뚜렷한 property에 집중하고 있음
+    - 실험 결과
+        - 원하는 property를 가진 image를 retrieval할 수 있었음
+        - 이용하고 싶지 않은 role은 mean-ablating 하여 해당 property가 최종 representation에 반영되지 않도록 할 수 있었음
+        - head에 부여된 role들이 patch 수준에서도 동작할 수 있었음
+## Limitation
+
+**Indirect contribution을 고려하지 못함**
+
+- 최종 image representation을 MSA와 MLP로 나누었지만, 사실은 MSA 연산 결과가 MLP 연산에 입력되고, MLP 연산 결과가 MSA 연산에 입력되어 서로 간접적으로 영향을 미친다.
+    
+    따라서 위와 같은 방법으로는 indirect contribution을 고려할 수 없다.
+    
+**Not all attention heads have clear roles**
+
+- 모든 head가 명확한 역할을 가지고 있는 것은 아니다. 아래와 같은 이유로 추정될 수 있다
+    - 몇 head들은 일관적인 property를 가지고 있지 않아 보인다 → 근원적 한계
+    - intitial text pool 내에 적합한 property가 없었을 수 있다. → 더 다양한 양질의 text pool을 생성하여 해결할 수 있다.
+    - 몇 head들이 서로 상호보완적이기 때문에, 그들의 output들을 함께 사용해야 일관적인 property를 가질 수 도 있다. → 뚜렷한 role을 갖는 “head 조합”을 찾아내는 알고리즘을 개발할 필요가 있다.
