@@ -458,4 +458,16 @@ Antipodal pairs가 매우 효과적이라서 모델이 넓은 sparsity 영역에
 
 ## Feature Dimensionality
 
-앞선 그래프에서 모델이 어떤 의미에서 "half a dimension per fe"을 가지는 고착된 영역이 존재한다는 것을 살펴보았습니다. 이는 모델이 표현하는 특성의 평균 통계적 특성이지만, 흥미로운 무언가를 암시하는 것 같습니다. 특정 특성이 얻는 "차원의 비율"을 이해할 방법이 있을까요?
+앞선 그래프에서 모델이 어떤 의미에서 "half a dimension per feature(antipodal pair)"를 가지는 sticky한 영역이 존재한다는 것을 살펴봤다. \
+이는 모델이 표현하는 feature의 평균 통계적 특성이지만, 흥미로운 무언가를 암시하는 것 같다. \
+특정 feature가 얻는 "fraction of a dimension"을 이해할 방법이 있을까?
+
+이에 대해 $i$ 번째 feature의 dimensionality를 $D_i$로 정의한다.
+$$
+
+D_i = \frac{\|W_i\|^2}{\sum_j (\hat{W}_i \cdot W_j)^2}
+
+$$
+이를 시각화하면,
+![[TMS_17.png]]
+$\frac{(W_0\text{의 크기})^2}{\sum_j\text{(파란 점선 벡터)}^2}$ 
