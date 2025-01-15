@@ -444,4 +444,10 @@ Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 �
 우리는 특성 희소성, 즉 $S$ 를 변화시킬 때 어떤 일이 발생하는지 이해하고자 한다.
 
 Feature의 수를 측정하기 위해 Frobenius norm인 $||W||_F^2$ 를 살펴본다. \
-만약 특성이 표현된다면, $||W_i||^2 \backsimeq 1$ 그렇지 않다면 대략적으로 이는 모델이 표현하는 특성의 수입니다. 다행히도, 이 노름은 기초 독립적이어서, 특성 기초가 아무것도 의해 특권을 부여받지 않는 밀집 영역에서도 여전히 잘 작동합니다.
+- 만약 특성이 표현된다면, $||W_i||^2 \backsimeq 1$ 이 될 것이고,
+- 그렇지 않다면 $||W_i||^2 \backsimeq 0$ 이 될 것이다.
+ 이는 대략적으로 모델이 표현하는 feature의 수가 된다. \
+ 이 norm은 basis independent해서, feature basis가 previleged되지 않은 dense한($S=0$) 영역에서도 잘 작동한다.
+
+"Dimensions per feature"을 의미하는 $D^* = \frac{m}{||W||^2_F}$ 을 그래프로 나타내면, 다음과 같다.
+![[TMS_16.png]]
