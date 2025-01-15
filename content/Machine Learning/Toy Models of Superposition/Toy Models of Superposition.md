@@ -440,3 +440,8 @@ Sparsity가 증가하면, 모델은 모든 feature를 superposition에 넣게 �
 
 모든 feature가 동일한 **uniform superposition**을 조사하는 것부터 시작해보자: 모든 feature가 **independent**하고, **동일하게 중요**하며, **동일하게 sparse**하다. 놀랍게도 uniform superposition은 균일 다면체의 기하학과 놀라운 연관성을 가지고 있다! 이후에는 feature가 identical하지 않은 non-uniform superposition을 조사할 것이다. 이 부분은 적어도 어느 정도까지는 uniform superposition의 변형으로 이해될 수 있는 것으로 보인다.
 ## Uniform Superposition
+
+우리는 특성 희소성, 즉 $S$ 를 변화시킬 때 어떤 일이 발생하는지 이해하고자 한다.
+
+Feature의 수를 측정하기 위해 Frobenius norm인 $||W||_F^2$ 를 살펴본다. \
+만약 특성이 표현된다면, $||W_i||^2 \backsimeq 1$ 그렇지 않다면 대략적으로 이는 모델이 표현하는 특성의 수입니다. 다행히도, 이 노름은 기초 독립적이어서, 특성 기초가 아무것도 의해 특권을 부여받지 않는 밀집 영역에서도 여전히 잘 작동합니다.
