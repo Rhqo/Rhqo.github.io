@@ -186,3 +186,56 @@ $$
 식 (7)에서 설명된 분산을 대략 최대화하기 위해, 우선 M개의 후보 설명 $\{t_i\}_{i=1}^{M}$ 의 대규모 풀에서 탐욕적으로 선택하여 집합 $T$ 를 얻는다.
 
 ![[content/Computer Vision/Interpreting CLIP/Interpreting via Text-Based Decomposition/ICIRTBD_4.png]]
+
+![[ICIRTBD_5.png]]
+
+최종 output은 각 head에 있어 m개의 기저에 대한 text 집합 T와 해당 m개의 기저들로 이루어진 representation C’이다. \
+이러한 과정을 후반 4개의 레이어의 모든 head별로 수행한다.
+
+# Experiment
+
+### 1. TEXTSPAN 결과 - 각 head에 top-5 T를 표시
+
+각 head가 특정한 role을 가지고 있음을 주목
+
+![[ICIRTBD_6.png]]
+
+- 모든 head들이 뚜렷한 role을 가지고 있는 것은 아니다
+- 상당수의 head들이 뚜렷한 role을 가지고 있고, 그 role들이 굉장히 세분화 되어있는 모습이다.
+
+### Property(role) based image retrieval
+$$
+
+\lang c^{l,h}_{head}(I), c^{l,h}_{head}(I') \rang
+
+$$
+
+head 별 top-4 image retrieval
+![[ICIRTBD_7.png]]
+
+- 각 head를 기준으로 image를 retrieval한 결과, 해당 head의 role이 반영된 image들이 선택됨
+- text를 기반으로 알아낸 head별 role이 image간의 비교에도 유효함
+
+### Reducing known spurious cues
+
+특정 head의 output을 mean-ablating 하는 것으로 해당 head가 가지고 있는 property(role)을 사용하지 않고 representation을 생성하는 것이 가능한지 확인하고자 하는 실험
+
+“물가에 서식하는 새”와 “육지에 서식하는 새”를 구분하는 학습 과정중에 새의 형상보다 배경을 기반으로 분류하는 문제(spurious correlation)가 두드러진다.
+
+“geolocation”과 “image-location” role이 부여된 head의 출력값을 mean-ablating하여 zero-shot classification 실행
+![[ICIRTBD_8.png]]
+![[ICIRTBD_9.png]]
+![[ICIRTBD_10.png]]
+
+- class와 background가 일치하지 않는 경우에서 두드러지는 성능 향상을 확인할 수 있었다.
+- 특정 head의 연산을 mean-ablating 함으로 해당 role이 실제로 최종 representation에 반영되지 않도록 할 수 있다.
+
+### Joint decomposition into per-head image tokens
+
+Head별 role이 head의 patch-level output에서도 동작하는지를 알아보고자 함
+
+$$
+
+\lang c^{l,h}_{head}(I), M_{text}(t) \rang
+
+$$
