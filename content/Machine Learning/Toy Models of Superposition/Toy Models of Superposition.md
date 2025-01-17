@@ -479,5 +479,10 @@ Feature가 두 쌍의 antipodal pairs를 가지게 되고, 각각의 feature는 
 ![[TMS_18.png|500]] \
 모든 feature가 interfere를 가지는 superposition 형태로, 각각의 feature는 0.2차원을 담당하게 된다.
 
-각 
+앞서 언급했던 $D^*$ 그래프 위에 새로운 산점도 그래프를 그려보자. \
+각 sparsity 수준에서, 모델의 각 feature에 대한 개별 특성의 dimensionality를 구할 것이다. \
+이때, dimensionality는 특정 비율에서 군집을 이루므로, 그에 맞는 선을 그린다. \
+각 feature를 node로 하고, edge 가중치는 내적 특성 임베딩 벡터의 절대값에 기반한다. (특성들이 직교하지 않으면 연결된다) \
 ![[TMS_20.png]]
+
+특정 dimensionality
