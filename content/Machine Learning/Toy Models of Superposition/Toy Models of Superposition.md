@@ -479,4 +479,5 @@ Feature가 두 쌍의 antipodal pairs를 가지게 되고, 각각의 feature는 
 ![[TMS_18.png|500]] \
 모든 feature가 interfere를 가지는 superposition 형태로, 각각의 feature는 0.2차원을 담당하게 된다.
 
+각 
 ![[TMS_20.png]]
