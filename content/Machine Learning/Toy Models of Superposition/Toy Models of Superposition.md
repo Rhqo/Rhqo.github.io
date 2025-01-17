@@ -468,16 +468,14 @@ $$
 D_i = \frac{\|W_i\|^2}{\sum_j (\hat{W}_i \cdot W_j)^2}
 
 $$
-이를 시각화하면,
-![[TMS_17.png|500]]
+이를 시각화 해보면, \
+![[TMS_17.png|500]] \
 이렇게 표현해 볼 수 있다.
 
-실제로 앞선 예제들의 dimensionality를 구해 보면, 다음과 같이 구할 수 있다.
-![[TMS_19.png|300]]
-Feature가 두 쌍의 antipodal pairs를 가지게 되고, 각각의 feature는 0.5 차원을 담당하게 된다. 
+실제로 앞선 예제들의 dimensionality를 구해 보면, 다음과 같이 구할 수 있다. \
+![[TMS_19.png|500]] \
+Feature가 두 쌍의 antipodal pairs를 가지게 되고, 각각의 feature는 0.5 차원을 담당하게 된다.
 
-![[TMS_18.png|400]]
-
-
-오른쪽 그림은, 모든 feature가 interfere를 가지는 superposition 형태로, 각각의 feature는 0.2차원을 담당하게 된다.
+![[TMS_18.png|500]] \
+모든 feature가 interfere를 가지는 superposition 형태로, 각각의 feature는 0.2차원을 담당하게 된다.
 
