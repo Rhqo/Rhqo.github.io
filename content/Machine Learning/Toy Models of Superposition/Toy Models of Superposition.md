@@ -536,4 +536,11 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 ## Non-Uniform Superposition
 
 지금까지는 동일한 중요성, 동일한 sparsity, 그리고 독립적인 feature를 가질 때만을 고려했다. \
-모델은 필연적으로 Thomsom problem을 해결하려 했을 것이다. 
+모델은 필연적으로 Thomsom problem을 해결하려 했을 것이다. 모든 feature가 같다면, uniform polyhedra가 가장 적은 loss를 가질 것을 solution으로 제공하려 했을 것이기 때문이다.
+
+이 section에서는 feature들이 uniform 하지 않는, non-uniform superposition에 대해서 다룰 예정이다. \
+중요성과 sparsity가 달라지고, 독립적으로 작용하지 않는 correlated 구조를 가질 것이다. \
+이렇게 변화되는 요소들은 이전 섹션의 geometry를 비틀게 될 것이다.
+
+실제로 신경망에서 발생하는 superposition은 non-uniform일 것으로 예상되기에, 이에 대한 이해는 중요하다. \
+하지만, 기존의 복잡한 이론의 geometry를 non-uniform superposition에 그대로 적교
