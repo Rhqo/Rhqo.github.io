@@ -543,4 +543,25 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 이렇게 변화되는 요소들은 이전 섹션의 geometry를 비틀게 될 것이다.
 
 실제로 신경망에서 발생하는 superposition은 non-uniform일 것으로 예상되기에, 이에 대한 이해는 중요하다. \
-하지만, 기존의 복잡한 이론의 geometry를 non-uniform superposition에 그대로 적교
+하지만, 기존의 복잡한 이론의 geometry를 non-uniform superposition에 그대로 적용시키는 것은 어렵다. \
+그래서 이 섹션의 목표를 다음과 같은 현상을 강조하여 설명하고자 한다:
+
+- **Features varying in importance or sparsity**
+
+	중요성이나 희소성이 변동하는 특징들은 불균형이 형성될 때 다면체의 부드러운 변형을 발생시킨다. \
+	이렇게 변형이 진행되다가 임계 파손점에 도달하면 다른 다면체로 전환된다.
+	
+- **Correlated features**
+
+	Correlated features들은 종종 서로 다른 tegum 인자에서 형성되며 직교하는 것을 선호한다. \
+	결과적으로 직교하는 지역 기저를 형성할 수 있다. \
+	직교할 수 없는 경우에는 나란히 있는 것을 선호한다. \
+	어떤 경우에는 상관된 특징들이 단일 특징으로 통합된다. (superposition-like vs PCA-like)
+	
+- **Anti-correlated features**
+
+	Superposition이 필요한 경우 같은 tegum 인자에 있는 것을 선호한다. \
+	그들은 이상적으로 반대 위치에서 negative interfere을 가지는 것을 선호한다.
+
+### Perturbing a single feature
+
