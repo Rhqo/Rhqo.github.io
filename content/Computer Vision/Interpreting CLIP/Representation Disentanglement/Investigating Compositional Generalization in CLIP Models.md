@@ -101,7 +101,7 @@ OoD dataset이라고 볼 수 있겠다.
 이를 실험과 수식을 통해 증명했다.
 
 ### 실험
-![[Pasted image 20250131170823.png]]
+![[COoD_4.png.png]]
 Represent의 disentanglement를 측정하는 Z-diff score를 보면, text represent의 z diff score가 매우 높았다.
 
 또한, epoch가 진행되면서 image encoder의 z-diff score가 증가하는 것을 보면, text의 disentanglement가 이미지로 전파된다고 생각할 수 있을 것이다.
@@ -111,7 +111,7 @@ Represent의 disentanglement를 측정하는 Z-diff score를 보면, text repres
 - $x_1$ 과 $x_2$ 는 대응하는 image embedding
 - decomposable text embedding의 의미를 $y_1 \perp y_2$ 라고 가정
 - Contrastive loss를 minimize하면, mutual information $I(x_1, x_2; y_1, y_2)$ 는 maximize될 것
-![[Pasted image 20250131170911.png]]
+![[COoD_5.png.png]]
 - $y_1 \perp y_2$ 이기 때문에 결국 $x_1$ 과 $x_2$ 는 independent 해질 것이다.
 - 따라서, 만약 $y$ 가 이미 decomposed되어 있다면, $I(x_1, x_2; y_1, y_2)$ 를 최대화하는 것은 $x$ 를 decomposing하는 것 과 같다.
 
@@ -120,4 +120,38 @@ Represent의 disentanglement를 측정하는 Z-diff score를 보면, text repres
 ## 실험 1. Attribute-Object Decomposition of Representation Space
 
 ### Disentanglement of Attributes and Objects
-![[Pasted image 20250131170937.png]]
+![[COoD_6.png.png]]
+CLIP의 Image와 text의 embedding이 representation disentanglement와 상관관계가 있다.
+
+COoD generalization 성능이 올라갈수록, disentanglement metric이 증가한다.
+
+→ imagenet-ao에서 성능이 높을수록 disentangle 하다.
+
+### Intrinsic Dimensionality of the Composition Representations
+학습 없이, image embedding을 평가하기 위해, image embedding을 여러개 쌓아서 matrix를 만든 다음 soft rank 한다.
+
+Soft rank는 embedding space의 relative intrinsic dimensionality를 나타낼 수 있다.
+
+Embedding이 disentangled 일 경우 값이 낮게 나올 것이다.
+
+Entangled 되었을 경우 full-rank에 가까워져 값이 높아질 것이다.
+
+![[COoD_7.png.png]]
+실험 결과는 위과 같고, COoD generalization 성능이 높아지면, soft rank도 낮아져,
+**text와 image 둘다 disentangled 되었다**고 볼 수 있다.
+
+## 실험 2. Attribute-Object Decomposition of Representation Space
+
+### Image retrieval with image + text queries
+![[COoD_8.png.png]]
+
+## 실험 3. Disentanglement of Fine-Grained Factors
+
+### For in-depth analysis of the fine-grained disentanglement
+![[COoD_9.png.png]]
+Fine-Grained 요소를 가진 것들도 disentangle 한지 판단하기 위해, 위의 2 dataset에 대해서 평가했다.
+
+결과는 아래와 같고, fine-grained 요소들에 대해서도 disentangle하다.
+![[COoD_10.png.png]]
+### More Analysis on decomposability of the representation space
+![[COoD_11.png.png]]
