@@ -1,3 +1,4 @@
+## Interpreting via Text-Based Decomposition
 - [[Interpreting via Text-Based Decomposition/Interpreting CLIP's Image Representation via Text-Based Decomposition]]
 - Interpreting the Second-order Effects of Neurons in CLIP
 - Quantifying and Enabling the Interpretability of CLIP-like Models
