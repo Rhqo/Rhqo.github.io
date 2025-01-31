@@ -48,12 +48,76 @@ ex) Red + Ambulance → Decorated + Ambulance
     ImageNet dataset으로부터 class name을 가져온다. (Object)
 2. Selection of Attributes (Adjectives)
     Visual Attributes Words(VAW) 데이터셋으로부터 아래와 같은 140개의 형용사를 가져온다. (Attribute)
-> [!Tag]
-> cracked, dilapidated, dry, folded, wet, jagged, moss covered, rough, textured,wrinkled, transparent, clean, dirty, dusty, stained blue plaid, checkered, dotted,floral, lined, red striped, speckled, spotted, striped, arch shaped, arrow shaped,circular, conical, cubed, curved, curly, cylindrical, diamond shaped, domed, heart shaped, octagonal, oval shaped, rectangular, round, rounded, spherical, spiky, spiral, square, triangular, aluminum, asphalt, bamboo, brass, brick, cardboard, cement, ceramic, chocolate, chrome, clay, cloth, cobblestone, concrete, denim, dirt, fabric, fluffy, foamy, furry, glass, granite, gravel, hardwood, iron, jean, khaki,leather, marble, metal, muddy, paper, pebbled, plastic, plush, porcelain, red brick, rocky, rubber, sandy, silk, snowy, stainless steel, steel, stone, straw, stucco, styrofoam, tiled, wicker, wooden, water, colorful, red, pink, purple, green, amber, aqua, beige, black, blond, blue, bluish, bronze, brown, burgundy, fuchsia, golden, gray, green, ivory, maroon, murky, orange, pink, purple, purplish, red, reddish, silver, tan, taupe, teal, terracotta, turquoise, violet, white, yellow
+    > [!Tag] Attributes
+    > cracked, dilapidated, dry, folded, wet, jagged, moss covered, rough, textured,wrinkled, transparent, clean, dirty, dusty, stained blue plaid, checkered, dotted,floral, lined, red striped, speckled, spotted, striped, arch shaped, arrow shaped,circular, conical, cubed, curved, curly, cylindrical, diamond shaped, domed, heart shaped, octagonal, oval shaped, rectangular, round, rounded, spherical, spiky, spiral, square, triangular, aluminum, asphalt, bamboo, brass, brick, cardboard, cement, ceramic, chocolate, chrome, clay, cloth, cobblestone, concrete, denim, dirt, fabric, fluffy, foamy, furry, glass, granite, gravel, hardwood, iron, jean, khaki,leather, marble, metal, muddy, paper, pebbled, plastic, plush, porcelain, red brick, rocky, rubber, sandy, silk, snowy, stainless steel, steel, stone, straw, stucco, styrofoam, tiled, wicker, wooden, water, colorful, red, pink, purple, green, amber, aqua, beige, black, blond, blue, bluish, bronze, brown, burgundy, fuchsia, golden, gray, green, ivory, maroon, murky, orange, pink, purple, purplish, red, reddish, silver, tan, taupe, teal, terracotta, turquoise, violet, white, yellow
 
-1. Image Generation with Attribute-Object Prompts
+3. Image Generation with Attribute-Object Prompts
     140개의 형용사와, 1000개의 명사를 조합하여, 140,000의 unique한 pair를 만들어 prompt를 생성한다. \
     SD-XL Turbo 모델을 사용하여 420,000개의 이미지를 생성한다.
 
+### Filtering Phase
+1. Initial Validation
+    사람이 판단하여 filtering
+    
+2. Exclusion of Known Combinations
+    LAION, CommonPool (DataComp), YFCC15m, CC12m 등의 dataset에서 비슷한 이미지가 있는 경우 제거
+    
+3. Verification of OoD Status
+    기존의 dataset과 생성한 dataset의 K-nearest neighbors search를 하여 matching이 되지 않는다면, 생성한 이미지들이 충분히 unique함을 알 수 있으므로, 저장한다.
+    
+최종적으로 60,000장의 이미지 생성
 
-템플릿이 똑같이 생겼어 미친 ㅁ=스트랭 나가 뒤져
+![[COoD_2.png.png]]
+
+충분히 다른 데이터셋과 비교해서 차별화되었음을 볼 수 있으며,
+
+OoD dataset이라고 볼 수 있겠다.
+
+# Comparison of CLIP Models on ImageNet-AO
+
+이미지와 텍스트 임베딩의 cosine similarity를 고려하여 성능 평가
+
+1. attribute + object 를 다양한 template을 통해 class당 80개의 caption을 생성
+2. caption들의 평균 계산하여 final embedding 구한다.
+3. final embedding을 cosine similarity에 사용
+
+![[COoD_3.png.png]]
+위 이미지는 성능 평가 결과이며,
+기존 dataset (ImageNet)에서 성능이 올라갈수록, OoD의 성능도 증가하는 모습이다.
+
+# Why CLIP has Compositional Generalization?
+
+기존의 COoD generalization은 disentangled representation일 수록 잘 된다는 기존 연구가 있다.
+
+이러한 사실을 바탕으로, language의 분리되는 특성, 다양하고 큰 training dataset을 통해
+
+→ text representation이 decomposable하고, 이것이 contrastive learning을 통해 align되면서, 이미지단으로 전파된다.
+
+⇒ 즉, CLIP이 Compositional generalization할 수 있는 능력의 원인은,
+
+- **CLIP 텍스트 임베딩의 decomposabilty는 CLIP C-OoD 일반화와 상관관계가 있다.**
+- **텍스트와 이미지 표현의 상호 정보를 contrastive learning을 통해 암묵적으로 최대화함으로써 이미지 인코딩에서 텍스트 representation의 disentanglement가 유도된다.**
+
+이를 실험과 수식을 통해 증명했다.
+
+### 실험
+![[Pasted image 20250131170823.png]]
+Represent의 disentanglement를 측정하는 Z-diff score를 보면, text represent의 z diff score가 매우 높았다.
+
+또한, epoch가 진행되면서 image encoder의 z-diff score가 증가하는 것을 보면, text의 disentanglement가 이미지로 전파된다고 생각할 수 있을 것이다.
+
+### 수식
+- $y_1$ 과 $y_2$ 는 각각 object와 attribute의 text embedding
+- $x_1$ 과 $x_2$ 는 대응하는 image embedding
+- decomposable text embedding의 의미를 $y_1 \perp y_2$ 라고 가정
+- Contrastive loss를 minimize하면, mutual information $I(x_1, x_2; y_1, y_2)$ 는 maximize될 것
+![[Pasted image 20250131170911.png]]
+- $y_1 \perp y_2$ 이기 때문에 결국 $x_1$ 과 $x_2$ 는 independent 해질 것이다.
+- 따라서, 만약 $y$ 가 이미 decomposed되어 있다면, $I(x_1, x_2; y_1, y_2)$ 를 최대화하는 것은 $x$ 를 decomposing하는 것 과 같다.
+
+# Decomposable representation of CLIP Models
+
+## 실험 1. Attribute-Object Decomposition of Representation Space
+
+### Disentanglement of Attributes and Objects
+![[Pasted image 20250131170937.png]]
