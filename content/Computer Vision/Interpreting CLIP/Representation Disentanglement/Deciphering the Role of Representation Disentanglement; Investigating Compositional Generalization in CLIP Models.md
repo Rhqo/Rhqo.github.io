@@ -48,7 +48,12 @@ ex) Red + Ambulance → Decorated + Ambulance
     ImageNet dataset으로부터 class name을 가져온다. (Object)
 2. Selection of Attributes (Adjectives)
     Visual Attributes Words(VAW) 데이터셋으로부터 아래와 같은 140개의 형용사를 가져온다. (Attribute)
+> [!Tag]
+> cracked, dilapidated, dry, folded, wet, jagged, moss covered, rough, textured,wrinkled, transparent, clean, dirty, dusty, stained blue plaid, checkered, dotted,floral, lined, red striped, speckled, spotted, striped, arch shaped, arrow shaped,circular, conical, cubed, curved, curly, cylindrical, diamond shaped, domed, heart shaped, octagonal, oval shaped, rectangular, round, rounded, spherical, spiky, spiral, square, triangular, aluminum, asphalt, bamboo, brass, brick, cardboard, cement, ceramic, chocolate, chrome, clay, cloth, cobblestone, concrete, denim, dirt, fabric, fluffy, foamy, furry, glass, granite, gravel, hardwood, iron, jean, khaki,leather, marble, metal, muddy, paper, pebbled, plastic, plush, porcelain, red brick, rocky, rubber, sandy, silk, snowy, stainless steel, steel, stone, straw, stucco, styrofoam, tiled, wicker, wooden, water, colorful, red, pink, purple, green, amber, aqua, beige, black, blond, blue, bluish, bronze, brown, burgundy, fuchsia, golden, gray, green, ivory, maroon, murky, orange, pink, purple, purplish, red, reddish, silver, tan, taupe, teal, terracotta, turquoise, violet, white, yellow
 
 1. Image Generation with Attribute-Object Prompts
     140개의 형용사와, 1000개의 명사를 조합하여, 140,000의 unique한 pair를 만들어 prompt를 생성한다. \
     SD-XL Turbo 모델을 사용하여 420,000개의 이미지를 생성한다.
+
+
+템플릿이 똑같이 생겼어 미친 ㅁ=스트랭 나가 뒤져
