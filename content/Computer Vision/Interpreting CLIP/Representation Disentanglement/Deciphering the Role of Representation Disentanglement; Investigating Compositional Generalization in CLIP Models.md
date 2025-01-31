@@ -1,0 +1,54 @@
+
+> [!Abstract] Abstract
+> CLIP models have recently shown to exhibit Out of Distribution (OoD) generalization capabilities. However, Compositional Out of Distribution (C-OoD) generalization, which is a crucial aspect of a model’s ability to understand unseen compositions of known concepts, is relatively unexplored for the CLIP models. Our goal is to address this problem and identify the factors that contribute to the C-OoD in CLIPs. We noted that previous studies regarding compositional understanding of CLIPs frequently fail to ensure that test samples are genuinely novel relative to the CLIP training data. To this end, we carefully synthesized a large and diverse dataset in the single object setting, comprising attributes for objects that are highly unlikely to be encountered in the combined training datasets of various CLIP models. This dataset enables an authentic evaluation of C-OoD generalization. Our observations reveal varying levels of C-OoD generalization across different CLIP models. We propose that the disentanglement of CLIP representations serves as a critical indicator in this context. By utilizing our synthesized datasets and other existing datasets, we assess various disentanglement metrics of text and image representations. Our study reveals that the disentanglement of image and text representations, particularly with respect to their compositional elements, plays a crucial role in improving the generalization of CLIP models in out-of-distribution settings. This finding suggests promising opportunities for advancing out-of-distribution generalization in CLIPs.
+> 
+> CLIP 모델은 최근 분포 외 일반화(Out of Distribution, OoD) 능력을 보이는 것으로 나타났습니다. 그러나 조합 분포 외(Compositional Out of Distribution, C-OoD) 일반화는 CLIP 모델이 알고 있는 개념의 보지 못한 조합을 이해하는 모델의 능력에서 중요한 측면이지만, 상대적으로 탐구되지 않았습니다. 우리의 목표는 이 문제를 해결하고 CLIP에서 C-OoD에 기여하는 요소를 식별하는 것입니다. 우리는 CLIP의 조합 이해에 대한 이전 연구들이 테스트 샘플이 CLIP 훈련 데이터에 비추어 보아 진정으로 새로운 것인지 확인하는 데 자주 실패했다는 점을 주목했습니다. 이를 위해 우리는 단일 객체 설정에서 다양한 속성을 포함한 대규모의 다양한 데이터셋을 신중하게 합성했습니다. 이 데이터셋은 다양한 CLIP 모델의 결합 훈련 데이터셋에서 만날 가능성이 매우 낮은 객체들의 속성을 포함하고 있습니다. 이 데이터셋은 C-OoD 일반화에 대한 진정한 평가를 가능하게 합니다. 우리의 관찰은 다양한 CLIP 모델에서 C-OoD 일반화의 수준이 다르다는 것을 드러냅니다. 우리는 CLIP 표현의 분리 해제가 이 맥락에서 중요한 지표로 작용한다고 제안합니다. 우리의 합성 데이터셋과 기존 데이터셋을 활용하여 텍스트와 이미지 표현의 다양한 분리 해제 메트릭스를 평가합니다. 우리의 연구는 이미지와 텍스트 표현의 분리 해제, 특히 그들의 조합 요소와 관련하여 CLIP 모델의 분포 외 설정에서 일반화를 향상시키는 데 중요한 역할을 한다는 것을 보여줍니다. 이 발견은 CLIP의 배포 외 일반화를 진전시킬 수 있는 유망한 기회를 제안합니다.
+
+# Introduction
+
+보통의 앰뷸런스 사진은 빨간색의 특징을 가지고 있다. (In-Distribution)
+
+하지만, 앰뷸런스 사진 중 빨간색이 아닌 특징을 가지고 있는 것들도 있다. (Out-of-Distribution)
+
+⇒ 빨간색이 아닌 앰뷸런스에 대해서도 찾을 수 있게 되어, 앰뷸런스에 대한 robust한 성능을 가지게 하는 것이 OoD Generalization이 될 것이다.
+
+CLIP은 OoD 성능이 좋다.
+
+본 논문에서는, **Compositional Out-of-Distribution (C-OoD) Generalization**을 시도하고자 한다.
+
+기존의 알고 있는 combination으로 부터, unseen combination의 객체까지 일반화하는 것을 의미한다.
+
+ex) Red + Ambulance → Decorated + Ambulance
+
+이 논문이 질문하는 것은 크게 2가지 이다.
+
+- CLIP이 single object setting에서 nontrivial(비자명)한 CoOD generalization 능력을 가지고 있는지?
+- CLIP 모델에서 이 능력은 어디에서 비롯된 것인지?
+
+따라서, 본 논문에서는 다음을 제안한다.
+
+- 일반적인 CLIP 학습 데이터셋에서는 볼 수 없는 attribute-object 쌍의 이미지 테스트 데이터셋 설계
+- 신중하게 설계되고 제어된 환경에서 다양한 CLIP의 compositional generalization을 benchmarking
+- 벤치마크에서 더 나은 성과에 기여하는 요인 분석
+
+# Methodology
+
+## ImageNet-AO dataset
+
+![[COoD_0.png.png]]
+
+기존 dataset에서는 보이지 않는 조합들로 **생성된** 이미지들(synthetic data)의 dataset이다.
+
+다음은 이 dataset의 생성 과정이다.
+
+![[COoD_1.png.png]]
+
+### Generation Phase
+1. Selection of Objects (Nouns)
+    ImageNet dataset으로부터 class name을 가져온다. (Object)
+2. Selection of Attributes (Adjectives)
+    Visual Attributes Words(VAW) 데이터셋으로부터 아래와 같은 140개의 형용사를 가져온다. (Attribute)
+
+1. Image Generation with Attribute-Object Prompts
+    140개의 형용사와, 1000개의 명사를 조합하여, 140,000의 unique한 pair를 만들어 prompt를 생성한다. \
+    SD-XL Turbo 모델을 사용하여 420,000개의 이미지를 생성한다.
