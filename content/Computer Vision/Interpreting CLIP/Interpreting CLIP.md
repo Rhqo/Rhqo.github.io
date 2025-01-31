@@ -6,6 +6,7 @@
 ## Representation Disentanglement
 - Deciphering the Role of Representation Disentanglement: \
 [[Representation Disentanglement/Investigating Compositional Generalization in CLIP Models]]
+- Disentangled Representation Learning
 
 ## Modality Gap
 - Mind the Gap: [[Modality Gap/Understanding the Modality Gap in Multi-modal Contrastive Representation Learning]]
