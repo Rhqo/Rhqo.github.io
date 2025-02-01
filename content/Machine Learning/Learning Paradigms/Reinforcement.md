@@ -19,12 +19,13 @@
 
 # Markov Decision Process (MDP)
 
-Mathematical formalization of the RL problem: A tuple ($𝑆$, $𝐴$, $𝑅$, $\mathbb{𝑃}$, $\gamma$ )
-- S : Set of possible states
-- A : Set of possible actions
-- R : Distribution of reward given (state, action) pair
-- P : Transition probability: distribution over next state given (state, action)
-- $\gamma$ : Discount factor (tradeoff between future and present rewards)
+Mathematical formalization of the RL problem: A tuple ($\mathcal{S}$, $\mathcal{A}$, $\mathcal{R}$, $\mathbb{P}$, $\gamma$ )
+- $\mathcal{S}$ : Set of possible states
+- $\mathcal{A}$ : Set of possible actions
+- $\mathcal{R}$ : Distribution of reward given (state, action) pair
+- $\mathbb{P}$ : Transition probability: distribution over next state given (state, action)
+- $\gamma$ : Discount factor (tradeoff between future and present rewards) \
+	(다가오는 보상과 나중의 보상을 얼마나 중요하게 생각하는지)
 
 Markov Property: The current state completely characterizes the state of the world. \
 Rewards and next states depend only on current state, not history. \
@@ -44,7 +45,7 @@ $$
 	- Environment가 next state를 sampling: $s_t \sim P(s|s_t,a_t)$
 	- Agent가 reward $r_t$ 와 next state $s_{t+1}$ 을 받음
 
-# Finding Optimal Policies
+# Finding Optimal Policy $\pi^*$
 
 Goal : cumulative discounted reward를 최대화하는 optimal 정책 $\pi^*$를 찾는 것
 
@@ -54,7 +55,5 @@ Solution : 기대되는 rewards의 합(expected sum of rewards)을 maximize
 
 $$
 	\pi^* = \arg \max_\pi \mathbb{E} \left[ \sum_{t\geq0}\gamma^t r_t | \pi \right]
+	\text{ with } \begin{matrix}s_0 \sim p(s_0)\\ a_t \sim \pi(a|_t) \\ s_{t+1} \sim P(s|s_t,a_t) \end{matrix}
 $$
-- $s_0 \sim p(s_0)$
-- $a_t \sim \pi(a|_t)$
-- $s_{t+1} \sim P(s|s_t,a_t)$
