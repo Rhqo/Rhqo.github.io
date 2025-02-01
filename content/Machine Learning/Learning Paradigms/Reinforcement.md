@@ -1,7 +1,8 @@
 ![[Reinforcement.png]]
 # Why is RL different from normal supervised learning?
 
-1. **Stochasticity**: Rewards and state transitions may be random
+1. **Stochasticity**: Rewards and state transitions may be random \
+	동일한 action을 취하더라도 "rewards and state transitions"가 확정적이지 않고 확률적으로 결정됨
 2. **Credit assignment**: Reward $r_t$ may not directly depend on action $a_t$
 3. **Nondifferentiable**: Can’t backprop through world; can’t compute $dr_t/da_t$
 4. **Nonstationary**: What the agent experiences depends on how it acts
@@ -25,3 +26,4 @@ Agent는 state에 따라 action의 distribution를 제공하는 Policy $\pi$ 를
 $$
 	\sum_t\gamma^tr_t
 $$
+
