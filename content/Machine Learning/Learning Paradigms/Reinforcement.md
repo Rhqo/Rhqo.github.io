@@ -55,7 +55,6 @@ Solution : 기대되는 Rewards의 합(expected sum of rewards)을 maximize
 $$
 	\pi^* = \arg \max_\pi \mathbb{E} \left[ \sum_{t\geq0}\gamma^t r_t | \pi \right]
 $$
-$s_0 \sim p(s_0)$
-$a_t \sim \pi(a|_t)$
-$s_{t+1} \sim P(s|s_t,a_t)$
-
+- $s_0 \sim p(s_0)$
+- $a_t \sim \pi(a|_t)$
+- $s_{t+1} \sim P(s|s_t,a_t)$
