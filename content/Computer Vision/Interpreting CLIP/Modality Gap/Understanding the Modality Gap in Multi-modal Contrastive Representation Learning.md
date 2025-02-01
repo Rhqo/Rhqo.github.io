@@ -4,3 +4,4 @@
 > 
 > 우리는 멀티모달 모델의 표현 공간에서 나타나는 흥미로운 기하학적 현상인 "modality gap"을 제시한다. 구체적으로, CLIP과 같은 멀티모달 모델에서 서로 다른 데이터 모달리티(예: 이미지와 텍스트)가 공유된 representation에서 일정한 거리만큼 떨어져 있게 임베딩된다는 것을 보여준다. 체계적인 분석을 통해, 이러한 간격은 모델 initialization과 contrastive learning 최적화의 결합에 의해 발생한다는 것을 밝혀낸다. 모델 초기화 과정에서, 공통 DNN의 표현이 이론적으로나 실험적으로 좁은 원뿔(cone) 안에 제한된다는 것을 보인다. 그 결과, 두 개의 encoder를 가진 멀티모달 모델에서는 initialization 시 두 모달리티의 표현이 명확히 떨어져 있게 된다. 최적화 과정에서, contrastive learning은 loss function에서 temperature parameter에 의해 영향을 받는 일정한 거리만큼 다른 모달리티들을 분리된 상태로 유지한다. 실험을 통해 모달리티 갭 거리를 조정하면, 모델의 downstream zero-shot classification 성능과 fairness을 크게 개선할 수 있다는 것을 추가로 입증한다.
 
+# Introduction
