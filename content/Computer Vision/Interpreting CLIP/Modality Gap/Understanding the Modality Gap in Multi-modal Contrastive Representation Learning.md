@@ -31,11 +31,12 @@
 > [!Quote] Contributions
 > 1. 우리가 아는 한, 우리는 **처음으로 일반적인 modality gap 현상을 입증**한다. 우리는 이 현상이 텍스트, 자연 이미지, 비디오, 의료 이미지 및 아미노산 서열을 포함하는 광범위한 multi-modal model에 걸쳐 유효함을 보여준다.
 > 2. **Downstream task에서 격차를 수정하는 것의 중요한 implication을 입증**한다. 단순히 격차의 거리를 수정함으로써 CLIP의 zero-shot performance와 fairness를 향상시킬 수 있다.
-> 3. Modality gap을 설명하기 위해 우리는 포괄적인 이론적 및 경험적 분석으로 뒷받침된 세 부분 설명을 제공한다. 우리의 분석은 또한 cone effect에 대한 새로운 통찰을 제공한다. 우리는 이 효과가 다양한 모달리티와 네트워크 아키텍처에 걸쳐 존재할 뿐만 아니라 무작위 노이즈 입력과 무작위 가중치에서도 나타난다는 것을 보여주며, 이는 이전 연구에서 포착되지 않았다.
+> 3. Modality gap을 설명하기 위해 우리는 포괄적인 **이론적 및 경험적 분석으로 뒷받침된 세 부분의 설명**을 제공한다. 우리의 분석은 또한 cone effect에 대한 새로운 통찰을 제공한다. 우리는 이 효과가 다양한 모달리티와 네트워크 아키텍처에 걸쳐 존재할 뿐만 아니라 무작위 노이즈 입력과 무작위 가중치에서도 나타난다는 것을 보여주며, 이는 이전 연구에서 포착되지 않았다.
+> 4. Cone effect를 설명하기 위해 ReLU non-linearlity을 가진 선형 계층에 의해 유도된 cont을 수학적으로 특징화한다. 우리의 이론은 실험과 잘 맞아떨어지며 심층 신경망의 일반적인 귀납적 편향을 이해하는 데 중요한 통찰을 제공합니다.
 
 # The Cone Effect Induces a Modaltiy Gap
 ## The Narrow Cone of Embeddings
-### How narrow is the cone in 512-dim **representation** space?
+### How narrow is the cone in 512-dim representation space?
 
 ## The effects of non-linear activation on cone effect
 ### Design
