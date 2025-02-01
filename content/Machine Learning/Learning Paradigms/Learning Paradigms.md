@@ -1,6 +1,6 @@
 ### [[Supervised]]
 ### [[Unsupervised]]
-### Reinforcement
+### [[Reinforcement]]
 ### [[Semi-supervised]]
 ### Online
 ### Active
