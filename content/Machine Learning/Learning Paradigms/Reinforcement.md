@@ -15,7 +15,7 @@
 	
 4. **Nonstationary**: What the agent experiences depends on how it acts
 	Agent가 경험하는 환경은 agent가 어떤 action을 취하느냐에 따라 변할 수 있다. \
-	 Agent의 행동은 환경의 상태 분포와 보상 시스템에 영향을 줄 수 있으므로, 환경이 고정되어 있지 않은 동적 시스템(dynamic system)일 수 있다.
+	 (Agent의 action은 환경의 state 분포와 reward 시스템에 영향을 줄 수 있으므로, 환경이 고정되어 있지 않은 dynamic system임)
 
 # Markov Decision Process (MDP)
 
@@ -37,3 +37,6 @@ $$
 	\sum_t\gamma^tr_t
 $$
 
+- Time step t = 0일때, environment에서 initial state를 sampling: $s_0 \sim p(s_0)$
+- for t = 0 until done:
+	- Agent가 action을 선택: $a_t \sim $
