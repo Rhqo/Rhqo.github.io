@@ -2,10 +2,20 @@
 # Why is RL different from normal supervised learning?
 
 1. **Stochasticity**: Rewards and state transitions may be random \
-	동일한 action을 취하더라도 "rewards and state transitions"가 확정적이지 않고 확률적으로 결정됨
-2. **Credit assignment**: Reward $r_t$ may not directly depend on action $a_t$
-3. **Nondifferentiable**: Can’t backprop through world; can’t compute $dr_t/da_t$
+	Reward와 state transition은 무작위적일 수 있다. \
+	(동일한 action을 취하더라도 reward와 state transition이 확정적이지 않고 확률적으로 결정됨)
+	
+2. **Credit assignment**: Reward $r_t$ may not directly depend on action $a_t$ \
+	특정 시점의 보상 $r_t$는 그 시점의 행동 $a_t$에 직접적으로 의존하지 않을 수 있다. \
+	(Agent가 한 action에 따라 결국 얻은 reward가 언제, 어떻게 유발되었는지를 분석하는 일이 어려움)
+	
+3. **Nondifferentiable**: Can’t backprop through world; can’t compute $dr_t/da_t$ \
+	세상의 동작 방식(world dynamics)은 미분가능하지 않을 수 있다. \
+	(Reward $r_t$를 action $a_t$에 대해 미분 $dr_t/da_t$할 수 없으므로, 신경망 학습에서 흔히 사용하는 backpropagation 방법을 직접적으로 적용할 수 없음)
+	
 4. **Nonstationary**: What the agent experiences depends on how it acts
+	Agent가 경험하는 환경은 agent가 어떤 action을 취하느냐에 따라 변할 수 있다. \
+	 Agent의 행동은 환경의 상태 분포와 보상 시스템에 영향을 줄 수 있으므로, 환경이 고정되어 있지 않은 동적 시스템(dynamic system)일 수 있다.
 
 # Markov Decision Process (MDP)
 
