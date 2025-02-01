@@ -18,3 +18,4 @@
 	다중 모달 모델은 두 개의 인코더로 구성되며, 이들이 무작위 초기화에서 서로 다른 원뿔을 생성하기 때문에 모달리티 격차가 존재한다.
 
 - **Multi-modal model에서 일반적으로 사용되는 contrastive learning objective가 격차를 보존한다.**
+
