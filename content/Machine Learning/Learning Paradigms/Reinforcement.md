@@ -46,3 +46,6 @@ $$
 
 # Finding Optimal Policies
 
+Goal : cumulative discounted reward를 최대화하는 optimal 정책 $\pi^*$를 찾는 것
+
+Problem : 
