@@ -19,7 +19,7 @@
 
 # Markov Decision Process (MDP)
 
-Mathematical formalization of the RL problem: A tuple (𝑆, 𝐴, 𝑅, 𝑃, $\gamma$ )
+Mathematical formalization of the RL problem: A tuple ($𝑆$, $𝐴$, $𝑅$, $\mathbb{𝑃}$, $\gamma$ )
 - S : Set of possible states
 - A : Set of possible actions
 - R : Distribution of reward given (state, action) pair
@@ -50,7 +50,7 @@ Goal : cumulative discounted reward를 최대화하는 optimal 정책 $\pi^*$를
 
 Problem : Initial state, transition probability, rewards에 randomness가 너무 많음
 
-Solution : 기대되는 Rewards의 합(expected sum of rewards)을 maximize
+Solution : 기대되는 rewards의 합(expected sum of rewards)을 maximize
 
 $$
 	\pi^* = \arg \max_\pi \mathbb{E} \left[ \sum_{t\geq0}\gamma^t r_t | \pi \right]
