@@ -32,11 +32,17 @@ Rewards and next states depend only on current state, not history. \
 Reward와 다음 state는 과거가 아닌 현재 state에만 의존한다.
 
 Agent는 state에 따라 action의 distribution를 제공하는 Policy $\pi$ 를 수행한다. \
-목표는 cumulative discounted reward를 최대화하는 optimal 정책 $\pi^*$를 찾는 것이다.
+목표는 **cumulative discounted reward를 최대화하는 optimal 정책 $\pi^*$를 찾는 것**이다.
 $$
 	\sum_t\gamma^tr_t
 $$
 
 - Time step t = 0일때, environment에서 initial state를 sampling: $s_0 \sim p(s_0)$
 - for t = 0 until done:
-	- Agent가 action을 선택: $a_t \sim $
+	- Agent가 action을 선택: $a_t \sim \pi(a|s_t)$
+	- Environment가 reward를 sampling: $r_t \sim R(r|s_t,a_t)$
+	- Environment가 next state를 sampling: $s_t \sim P(s|s_t,a_t)$
+	- Agent가 reward $r_t$ 와 next state $s_{t+1}$ 을 받음
+
+# Finding Optimal Policies
+
