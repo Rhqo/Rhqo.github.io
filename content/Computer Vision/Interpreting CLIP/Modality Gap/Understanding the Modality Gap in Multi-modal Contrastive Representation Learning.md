@@ -19,3 +19,20 @@
 
 - **Multi-modal model에서 일반적으로 사용되는 contrastive learning objective가 격차를 보존한다.**
 
+이에 따른 본 논문의 목적을 다음과 같이 세 부분으로 볼 수 있겠다.
+1. 다양한 데이터 모달리티와 신경망 아키텍처 전반에 걸쳐 modality gap 현상을 실증적으로 보여주는 것
+2. 격차가 발생하는 이유를 설명하는 것
+3. 격차의 크기가 하위 애플리케이션에 미치는 영향을 보여주는 것
+
+**Modality gap이 없는 것이 바람직한지는 불확실하기 때문에, gap을 줄이는 방법을 제안하는 것이 목적이 아니다.**
+
+# The Cone Effect Induces a Modaltiy Gap
+## The Narrow Cone of Embeddings
+### How narrow is the cone in 512-dim representation space?
+
+## The effects of non-linear activation on cone effect
+### Design
+### Results
+## Different random initializations create different cones
+# Theoretical analysis
+# Contrastive learning preserves modality gap
