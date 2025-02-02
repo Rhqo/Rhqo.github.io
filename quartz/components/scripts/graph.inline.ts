@@ -206,10 +206,10 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     const baseRadius = 10; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
   
-    function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
-      if (start.id === target.id) return 0;
-      if (depth > 10) return -1;
-      
+    function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set<SimpleSlug>(), depth=0): number {
+      if (start.id === target.id) return depth;
+      if (depth > 3) return -1;
+
       visited.add(start.id);
   
       const neighbors = graphData.links
