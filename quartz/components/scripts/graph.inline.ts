@@ -202,16 +202,6 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     }
   }
 
-  // function nodeRadius(d: NodeData) {
-  //   const numLinks = graphData.links.filter(
-  //     (l) => l.source.id === d.id || l.target.id === d.id,
-  //   ).length
-  //   if (d.text === "Computer Vision") {
-  //     return 8
-  //   }
-  //   return 2 + Math.sqrt(numLinks)
-  // }
-
   function nodeRadius(d: NodeData) {
     const baseRadius = 10; // Base radius
     const minRadius = 2; // Minimum radius for nodes at maximum depth
