@@ -4,7 +4,7 @@
 - Quantifying and Enabling the Interpretability of CLIP-like Models
 
 ## Representation Disentanglement
-- Deciphering the Role of Representation Disentanglement:
+- Deciphering the Role of Representation Disentanglement: \
 [[Representation Disentanglement/Investigating Compositional Generalization in CLIP Models]]
 - Disentangled Representation Learning
 
