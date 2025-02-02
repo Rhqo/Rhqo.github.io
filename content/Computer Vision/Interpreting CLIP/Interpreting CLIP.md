@@ -1,7 +1,7 @@
 ---
 title: Interpreting CLIP
 tags:
-  - sub
+  - subtitle
 ---
 
 ## Interpreting via Text-Based Decomposition

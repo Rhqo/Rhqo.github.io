@@ -1,7 +1,7 @@
 ---
 title: Basics
 tags:
-  - sub
+  - subtitle
 ---
 
 - Linear Algebra/Linear Algebra

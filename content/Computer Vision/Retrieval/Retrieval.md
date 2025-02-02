@@ -1,7 +1,7 @@
 ---
 title: Retrieval
 tags:
-  - sub
+  - subtitle
 ---
 ### Keyword
 video retrieval

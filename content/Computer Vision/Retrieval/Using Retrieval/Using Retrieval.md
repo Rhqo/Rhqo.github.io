@@ -2,6 +2,7 @@
 title: Using Retrieval
 draft: false
 tags:
+  - section
 ---
 
 ## 1. [[Video-text Retrieval/Video-text Retrieval]]

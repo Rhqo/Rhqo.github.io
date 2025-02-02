@@ -1,3 +1,9 @@
+---
+title: Learning Paradigms
+tags:
+  - section
+---
+
 ### [[Supervised]]
 ### [[Unsupervised]]
 ### [[Reinforcement]]

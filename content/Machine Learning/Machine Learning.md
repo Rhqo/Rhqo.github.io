@@ -1,7 +1,7 @@
 ---
 title: Machine Learning
 tags:
-  - main
+  - title
 ---
 
 ## [[Basics]]

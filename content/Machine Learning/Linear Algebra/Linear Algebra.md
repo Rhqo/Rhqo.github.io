@@ -1,3 +1,9 @@
+---
+title: Linear Algebra
+tags:
+  - section
+---
+
 ![[Linear Algebra and Its Applications, Global Edition, 6ed.png|400]]
 - Chapter 1: [[Linear Equations in Linear Algebra/Linear Equations in Linear Algebra]]
 - Chapter 2: [[Matrix Algebra/Matrix Algebra]]

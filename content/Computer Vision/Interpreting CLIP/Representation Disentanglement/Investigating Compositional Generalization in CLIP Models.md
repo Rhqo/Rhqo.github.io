@@ -1,3 +1,8 @@
+---
+title: Investigating Compositional Generalization in CLIP Models
+tags:
+  - section
+---
 
 > [!Abstract] Abstract
 > CLIP models have recently shown to exhibit Out of Distribution (OoD) generalization capabilities. However, Compositional Out of Distribution (C-OoD) generalization, which is a crucial aspect of a model’s ability to understand unseen compositions of known concepts, is relatively unexplored for the CLIP models. Our goal is to address this problem and identify the factors that contribute to the C-OoD in CLIPs. We noted that previous studies regarding compositional understanding of CLIPs frequently fail to ensure that test samples are genuinely novel relative to the CLIP training data. To this end, we carefully synthesized a large and diverse dataset in the single object setting, comprising attributes for objects that are highly unlikely to be encountered in the combined training datasets of various CLIP models. This dataset enables an authentic evaluation of C-OoD generalization. Our observations reveal varying levels of C-OoD generalization across different CLIP models. We propose that the disentanglement of CLIP representations serves as a critical indicator in this context. By utilizing our synthesized datasets and other existing datasets, we assess various disentanglement metrics of text and image representations. Our study reveals that the disentanglement of image and text representations, particularly with respect to their compositional elements, plays a crucial role in improving the generalization of CLIP models in out-of-distribution settings. This finding suggests promising opportunities for advancing out-of-distribution generalization in CLIPs.

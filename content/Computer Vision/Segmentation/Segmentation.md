@@ -1,7 +1,7 @@
 ---
 title: Segmentation
 tags:
-  - sub
+  - subtitle
 ---
 
 Segmentation in computer vision refers to the process of partitioning an image into multiple segments or regions to simplify or change its representation, making it more meaningful and easier to analyze. The goal is often to identify and delineate objects or other significant structures within the image.

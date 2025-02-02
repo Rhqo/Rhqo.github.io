@@ -1,7 +1,7 @@
 ---
 title: Computer Vision
 tags:
-  - main
+  - title
 ---
 Computer vision is a field of technology and study that enables computers to extract and understand meaningful information from digital images or videos.
 

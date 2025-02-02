@@ -1,7 +1,7 @@
 ---
 title: Toy Models of Superposition
 tags:
-  - sub
+  - subtitle
 ---
 
 https://transformer-circuits.pub/2022/toy_model/index.html \

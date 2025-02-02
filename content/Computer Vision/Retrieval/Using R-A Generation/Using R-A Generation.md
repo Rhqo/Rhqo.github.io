@@ -2,6 +2,7 @@
 title: Using R-A Generation
 draft: false
 tags:
+  - section
 ---
  
 Retrieval-Augmented Generation for AI-Generated Content: A Survey
