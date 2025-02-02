@@ -208,7 +208,8 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   
     function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set()): number {
       if (start.id === target.id) return 0;
-  
+      if (depth > 10) return -1;
+      
       visited.add(start.id);
   
       const neighbors = graphData.links
