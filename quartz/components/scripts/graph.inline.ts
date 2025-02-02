@@ -300,7 +300,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     for (const n of nodeRenderData) {
       const nodeId = n.simulationData.id
 
-      if (hoveredNodeId === nodeId) {
+      if (hoveredNodeId === nodeId || (hoveredNodeId !== null && n.active)) {
         tweenGroup.add(
           new Tweened<Text>(n.label).to(
             {
