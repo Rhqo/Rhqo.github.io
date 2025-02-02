@@ -1,7 +1,7 @@
 ---
 title: Retrieval
-draft: false
 tags:
+  - sub
 ---
 ### Keyword
 video retrieval

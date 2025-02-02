@@ -1,7 +1,7 @@
 ---
 title: Video Understanding
-draft: false
 tags:
+  - sub
 ---
 
 ## [[Foundations/Foundations]]

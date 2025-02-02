@@ -1,3 +1,9 @@
+---
+title: Machine Learning
+tags:
+  - main
+---
+
 ## [[Basics]]
 
 Basics of Machine Learning

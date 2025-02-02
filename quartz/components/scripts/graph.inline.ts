@@ -217,7 +217,12 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   // }
 
   function nodeRadius(d: NodeData) {
-    return d.tags.includes("main") ? 10 : 3
+    if (d.tags.includes("main"))
+      return 8
+    else if (d.tags.includes("sub"))
+      return 5
+    else
+      return 3
   }
 
   let hoveredNodeId: string | null = null
