@@ -218,13 +218,13 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
 
   function nodeRadius(d: NodeData) {
     if (d.tags.includes("title"))
-      return 8
+      return 7
     else if (d.tags.includes("subtitle"))
       return 6
     else if (d.tags.includes("section"))
       return 5
     else
-      return 3
+      return 4
 
   }
 
