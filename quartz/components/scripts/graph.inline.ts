@@ -209,11 +209,15 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     }
   }
 
+  // function nodeRadius(d: NodeData) {
+  //   const numLinks = graphData.links.filter(
+  //     (l) => l.source.id === d.id || l.target.id === d.id,
+  //   ).length
+  //   return 2 + Math.sqrt(numLinks)
+  // }
+
   function nodeRadius(d: NodeData) {
-    const numLinks = graphData.links.filter(
-      (l) => l.source.id === d.id || l.target.id === d.id,
-    ).length
-    return 2 + Math.sqrt(numLinks)
+    return d.tags.includes("main") ? 10 : 3
   }
 
   let hoveredNodeId: string | null = null
