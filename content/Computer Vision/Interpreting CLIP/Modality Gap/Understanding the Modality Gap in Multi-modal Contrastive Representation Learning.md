@@ -39,8 +39,6 @@
 Modality gap이 존재하기 위해서는 encoder의 embedding이 전체 embedding space의 하위 영역(subregion)에 집중되어야 한다. \
 그렇지 않으면 서로 다른 encoder에서의 embedding이 겹칠 것이다. \
 이 점에서 영감을 받아, cone effect로 인해 임의의 모델 initialization에서 이미 modality gap이 발생함을 보여주는 것으로 조사를 시작한다.
-
-sdfasdf
 ## The Narrow Cone of Embeddings
 ### How narrow is the cone in 512-dim representation space?
 
