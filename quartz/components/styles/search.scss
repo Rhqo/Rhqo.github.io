@@ -64,7 +64,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      @media all and not ($desktop) {
+      @media all and ($desktop) {
         width: 90%;
       }
 
@@ -106,7 +106,7 @@
           flex: 0 0 min(30%, 450px);
         }
 
-        @media all and not ($mobile) {
+        @media all and not ($tablet) {
           &[data-preview] {
             & .result-card > p.preview {
               display: none;
@@ -132,7 +132,7 @@
           border-radius: 5px;
         }
 
-        @media all and ($mobile) {
+        @media all and ($tablet) {
           & > #preview-container {
             display: none !important;
           }
@@ -151,7 +151,6 @@
         }
 
         & > #preview-container {
-          flex-grow: 1;
           display: block;
           overflow: hidden;
           font-family: inherit;

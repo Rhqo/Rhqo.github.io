@@ -8,7 +8,6 @@ import {
   forceCenter,
   forceLink,
   forceCollide,
-  forceRadial,
   zoomIdentity,
   select,
   drag,
@@ -88,7 +87,6 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     removeTags,
     showTags,
     focusOnHover,
-    enableRadial,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -163,20 +161,15 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       })),
   }
 
-  const width = graph.offsetWidth
-  const height = Math.max(graph.offsetHeight, 250)
-
   // we virtualize the simulation and use pixi to actually render it
-  // Calculate the radius of the container circle
-  const radius = Math.min(width, height) / 2 - 40 // 40px padding
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
     .force("center", forceCenter().strength(centerForce))
     .force("link", forceLink(graphData.links).distance(linkDistance))
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
-  if (enableRadial)
-    simulation.force("radial", forceRadial(radius * 0.8, width / 2, height / 2).strength(0.3))
+  const width = graph.offsetWidth
+  const height = Math.max(graph.offsetHeight, 250)
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -210,10 +203,41 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
 
   function nodeRadius(d: NodeData) {
-    const numLinks = graphData.links.filter(
-      (l) => l.source.id === d.id || l.target.id === d.id,
-    ).length
-    return 2 + Math.sqrt(numLinks)
+    const baseRadius = 10; // Base radius
+    const minRadius = 2; // Minimum radius for nodes at maximum depth
+  
+    function getDepthFromCV(start: NodeData, target: NodeData, visited = new Set<SimpleSlug>(), depth=0): number {
+      if (start.id === target.id) return depth;
+      if (depth > 3) return -1;
+
+      visited.add(start.id);
+  
+      const neighbors = graphData.links
+        .filter(link => link.source.id === start.id && !visited.has(link.target.id))
+        .map(link => link.target);
+  
+      for (const neighbor of neighbors) {
+        const depth = getDepthFromCV(neighbor, target, visited);
+        if (depth !== -1) return depth + 1;
+      }
+  
+      return -1;
+    }
+  
+    if (d.text === "Computer Vision") {
+      return baseRadius;
+    }
+    // Find the CV node
+    const centerNode = graphData.nodes.find(node => node.text === "Computer Vision");
+    if (!centerNode) return 5;
+  
+    // Calculate depth from "CV" node
+    const depth = getDepthFromCV(centerNode, d);
+  
+    // Calculate radius based on depth
+    if (depth === -1) return 5; // Default for nodes not connected to CV
+  
+    return Math.max(baseRadius - depth*2, minRadius); // Decrease radius with depth
   }
 
   let hoveredNodeId: string | null = null
@@ -515,11 +539,19 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
           let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
           const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
 
-          for (const label of labelsContainer.children) {
-            if (!activeNodes.includes(label)) {
-              label.alpha = scaleOpacity
+          // for (const label of labelsContainer.children) {
+          //   if (!activeNodes.includes(label)) {
+          //     label.alpha = scaleOpacity
+          //   }
+          // }
+
+          for (const node of nodeRenderData) {
+            if (nodeRadius(node.simulationData) >= 8) {
+              node.label.alpha = Math.max(0.7, scaleOpacity); // Always visible for nodes with radius >= 4
+            } else if (!node.active) {
+              node.label.alpha = scaleOpacity;
             }
-          }
+          }          
         }),
     )
   }
@@ -587,7 +619,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   function hideGlobalGraph() {
     container?.classList.remove("active")
     if (sidebar) {
-      sidebar.style.zIndex = ""
+      sidebar.style.zIndex = "unset"
     }
   }
 
