@@ -1,5 +1,6 @@
 ---
 title: Welcome to Rhqo.get()
+comments: false
 ---
 ![[icon.png|300x300]]
 
