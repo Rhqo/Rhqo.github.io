@@ -1,5 +1,6 @@
 ---
 title: Computer Vision
+comments: false
 tags:
   - title
 ---

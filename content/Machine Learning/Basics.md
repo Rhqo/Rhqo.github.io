@@ -2,6 +2,7 @@
 title: Basics
 tags:
   - subtitle
+comments: false
 ---
 
 - [[Linear Algebra/Linear Algebra]]

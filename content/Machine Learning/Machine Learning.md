@@ -2,6 +2,7 @@
 title: Machine Learning
 tags:
   - title
+comments: false
 ---
 
 ## [[Basics]]
