@@ -6,7 +6,21 @@ import { mapFn } from "./functions"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'Rhqo/rhqo.github.io',
+        // from data-repo-id
+        repoId: 'R_kgDOM96xpg',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOFxRnmM4B-Xg6',
+      }
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/Rhqo",
