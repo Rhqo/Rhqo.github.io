@@ -105,7 +105,7 @@ $$
 
 식 (4)는 Image representation을 MLP, MSA, input class token의 direct contribution들로 분해할 수 있으며, 이를 통해 각 항목을 개별적으로 분석할 수 있다. 여기서는 한 layer의 출력이 downstream 계층에 미치는 간접 효과를 무시한다. 이 분해(및 추가 분해)를 사용하여 다음 섹션에서 CLIP의 표현을 분석한다.
 
-![[ICIRTBD_12.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_12.png]]
 ### Evaluating the direct contribution of layers
 
 식 (4)에서 어떤 구성 요소가 최종 이미지 표현에 유의미한 영향을 미치는지 연구했고, 대다수의 direct effect가 후반 attention layer에서 온다는 것을 발견했다.
@@ -115,12 +115,12 @@ $$
 실험에서는, ImageNet validation set에서 각 구성 요소의 평균을 계산하고 ImageNet classification의 정확도의 감소를 평가한다. LAION-2B에서 훈련된 OpenCLIP ViT-H-14, L-14, B-16 모델을 분석한다.
 ### MLPs have a negligible direct effect
 
-![[ICIRTBD_0.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_0.png]]
 
 표 1은 모든 MLP를 동시에 평균 제거한 결과를 보여준다. MLP는 이미지 표현에 유의미한 direct effect가 없으며, 모두 제거해도 정확도가 1%-3%만 떨어지게 된다.
 ### Only the last MSAs have a significant direct effect
 
-![[ICIRTBD_1.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_1.png]]
 
 다음으로 다양한 MSA 계층의 direct effect를 평가한다. 이를 위해, 우리는 어떤 계층 $l$ 까지 모든 MSA 계층을 평균 제거합니다. 그림 2는 결과를 보여준다: 초기 MSA 계층(마지막 4개까지)을 제거해도 정확도에 큰 변화가 없지만, 마지막 MSA를 평균 제거하면 성능이 급격히 감소하게 된다.
 
@@ -161,9 +161,9 @@ $c_{i,l,h}$ , $c^{l,h}_{head}$ , $c^i_{token}$ 은 모두 $d'$ - 차원의 text-
 
 3.2에서 보았듯이, CLIP의 후기의 MSA layer를 이해하는 것에 초점을 맞춘다. 섹션 3.3에서 보았듯이, 개별 attention head로의 분해를 사용하고, 각 헤드의 latent direction에 텍스트 설명으로 레이블을 부여하는 알고리즘을 제시한다.
 
-![[ICIRTBD_2.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_2.png]]
 
-![[ICIRTBD_3.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_3.png]]
 
 이 레이블링의 예시는 표 2와 그림 4에 나타나 있으며, 64개의 늦은 주의 헤드에 대한 레이블링은 섹션 A.5에서 주어진다.
 
@@ -191,9 +191,9 @@ $$
 
 식 (7)에서 설명된 분산을 대략 최대화하기 위해, 우선 M개의 후보 설명 $\{t_i\}_{i=1}^{M}$ 의 대규모 풀에서 탐욕적으로 선택하여 집합 $T$ 를 얻는다.
 
-![[ICIRTBD_4.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_4.png]]
 
-![[ICIRTBD_5.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_5.png]]
 
 최종 output은 각 head에 있어 m개의 기저에 대한 text 집합 T와 해당 m개의 기저들로 이루어진 representation C’이다. \
 이러한 과정을 후반 4개의 레이어의 모든 head별로 수행한다.
@@ -204,7 +204,7 @@ $$
 
 각 head가 특정한 role을 가지고 있음을 주목
 
-![[ICIRTBD_6.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_6.png]]
 
 - 모든 head들이 뚜렷한 role을 가지고 있는 것은 아니다
 - 상당수의 head들이 뚜렷한 role을 가지고 있고, 그 role들이 굉장히 세분화 되어있는 모습이다.
@@ -220,7 +220,7 @@ $$
 $$
 
 head 별 top-4 image retrieval
-![[ICIRTBD_7.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_7.png]]
 
 - 각 head를 기준으로 image를 retrieval한 결과, 해당 head의 role이 반영된 image들이 선택됨
 - text를 기반으로 알아낸 head별 role이 image간의 비교에도 유효함
@@ -232,9 +232,9 @@ head 별 top-4 image retrieval
 “물가에 서식하는 새”와 “육지에 서식하는 새”를 구분하는 학습 과정중에 새의 형상보다 배경을 기반으로 분류하는 문제(spurious correlation)가 두드러진다.
 
 “geolocation”과 “image-location” role이 부여된 head의 출력값을 mean-ablating하여 zero-shot classification 실행
-![[ICIRTBD_8.png]]
-![[ICIRTBD_9.png]]
-![[ICIRTBD_10.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_8.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_9.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_10.png]]
 
 - class와 background가 일치하지 않는 경우에서 두드러지는 성능 향상을 확인할 수 있었다.
 - 특정 head의 연산을 mean-ablating 함으로 해당 role이 실제로 최종 representation에 반영되지 않도록 할 수 있다.
@@ -248,7 +248,7 @@ $$
 \lang c^{l,h}_{head}(I), M_{text}(t) \rang
 
 $$
-![[ICIRTBD_11.png]]
+![[content/Computer Vision/Interpreting CLIP/Text-Based Decomposition/ICIRTBD_11.png]]
 
 - Head에 부여된 role이 patch 수준에서도 올바르게 동작함
 
