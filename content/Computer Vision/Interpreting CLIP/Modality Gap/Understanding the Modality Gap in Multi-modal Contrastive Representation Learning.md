@@ -44,6 +44,14 @@ tags:
 Modality gap이 존재하기 위해서는 encoder의 embedding이 전체 embedding space의 하위 영역(subregion)에 집중되어야 한다. \
 그렇지 않으면 서로 다른 encoder에서의 embedding이 겹칠 것이다. \
 이 점에서 영감을 받아, cone effect로 인해 임의의 모델 initialization에서 이미 modality gap이 발생함을 보여주는 것으로 조사를 시작한다.
+
+효과적인 임베딩 공간은 훈련된 모델 및 무작위 가중치를 가진 모델에 대해 좁은 원뿔로 제한된다. \
+이를 입증하기 위해, 우리는 각각의 pre-train된 모델(ResNet, ViT, Text Transformer)에서 최종 layer로부터  MSCOCO의 5,000개 캡션의 임베딩을 추출한다. \
+그런 다음 각 모델 내에서 5,000개의 임베딩 간의 모든 가능한 쌍의 코사인 유사성을 계산한다. \
+우리는 평균 코사인 유사성(각각 0.56, 0.47, 0.51)과 최소 코사인 유사성(0.23, 0.05, 0.01)이 모두 양수임을 발견했다. \
+이러한 결과는 임베딩 공간이 좁은 원뿔임을 나타낸다.
+
+
 ## The Narrow Cone of Embeddings
 ### How narrow is the cone in 512-dim representation space?
 
