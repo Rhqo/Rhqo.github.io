@@ -7,14 +7,14 @@
 	
 2. **Credit assignment**: Reward $r_t$ may not directly depend on action $a_t$ \
 	특정 시점의 보상 $r_t$는 그 시점의 행동 $a_t$에 직접적으로 의존하지 않을 수 있다. \
-	(Agent가 한 action에 따라 결국 얻은 reward가 언제, 어떻게 유발되었는지를 분석하는 일이 어려움)
+	(Agent가 한 action에 따라 결국 얻은 reward가 언제, 어떻게 유발되었는지를 분석하는 일이 어려움)
 	
 3. **Nondifferentiable**: Can’t backprop through world; can’t compute $dr_t/da_t$ \
 	세상의 동작 방식(world dynamics)은 미분가능하지 않을 수 있다. \
 	(Reward $r_t$를 action $a_t$에 대해 미분 $dr_t/da_t$할 수 없으므로, 신경망 학습에서 흔히 사용하는 backpropagation 방법을 직접적으로 적용할 수 없음)
 	
-4. **Nonstationary**: What the agent experiences depends on how it acts
-	Agent가 경험하는 환경은 agent가 어떤 action을 취하느냐에 따라 변할 수 있다. \
+4. **Nonstationary**: What the agent experiences depends on how it acts \
+	Agent가 경험하는 환경은 agent가 어떤 action을 취하느냐에 따라 변할 수 있다. \
 	 (Agent의 action은 환경의 state 분포와 reward 시스템에 영향을 줄 수 있으므로, 환경이 고정되어 있지 않은 dynamic system임)
 
 # Markov Decision Process (MDP)
@@ -57,3 +57,9 @@ $$
 	\pi^* = \arg \max_\pi \mathbb{E} \left[ \sum_{t\geq0}\gamma^t r_t | \pi \right]
 	\text{  with  } \begin{matrix}s_0 \sim p(s_0)\\ a_t \sim \pi(a|_t)\\ s_{t+1} \sim P(s|s_t,a_t) \end{matrix}
 $$
+
+
+
+
+> [!Tips] [[About Deepseek-r1 (GRPO RL Algorithm)]]
+> Critic model이 없는, Deepseek-r1-zero와 r1에 대한 글
