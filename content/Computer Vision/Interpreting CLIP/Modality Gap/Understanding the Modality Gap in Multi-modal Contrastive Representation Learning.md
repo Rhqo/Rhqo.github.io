@@ -51,7 +51,6 @@ Modality gap이 존재하기 위해서는 encoder의 embedding이 전체 embeddi
 우리는 평균 코사인 유사성(각각 0.56, 0.47, 0.51)과 최소 코사인 유사성(0.23, 0.05, 0.01)이 모두 양수임을 발견했다. \
 이러한 결과는 임베딩 공간이 좁은 원뿔임을 나타낸다.
 
-
 ## The Narrow Cone of Embeddings
 ### How narrow is the cone in 512-dim representation space?
 
