@@ -1,6 +1,7 @@
-![[GRPO_0.png]]
-![[Pasted image 20250204120441.png]]
+# Overview
+![[GPRO_0.png]]
 
+# GPRO Algorithm
 Deepseek-r1-zero는 Group Relative Policy Optimization (GRPO)를 사용한다. \
 이는 일반적인 Reinforcement learning에서 사용하는 Critic 모델을 생략하고, \
 대신 그룹의 reward들을 사용하여 optimization하는 방식
