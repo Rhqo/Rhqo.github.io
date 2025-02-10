@@ -76,10 +76,11 @@ Unit hypersphere의 표면적 비율을 고려해 보자. \
 512D에서는 0.56의 cosine similarity가 512D hypersphere의 표면적의 $\frac{1}{2^{512}}$ 미만을 "occupy"할 수 있다. \
 이러한 증거들은 효과적인 임베딩 공간이 극도로 좁은 원뿔로 제한되어 있음을 보여준다.
 ## The effects of non-linear activation on cone effect
+
+### Design
 비선형 활성화 함수가 원뿔 효과에 미치는 영향을 연구하기 위해, 우리는 다양한 MLP를 랜덤으로 초기화하고 서로 다른 비선형성을 적용하거나 비선형성을 적용하지 않은 모델들을 사용했다. \
 MLP의 입력은 512차 표준 정규 랜덤 벡터이다. \
 모든 MLP 선형 계층은 512 × 512로, 가중치와 편향은 각각 $N(0, \frac{1}{512})$에서 랜덤으로 초기화되며, 여기서 $N(\mu, \sigma^2)$는 평균 $\mu$와 분산 $\sigma^2$를 가진 가우시안 분포를 나타낸다.
-### Design
 ### Results
 ## Different random initializations create different cones
 # Theoretical analysis
