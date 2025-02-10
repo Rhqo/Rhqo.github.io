@@ -41,7 +41,7 @@ tags:
 > 4. Cone effect를 설명하기 위해 **ReLU non-linearlity을 가진 linear layer들에 의해 유도된 contraction mapping을 수학적으로 특징화**한다. 우리의 이론은 실험과 잘 맞아떨어지며 심층 신경망의 일반적인 inductive bias를 이해하는 데 중요한 통찰을 제공한다.
 
 # The Cone Effect Induces a Modaltiy Gap
-
+## The Narrow Cone of Embeddings
 Modality gap이 존재하기 위해서는 encoder의 embedding이 전체 embedding space의 하위 영역(subregion)에 집중되어야 한다. \
 그렇지 않으면 서로 다른 encoder에서의 embedding이 겹칠 것이다. \
 이 점에서 영감을 받아, cone effect로 인해 임의의 모델 initialization에서 이미 modality gap이 발생함을 보여주는 것으로 조사를 시작한다.
@@ -52,17 +52,33 @@ Modality gap이 존재하기 위해서는 encoder의 embedding이 전체 embeddi
 우리는 평균 cosine similarity(각각 0.56, 0.47, 0.51)과 최소 cosine similarity(0.23, 0.05, 0.01)이 모두 양수임을 발견했다. \
 이러한 결과는 임베딩 공간이 좁은 원뿔임을 나타낸다.
 
+문헌에서 원뿔 효과(cone effect)는 언어 모델(예: BERT)의 언어 표현에서 관찰되었다. \
+(Representation Degeneration Problem in Training Natural Language Generation Models) \
+일반적인 설명으로는, 단어 빈도의 불균형 분포가 최적화에 편향을 가져온다고 한다. \
+그러나 우리는 아래 그림과 같이 random weight를 가진 모델에서도 원뿔 효과가 여전히 존재함을 발견했다.
 
-문헌에서 원뿔 효과(cone effect)는 언어 모델(예: BERT)의 언어 표현에서 관찰되었다 [12]. \
-일반적인 설명은 단어 빈도의 불균형 분포가 최적화에 편향을 가져온다고 한다 [15, 33]. \
-그러나 우리는 랜덤 가중치를 가진 모델에서도 원뿔 효과가 여전히 존재함을 발견했다 (그림 2(c)). \
-실제로, 그곳의 평균 코사인 유사도는 훈련된 모델보다 더 높다. \
+> [!Archive] Figure 2
+> ![[MDG_0.png]]
+> 훈련 없이 25개의 무작위로 초기화된 모델의 임베딩을 실제 데이터에서 UMAP 시각화. \
+> 각 무작위 초기화는 독특하게 다른 원뿔을 형성한다.
+> - Real Data: MSCOCO caption의 validation set에서 5,000개의 image-caption pair.
+> - Random Noise: 표준 정규 분포에서 발생하는 Gaussian noise를 이미지로, 균일하게 무작위인 정수 시퀀스를 텍스트로 나타낸다.
+
+실제로, random noise의 평균 cosine similarity는 훈련된 모델보다 더 높다. \
 예를 들어, 랜덤 초기화된 ResNet의 두 개 임베딩은 평균적으로 거의 완벽한 (0.99) 코사인 유사도를 가진다. \
-흥미롭게도, 입력 데이터가 랜덤 노이즈일 때도 원뿔 효과가 여전히 유지되며, 이는 이전 연구에서 제안된 불균형 데이터 분포가 원뿔 효과에 필요하지 않다는 것을 나타낸다. 이러한 실험들은 원뿔 효과가 이전에 인식된 것보다 심화된 네트워크의 보다 일반적인 귀납적 편향을 반영한다고 제안한다.
-## The Narrow Cone of Embeddings
+흥미롭게도, 입력 데이터가 random noise일 때도 원뿔 효과가 여전히 유지되며, 이는 이전 연구에서 제안된 불균형 데이터 분포가 원뿔 효과에 필요하지 않다는 것을 나타낸다. \
+이러한 실험들은 원뿔 효과가 이전에 인식된 것보다 심화된 네트워크의 보다 일반적인 inductive bias를 반영한다고 제안한다.
 ### How narrow is the cone in 512-dim representation space?
-
+Cosine similarity가 0.56이라도 이미 임베딩 공간이 512차원 feature space에서 실제로 극도로 좁은 원뿔을 나타낸다는 것을 분명히 한다. \
+Unit hypersphere의 표면적 비율을 고려해 보자. \
+2D에서, $\arccos(0.56) = 55.94^\circ$ 이고, 이는 0.56의 cosine similarity가 2D 단위 원에서 "occupy"할 수 있는 면적이 $55.94^\circ / 360^\circ = 15.53\%$ 임을 나타낸다. \
+3D에서는 0.56의 cosine similarity가 $\frac{2\pi r^2 (1 - \cos(55.94^\circ))}{4\pi r^2} = 3.34\%$ 의 3D unit sphere를 "occupy"할 수 있다. \
+512D에서는 0.56의 cosine similarity가 512D hypersphere의 표면적의 $\frac{1}{2^{512}}$ 미만을 "occupy"할 수 있다. \
+이러한 증거들은 효과적인 임베딩 공간이 극도로 좁은 원뿔로 제한되어 있음을 보여준다.
 ## The effects of non-linear activation on cone effect
+비선형 활성화 함수가 원뿔 효과에 미치는 영향을 연구하기 위해, 우리는 다양한 MLP를 랜덤으로 초기화하고 서로 다른 비선형성을 적용하거나 비선형성을 적용하지 않은 모델들을 사용했다. \
+MLP의 입력은 512차 표준 정규 랜덤 벡터이다. \
+모든 MLP 선형 계층은 512 × 512로, 가중치와 편향은 각각 $N(0, \frac{1}{512})$에서 랜덤으로 초기화되며, 여기서 $N(\mu, \sigma^2)$는 평균 $\mu$와 분산 $\sigma^2$를 가진 가우시안 분포를 나타낸다.
 ### Design
 ### Results
 ## Different random initializations create different cones
