@@ -82,6 +82,7 @@ Unit hypersphere의 표면적 비율을 고려해 보자. \
 MLP의 입력은 512차 표준 정규 랜덤 벡터이다. \
 모든 MLP 선형 계층은 512 × 512로, 가중치와 편향은 각각 $N(0, \frac{1}{512})$에서 랜덤으로 초기화되며, 여기서 $N(\mu, \sigma^2)$는 평균 $\mu$와 분산 $\sigma^2$를 가진 가우시안 분포를 나타낸다.
 ### Results
+
 ## Different random initializations create different cones
 # Theoretical analysis
 # Contrastive learning preserves modality gap
