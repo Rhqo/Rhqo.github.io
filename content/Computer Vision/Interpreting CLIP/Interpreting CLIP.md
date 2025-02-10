@@ -15,6 +15,14 @@ tags:
 - Disentangled Representation Learning
 
 ## Modality Gap
-- Mind the Gap: [[Modality Gap/Understanding the Modality Gap in Multi-modal Contrastive Representation Learning]]
+- [[Mind the Gap]]: Understanding the Modality Gap in Multi-modal Contrastive Representation Learning
 - Accept the Modality Gap: An Exploration in the Hyperbolic Space
 - It's Not a Modality Gap: Characterizing and Addressing the Contrastive Gap
+
+#### Injecting Gaussian noises
+- I Can't Believe There's No Images! Learning Visual Tasks Using only Language Supervision
+- [[CapDec]]: Text-Only Training for Image Captioning using Noise-Injected CLIP
+- [[LinCIR]]: Language-only Efficient Training of Zero-shot Composed Image Retrieval
+
+#### Projection based method
+- Decap: Decoding clip latents for zero-shot captioning via text-only training
