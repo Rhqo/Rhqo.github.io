@@ -569,3 +569,4 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 ### Perturbing a single feature
 
 Non-uniform superposition을 확인하는 가장 간단한 방법은 다른 feature들을 uniform하게 고정하고, 하나의 feature만 변화시키는 것이다. \
+n=5, m=2인 상환
