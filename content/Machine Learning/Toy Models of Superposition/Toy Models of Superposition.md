@@ -538,7 +538,8 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 ## Non-Uniform Superposition
 
 지금까지는 동일한 중요성, 동일한 sparsity, 그리고 독립적인 feature를 가질 때만을 고려했다. \
-모델은 필연적으로 Thomsom problem을 해결하려 했을 것이다. 모든 feature가 같다면, uniform polyhedra가 가장 적은 loss를 가질 것을 solution으로 제공하려 했을 것이기 때문이다.
+모델은 필연적으로 Thomsom problem을 해결하려 했을 것이다. \
+모든 feature가 같다면, uniform polyhedra가 가장 적은 loss를 가질 것을 solution으로 제공하려 했을 것이기 때문이다.
 
 이 section에서는 feature들이 uniform 하지 않는, non-uniform superposition에 대해서 다룰 예정이다. \
 중요성과 sparsity가 달라지고, 독립적으로 작용하지 않는 correlated 구조를 가질 것이다. \
@@ -550,20 +551,21 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 
 - **Features varying in importance or sparsity**
 
-	중요성이나 희소성이 변동하는 특징들은 불균형이 형성될 때 다면체의 부드러운 변형을 발생시킨다. \
+	**중요성이나 희소성이 변동하는 특징**들은 불균형이 형성될 때 다면체의 부드러운 변형을 발생시킨다. \
 	이렇게 변형이 진행되다가 임계 파손점에 도달하면 다른 다면체로 전환된다.
 	
 - **Correlated features**
 
-	Correlated features들은 종종 서로 다른 tegum 인자에서 형성되며 직교하는 것을 선호한다. \
+	**Correlated features**들은 종종 서로 다른 tegum 인자에서 형성되며 직교하는 것을 선호한다. \
 	결과적으로 직교하는 지역 기저를 형성할 수 있다. \
 	직교할 수 없는 경우에는 나란히 있는 것을 선호한다. \
 	어떤 경우에는 상관된 특징들이 단일 특징으로 통합된다. (superposition-like vs PCA-like)
 	
 - **Anti-correlated features**
 
-	Superposition이 필요한 경우 같은 tegum 인자에 있는 것을 선호한다. \
+	**Anti-correlated feature**끼리는 superposition이 필요한 경우, 같은 tegum 인자에 있는 것을 선호한다. \
 	그들은 이상적으로 반대 위치에서 negative interfere을 가지는 것을 선호한다.
 
 ### Perturbing a single feature
 
+Non-uniform superposition을 확인하는
