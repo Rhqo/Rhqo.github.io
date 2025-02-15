@@ -571,4 +571,8 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 Non-uniform superposition을 확인하는 가장 간단한 방법은 다른 feature들을 uniform하게 고정하고, 하나의 feature만 변화시키는 것이다. \
 실험으로, $n=5$ , $m=2$ 인 상황을 가정해보자. \
 Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되어 pentagon의 형태를 가지게 된다. \
-그러나, 1개의 feature에 대해 sparsity를 변화시키면, 정오각형이 새로운 값을 고려하기 위해 stretch되는 것을 볼 수 있다.
+그러나, 1개의 feature에 대해 sparsity를 변화시키면, 정오각형이 새로운 값을 고려하기 위해 stretch되는 것을 볼 수 있다. \
+해당 feature의 sparsity를 낮추게 되면, 더 자주 활성화되어(yellow), 다른 feature들이 해당 feature로부터 밀려나면서 더 많은 공간을 가지게 된다. \
+반대로, sparse하게 만들면, 덜 자주 활성화되어(blue), 덜 공간을 차지하고 다른 feature들이 그쪽으로 밀려난다.
+
+우리가 충분히 sparse하게 만들면, phase 변화가 발생하여 pentagon에서 digon로 붕괴되며, 밀집하지 않은 점은 제로로 위치하게 됩니다. 이 상 변화는 두 가지 다른 기하학이 교차하는 손실 곡선에 해당합니다.
