@@ -603,3 +603,24 @@ A note for reimplementations: 2차원 hidden space로 최적화하면 연구하�
 그러나 silver lining(희망)이 있다: 위와 같은 산점도로 sub-optimal 솔루션을 시각화하면 다양한 기하학의 loss curve를 볼 수 있고, phase change에 대한 더 큰 통찰력을 얻을 수 있다.
 
 ## Correlated and Anticorrelated Features
+
+Non-uniform superposition의 더 복잡한 형태는 feature 간의 상관 관계(correlate)가 있을 때 발생한다. \
+이는 많은 특성이 correlated되어 있거나 anticorrelated되어 있는, 실제 세계의 superposition을 이해하는 데 필수적일 것이다.
+
+The behavior seems to be quite nuanced, with a kind of "order of preferences" for how correlated features behave in superposition. The model ideally represents correlated features orthogonally, in separate tegum factors with no interactions between them. When that fails, it prefers to arrange them so that they're as close together as possible – it prefers positive interference between correlated features over negative interference. Finally, when there isn't enough space to represent all the correlated features, it will collapse them and represent their principal component instead! Conversely, when features are anti-correlated, models prefer to have them interfere, especially with negative interference. We'll demonstrate this with a few experiments below
+
+### Setup for exploring Correlated and Anticorrelated Features
+이 섹션 전체에서 우리는 "Correlated feature sets"와 "Anticorrelated feature sets"라고 언급할 것이다.
+
+**Correlated feature sets** \
+	함께 발생하는 특징의 "묶음"으로 생각할 수 있다. \
+	Image classifier에서 발생할 수 있는 것의 idal한 버전을 상상할 수 있다: 동물을 식별하는 데 사용되는 특징의 묶음(털, 귀, 눈)과 건물을 식별하는 데 사용되는 다른 묶음(모서리, 창문, 문)이 있을 수 있다. \
+	이러한 묶음의 특징은 함께 나타날 가능성이 높다. \
+	수학적으로 우리는 correlated feautre set의 모든 feature가 0인지 아닌지를 함께 결정하는 방식으로 이를 표현한다. \
+	우리는 원래 우리의 합성 분포를 특징이 확률로 0이 되도록 정의했음을 기억하자. \
+	우리는 단순히 동일한 샘플이 이들이 0인지 여부를 결정하게 한다.
+
+**Anticorrelated feature sets** \
+	함께 발생할 가능성이 매우 낮은 반상관적 특징을 상상할 수도 있다. \
+	이를 시뮬레이션하기 위해, 우리는 한 번에 하나의 특징만 활성화될 수 있는 anticorrelated feature set를 가질 것이다. \
+	이를 시뮬레이션하기 위해 우리는 특징 세트의 모든 특징이 확률로 0이 되도록 하고, 그 후 활성화되면 무작위로 선택된 특징만 [0,1] 범위에서 균일하게 샘플링되도록 하며, 나머지는 0이 된다.
