@@ -569,4 +569,6 @@ Uniform polyhedra에서는 모든 정점이 동일한 기하학적 특성을 가
 ### Perturbing a single feature
 
 Non-uniform superposition을 확인하는 가장 간단한 방법은 다른 feature들을 uniform하게 고정하고, 하나의 feature만 변화시키는 것이다. \
-n=5, m=2인 상환
+실험으로, $n=5$ , $m=2$ 인 상황을 가정해보자. \
+Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되어 pentagon의 형태를 가지게 된다. \
+그러나, 1개의 feature에 대해 sparsity를 변화시키면, 정오각형이 새로운 값을 고려하기 위해 stretch되는 것을 볼 수 있다.
