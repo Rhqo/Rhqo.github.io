@@ -594,3 +594,12 @@ Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되
 
 이 결과는, 일부 경우에서, non-uniform superposition이 uniform superposition의 변형이자 uniform superposition 구성 간의 전환으로 이해될 수 있으며, 완전히 다른 체제가 아님을 제안하는 것처럼 보인다. \
 Uniform superposition은 이해할 수 있는 구조가 많이 있지만, 실제 세계의 superposition은 거의 확실히 non-uniform하다는 점에서 매우 유망하게 보인다.
+
+Pentagon 솔루션이 unit 원에 있지 않은 이유는 모델들이 positive inference의 효과를 줄이고 약간의 negative bias을 설정하여 noise를 차단하며 weight를 $\| W \| = \frac{1}{(1 - b)}$ 로 보정하도록 설정하기 때문이다. \
+Unit 원에서의 거리는 주로 positive inference의 양에 의해 주도될 수 있다.
+
+A note for reimplementations: 2차원 hidden space로 최적화하면 연구하기가 더 쉬워지지만, 실제 최적화 과정은 gradient descent로 인해 정말 어렵고, 심지어 3차원만 가지고 있어도 훨씬 더 어려워진다. \
+깔끔한 결과를 얻으려면 각 모델을 여러 번 조정하고 loss가 가장 낮은 솔루션을 취해야 한다. \
+그러나 silver lining(희망)이 있다: 위와 같은 산점도로 sub-optimal 솔루션을 시각화하면 다양한 기하학의 loss curve를 볼 수 있고, phase change에 대한 더 큰 통찰력을 얻을 수 있다.
+
+## Correlated and Anticorrelated Features
