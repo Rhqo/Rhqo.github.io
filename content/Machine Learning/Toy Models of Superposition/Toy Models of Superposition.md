@@ -4,8 +4,9 @@ tags:
   - subtitle
 ---
 
-https://transformer-circuits.pub/2022/toy_model/index.html \
-https://github.com/Rhqo/Toy-Models-of-Superposition
+Paper: [Toy Models of Superpositions](https://transformer-circuits.pub/2022/toy_model/index.html) \
+Official Github: https://github.com/anthropics/toy-models-of-superposition \
+My Github: https://github.com/Rhqo/Toy-Models-of-Superposition
 
 > [!Abstract] Abstract
 > Neural networks often pack many unrelated concepts into a single neuron – a puzzling phenomenon known as 'polysemanticity' which makes interpretability much more challenging. This paper provides a toy model where polysemanticity can be fully understood, arising as a result of models storing additional sparse features in "superposition." We demonstrate the existence of a phase change, a surprising connection to the geometry of uniform polytopes, and evidence of a link to adversarial examples. We also discuss potential implications for mechanistic interpretability.
@@ -578,7 +579,7 @@ Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되
 ![[TMS_22.png]]
 
 우리가 충분히 sparse하게 만들면, phase change가 발생하여 pentagon에서 digon로 붕괴되며, 밀집하지 않은 점은 zero로 위치하게 된다. \
-이 phase change는 두 가지 다른 기하학이 교차하는 loss curve에 해당한다. \
+이 phase change는 두 가지 다른 기하학이 교차하는 loss curve에 해당한다.
 
 ![[TMS_23.png]]
 
@@ -586,6 +587,10 @@ Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되
 > [!Tips] Experiment
 > ![[TMS_24.png]]
 > 
-> 다음은 한 feature를 
+> 한 feature의 sparsity를 변화시키며 phase change를 관찰해 보았다. \
+> Sparsity를 증가시키게 되면 
+> 아무리 작은 단위로 쪼개어도 digons와 pentagon 형태만을 가지게 된다.
+> 
+> [Github](https://github.com/Rhqo/Toy-Models-of-Superposition)
 
 
