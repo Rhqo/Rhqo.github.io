@@ -587,10 +587,10 @@ Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되
 > [!Tips] Experiment
 > ![[TMS_24.png]]
 > 
-> 한 feature의 sparsity를 변화시키며 phase change를 관찰해 보았다. \
-> Sparsity를 증가시키게 되면 
-> 아무리 작은 단위로 쪼개어도 digons와 pentagon 형태만을 가지게 된다.
-> 
-> [Github](https://github.com/Rhqo/Toy-Models-of-Superposition)
+> 한 feature의 density를 증가(sparsity는 감소)시키면, pentagon을 택할 확률이 높아진다. \
+> 또한, density를 증가시키면, 점점 uniform하게 고정시킨 다른 feature들이 해당 feature에 대해 점점 밀려나는 모습을 보인다. \
+> 아무리 작은 단위로 쪼개서 phase를 확인해봐도, digons와 pentagon 형태만 보임을 알 수 있다. \
+> 해당 코드는 [My Github](https://github.com/Rhqo/Toy-Models-of-Superposition)의 **KBH_Toy_Models_3**에서 sparsity와 instance 갯수를 바꿔가며 실험해볼 수 있다.
 
-
+이 결과는, 일부 경우에서, non-uniform superposition이 uniform superposition의 변형이자 uniform superposition 구성 간의 전환으로 이해될 수 있으며, 완전히 다른 체제가 아님을 제안하는 것처럼 보인다. \
+Uniform superposition은 이해할 수 있는 구조가 많이 있지만, 실제 세계의 superposition은 거의 확실히 non-uniform하다는 점에서 매우 유망하게 보인다.
