@@ -575,4 +575,17 @@ Uniform case에서는, 중요도 $I=1$ 과 sparsity $1-S=0.05$ 를 가지게 되
 해당 feature의 sparsity를 낮추게 되면, 더 자주 활성화되어(yellow), 다른 feature들이 해당 feature로부터 밀려나면서 더 많은 공간을 가지게 된다. \
 반대로, sparse하게 만들면, 덜 자주 활성화되어(blue), 덜 공간을 차지하고 다른 feature들이 그쪽으로 밀려난다.
 
-우리가 충분히 sparse하게 만들면, phase 변화가 발생하여 pentagon에서 digon로 붕괴되며, 밀집하지 않은 점은 제로로 위치하게 됩니다. 이 상 변화는 두 가지 다른 기하학이 교차하는 손실 곡선에 해당합니다.
+![[TMS_22.png]]
+
+우리가 충분히 sparse하게 만들면, phase change가 발생하여 pentagon에서 digon로 붕괴되며, 밀집하지 않은 점은 zero로 위치하게 된다. \
+이 phase change는 두 가지 다른 기하학이 교차하는 loss curve에 해당한다. \
+
+![[TMS_23.png]]
+
+
+> [!Tips] Experiment
+> ![[TMS_24.png]]
+> 
+> 다음은 한 feature를 
+
+
