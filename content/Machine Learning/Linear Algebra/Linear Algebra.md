@@ -145,3 +145,5 @@ Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다�
 그런 다음 선택적 장이 제공되며, 오늘날 응용 분야에서 가장 활발한 deep learning이라는 주제로 이어진다.
 
 ## The Four Fundamental Subspaces
+지난 챕터에서, Matrix $A$ 로부터 2가지 step을 시행했다.
+
