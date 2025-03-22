@@ -62,6 +62,15 @@ Linear algebra는 모든 column space를 이해하는 것을 목적으로 하며
 3차원의 모든 점을 생성하기 위해서는, 3개의 independent한 column이 필요하다.
 
 ## Matrix Multiplication $A=CR$
-
-
+"Linear combination"과 "independent columns"는 $3 \times 4$ matrix $A$를 잘 표현한다. \
+Column 3은 linear combination이며, Column 1, 2, 4는 independent하다.
+Matrix $C$의 column은 $A$의 independent한 column들을 뽑고, \
+Matrix $R$의 column은 $A$의 column을 생성하는 $C$의 combination들을 알려준다.
+$$
+	A =
+	\begin{bmatrix}
+	2 & 1 & 3 & 0 \\
+	3 & 3 
+	\end{bmatrix}
+$$
 ## Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
