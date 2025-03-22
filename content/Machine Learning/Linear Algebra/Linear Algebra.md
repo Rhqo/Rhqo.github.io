@@ -179,5 +179,12 @@ Orthogonal matrix는 column이 perpendicualr unit vector이기 때문에 결국 
 $$
 	\text{2 by 2 Orthogonal Matrix} = 
 	\begin{bmatrix}
-	\end{b}
+	\cos\theta & -\sin\theta \\
+	\sin\theta & \cos\theta
+	\end{bmatrix} =
+	\text{Rotation by Angle}\;\theta
 $$
+
+> [!Tip] Why orthogonal matrix is perfection?
+> Orthogonal vector에 대해 이후에 다루겠지만, 저자가 이런 표현을 쓴 이유는 orthogonal vector의 여러 성질 때문일 것이다.
+> 항상 linearly independent하다, transpose와 inverse가 같다, projection의 단순해진다, 등의 여러가지 성질 덕분에 orthogonal matrix는 수학적으로 아름답고 실용적으로도 매우 유용한 "완벽한" 행렬로 여겨진다.
