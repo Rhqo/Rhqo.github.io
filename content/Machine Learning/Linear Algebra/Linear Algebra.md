@@ -186,10 +186,10 @@ $$
 $$
 
 > [!Tip] Why orthogonal matrix is perfection?
-> Orthogonal vector에 대해 이후에 다루겠지만, 저자가 이런 표현을 쓴 이유는 orthogonal vector의 여러 성질 때문일 것이다.
-> 항상 linearly independent하다, transpose와 inverse가 같다, projection의 단순해진다, 등의 여러가지 성질 덕분에 orthogonal matrix는 수학적으로 아름답고 실용적으로도 매우 유용한 "완벽한" 행렬로 여겨진다.
+> 저자가 이런 표현을 쓴 이유는 orthogonal vector의 여러 성질 때문일 것이다. \
+> Orthogonal matrix에 대해서는 이후에 자세히 설명하겠지만, 항상 linearly independent하다, transpose와 inverse가 같다, projection의 단순해진다 등의 여러가지 성질 덕분에 orthogonal matrix는 수학적으로 아름답고 실용적으로도 매우 유용한 "완벽한" 행렬로 여겨진다.
 
-다음은 Chapter 1, 2, 4, 6, 7의 5가지 factorization이다. \
+다음은 Chapter 1, 2, 4, 6, 7의 5가지 factorization이다.
 $$
 	A = CR = R \text{ combines independent columns in } C \text{ to give all columns of } A
 $$
