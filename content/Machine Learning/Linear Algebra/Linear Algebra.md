@@ -134,8 +134,8 @@ $$
 	CR
 $$
 ## Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
-Section 1.3에서는 $\text{a matrix} \times \text{a vector}$ 에 대해 다루며, \
-section 1.4에서는 $\text{a matrix} \times \text{a matrix}$에 대해 다룬다. \
+Section 1.3에서는 "$\text{a matrix} \times \text{a vector}$" 에 대해 다루며, \
+section 1.4에서는 "$\text{a matrix} \times \text{a matrix}$" 에 대해 다룬다. \
 이들은 linear algebra의 중요한 operation들이다. \
 이 곱셈을 할 수 있는 좋은 방법이 여러 가지 있다는 것이 중요하다.
 
@@ -145,5 +145,6 @@ Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다�
 그런 다음 선택적 장이 제공되며, 오늘날 응용 분야에서 가장 활발한 deep learning이라는 주제로 이어진다.
 
 ## The Four Fundamental Subspaces
-지난 챕터에서, Matrix $A$ 로부터 2가지 step을 시행했다.
-
+지난 챕터에서, Matrix $A$ 로부터 2가지 step을 시행했다. \
+1. 첫번째 step은 모든 column의 조합 $ca_1 + da_2 + ea_3 + fa_4$ 을 취하고, 이를 통해 column space를 생성하는 것이다.
+2. 두번째 step은 행렬을 C 곱하기 R로 인수분해하는 것이다. 그 행렬 C는 전체 독립적인 열 집합을 가지고 있습니다.
