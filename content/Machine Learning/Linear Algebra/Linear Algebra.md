@@ -15,7 +15,11 @@ tags:
 $$
 	\text{Linear Combination} = ca_1 + da_2 \; \text{ for any numbers c and d}
 $$
-![[Pasted image 20250322171330.png]]
+![[preface_0.png]]
 
-**Matrix** : linear algebra의 fundamental idea이다. \
-Matrix $A$ 는 n개의 column vector
+이제 linear algebra의 fundamental idea가 등장한다 : **a matrix**
+Matrix $A$ 는 n개의 column vectors $a_1, a_2, a_3, ..., a_n$ 을 가지며, 위의 경우 3차원 공간상의 두 column vector $a_1, a_2$ 를 의미한다. \
+따라서, $A$는 3개의 row($dimension$)와 2개의 column($n$)을 가진다. \
+3차원 공간상의 2개의 column의 combination들은 plane을 생성하며, 이를 matrix의 ==column space==라고 부른다.
+
+모든 $A$에 대해서, $A$의 column space는 
