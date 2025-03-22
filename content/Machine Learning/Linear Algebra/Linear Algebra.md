@@ -10,6 +10,7 @@ tags:
 	- 1.3 Matrices and Their Column Spaces
 	- 1.4 Matrix Multiplication $AB$ and $CR$
 - ### 2. Solving Linear Equations $Ax=b$
+	- 
 - ### 3. The Four Fundamental Subspaces
 - ### 4. Orthogonality
 - ### 5. Determinants
