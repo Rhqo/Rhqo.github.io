@@ -63,14 +63,37 @@ Linear algebra는 모든 column space를 이해하는 것을 목적으로 하며
 
 ## Matrix Multiplication $A=CR$
 "Linear combination"과 "independent columns"는 $3 \times 4$ matrix $A$를 잘 표현한다. \
-Column 3은 linear combination이며, Column 1, 2, 4는 independent하다.
+Column 3은 linear combination이며, Column 1, 2, 4는 independent하다. \
 Matrix $C$의 column은 $A$의 independent한 column들을 뽑고, \
 Matrix $R$의 column은 $A$의 column을 생성하는 $C$의 combination들을 알려준다.
 $$
 	A =
 	\begin{bmatrix}
 	2 & 1 & 3 & 0 \\
-	3 & 3 
+	3 & 4 & 7 & 0 \\
+	1 & 2 & 3 & -1
+	\end{bmatrix} =
+	\begin{bmatrix}
+	2 & 1 & 0 \\
+	3 & 4 & 0 \\
+	1 & 2 & -1
 	\end{bmatrix}
+	\begin{bmatrix}
+	1 & 0 & 1 & 0 \\
+	0 & 1 & 1 & 0 \\
+	0 & 0 & 0 & 1
+	\end{bmatrix} =
+	CR
 $$
 ## Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
+Section 1.3에서는 $\text{a matrix} \times \text{a vector}$ 에 대해 다루며, \
+section 1.4에서는 $\text{a matrix} \times \text{a matrix}$에 대해 다룬다. \
+이들은 linear algebra의 중요한 operation들이다. \
+이 곱셈을 할 수 있는 좋은 방법이 한가지만 있는 것이 아니라는 것이 중요하다.
+
+Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다룰 것이다. \
+다음 페이지에서는 이 주제를 구성하는 두 가지 방법을 알려준다. \
+특히 대부분의 linear algebra 과정을 채우는 첫 일곱 개의 장을 소개한다. \
+그런 다음 선택적 장이 제공되며, 오늘날 응용 분야에서 가장 활발한 deep learning이라는 주제로 이어진다.
+
+## The Four Fundamental Subspaces
