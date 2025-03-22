@@ -209,4 +209,11 @@ Symmetric matrix S를 orthogonal matrix Q와 $\Lambda$의 Eigenvalue로 factoriz
 $$
 	 A = U\Sigma V^T = \text{(Orthogonal U) (Singular values in }\Sigma\text{) (Orthogonal }V^T\text{)}
 $$
-Afmf 
+$A$를 orthogonal matrix $U$, $V$와 $\Sigma$의 Singular value로 factorization, decomposition.
+
+특히 7장의 $A = U\Sigma V^T$ 는 **Singular Value Decomposition(SVD)** 라고 하며, 모든 matrix A에 대해 적용가능하다. \
+$U$와 $V$는 모두 길이가 1인 perpendicular column을 가지고 있다. \
+Vector에 $U$ 또는 $V$를 곱하면 동일한 길이의 vector가 남기 때문에 계산이 크게 증가하거나 감소하지 않는다. \
+그리고 $\Sigma$는 sigular value의 positive diagonal matrix이다. \
+Chapter 6에서 eigen values와 eigen vectors에 대해 배운 후, Chapter 7.1에서 singular value에 대해 다룰 것이다.
+
