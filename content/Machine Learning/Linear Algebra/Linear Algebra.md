@@ -152,3 +152,9 @@ Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다�
 모든 matrix는 4개의 fundamental subspace를 가지고 있다. \
 A의 column space 뿐 만 아니라, 모든 row combination의 **row space**도 존재한다. \
 n개의 column과 m개의 row의 모든 combination을 취할 때, 이러한 combination들은 벡터의 "space"를 채운다.
+
+다른 2개의 subspace가 그림을 완성시킬 것이다. \
+Row space가 3 차원 plane이라고 가정해보자. \
+그러면 3D 그림에서 한개의 특별한 방향이 있는데, 그 방향은 row space에 perpendicular하다. \
+이 perpendicular line은 matrix의 **null space**를 의미한다. \
+
