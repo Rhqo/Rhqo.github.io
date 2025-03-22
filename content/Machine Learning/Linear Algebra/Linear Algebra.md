@@ -193,12 +193,20 @@ $$
 $$
 	A = CR = R \text{ combines independent columns in } C \text{ to give all columns of } A
 $$
-$R$은 $C$의 independent column을 combine하여 $A$의 모든 column을 제공한다.
+$R$은 $C$의 independent column을 combine하여 $A$의 모든 column을 제공.
 $$
 	A=LU = \text{Lower triangular } L \text{ times Upper triangular } U
 $$
-$A$를 lower triangular matrix $L$과 upper triangular matrix $U$의 곱으로 표현 가능하다.
+$A$를 lower triangular matrix $L$과 upper triangular matrix $U$으로 factorization.
 $$
 	A=QR = \text{Orthogonal matrix } Q \text{ times Upper triangular } R
 $$
-$A$를 orthogonal matrix Q와 upper triangular matrix R의 곱으로 표현 가능하다.
+$A$를 orthogonal matrix $Q$와 upper triangular matrix $R$으로 factorization.
+$$
+	S = Q \Lambda Q^T = \text{(Orthogonal Q) (Eigenvalues in }\Lambda\text{) (Orthogonal }Q^T\text{)}
+$$
+Symmetric matrix S를 orthogonal matrix Q와 $\Lambda$의 Eigenvalue로 factorization, diagonalization.
+$$
+	 A = U\Sigma V^T = \text{(Orthogonal U) (Singular values in }\Sigma\text{) (Orthogonal }V^T\text{)}
+$$
+Afmf 
