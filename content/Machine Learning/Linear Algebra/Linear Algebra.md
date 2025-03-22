@@ -10,14 +10,43 @@ tags:
 	- 1.3 Matrices and Their Column Spaces
 	- 1.4 Matrix Multiplication $AB$ and $CR$
 - ### 2. Solving Linear Equations $Ax=b$
-	- 
+	- 2.1 Elimination and Back Substitution
+	- 2.2 Elimination Matrices and Inverse Matrices
+	- 2.3 Matrix Computationsand $A=LU$
+	- 2.4 Permutations and Transposes
+	- 2.5 Derivatives and Finite Difference Matrices
 - ### 3. The Four Fundamental Subspaces
+	- 3.1 Vector Spacesand Subspaces
+	- 3.2 Computing the Nullspace by Eliminationn: A=CR
+	- 3.3 The Complete Solutionto Ax =b
+	- 3.4 Dimensions of the Four Subspaces
+	- 3.5 Dimensions of the Four Subspaces
 - ### 4. Orthogonality
+	- 4.1 Orthogonality of Vectors and Subspaces
+	- 4.2 Projections onto Lines and Subspaces
+	- 4.3 Least Squares Approximations
+	- 4.4 Orthonormal Bases and Gram-Schmude
+	- 4.5 The Pseudoinverse of a Matrix
 - ### 5. Determinants
+	- 3 by 3 Determinants and Cofactors
+	- Computing and Using Determinants
+	- Areas and Volumes by Determinants
 - ### 6. Eigenvalues and Eigenvectors
+	- 6.1 IntroductiontoEigenvalues: Ax=Ax
+	- 6.2 Diagonalizing a Matrix
+	- 6.3 Symmetric Positive Definite Matrices
+	- 6.4 Complex Numbers and Vectorsand Matrices
+	- 6.5 Solving Linear Differential Equations
 - ### 7. The Singular Value Decomposition (SVD)
+	- 7.1 Singular Values and Singular Vectors
+	- 7.2 Image Processing by Linear Algebra
+	- 7.3 Principal Component Analysis (PCA by the SVD)
 - ### 8. Linear Transformations
+	- The Idea of a Linear Transformation
+	- The Matrix of a Linear Transformation
+	- The Search for a Good Basis
 - ### 9. Linear Algebra in Optimization
+	- Minimizing a Multivanable Function
 - ### 10. Learning from Data
 # Preface
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
