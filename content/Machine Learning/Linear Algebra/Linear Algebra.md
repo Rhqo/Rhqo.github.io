@@ -21,7 +21,15 @@ $$
 Matrix $A$ 는 n개의 column vectors $a_1, a_2, a_3, ..., a_n$ 을 가지며, 위의 경우 3차원 공간상의 두 column vector $a_1, a_2$ 를 의미한다. \
 따라서, $A$는 3개의 row($dimension$)와 2개의 column($n$)을 가진다. 
 $$
-	
+	A = 
+	\begin{bmatrix}
+	a_1 & a_2
+	\end{bmatrix} =
+	\begin{bmatrix}
+	2 & 1 \\
+	3 & 4 \\
+	1 & 2
+	\end{bmatrix}
 $$
 3차원 공간상의 2개의 column의 combination들은 plane을 생성하며, 이를 matrix의 **column space**라고 부른다.
 모든 $A$에 대해서, $A$의 column space는 column의 모든 combination들을 포함한다.
@@ -34,3 +42,16 @@ $$
 > 4. **Column space of the matrix** = all linear combinations of the columns = plane
 
 이제 $A$가 2개 이상의 column을 가질 때를 생각해보자.
+$$
+	A = 
+	\begin{bmatrix}
+	2 & 1 & 3 & 0 \\
+	3 & 4 & 7 & 0 \\
+	1 & 2 & 3 & -1
+	\end{bmatrix}
+$$
+Linear algebra는 모든 column space를 이해하는 것을 목적으로 하며, \
+이를 행렬 $A$에 대해서도 시도해보자.
+- Column 1과 2는 이전과 같은 평면을 이룬다.
+- Column 3 $a_3 = a_1 + a_2$ 이므로 해당 plane에 있고, 새로운 기여를 하지 않는다.
+- Column 4 는 해당 plane에 있지 않다: $c_4a_4$ 는 plane을 높이거나 낮춘다.
