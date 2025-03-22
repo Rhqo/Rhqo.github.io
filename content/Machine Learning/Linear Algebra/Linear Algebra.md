@@ -7,6 +7,7 @@ tags:
 
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
 
+## Introduction
 두 column 벡터 $a_1, a_2$ 와 $\text{zero vector}$를 가정하고 시작하자. \
 이들은 3차원 공간의 한 점에 대응한다.
 
@@ -54,4 +55,13 @@ Linear algebra는 모든 column space를 이해하는 것을 목적으로 하며
 이를 행렬 $A$에 대해서도 시도해보자.
 - Column 1과 2는 이전과 같은 평면을 이룬다.
 - Column 3 $a_3 = a_1 + a_2$ 이므로 해당 plane에 있고, 새로운 기여를 하지 않는다.
-- Column 4 는 해당 plane에 있지 않다: $c_4a_4$ 는 plane을 높이거나 낮춘다.
+- Column 4 는 해당 plane에 있지 않다: $c_4a_4$ 는 plane을 높이거나 낮춘다.\
+	행렬 $A$의 column space는 전체 3차원 공간이다!
+
+각각의 column은 서로 independent 할 수 있고, combination이 될 수 있다. \
+3차원의 모든 점을 생성하기 위해서는, 3개의 independent한 column이 필요하다.
+
+## Matrix Multiplication $A=CR$
+
+
+## Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
