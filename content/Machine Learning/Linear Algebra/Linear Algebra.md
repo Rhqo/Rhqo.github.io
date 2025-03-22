@@ -3,10 +3,23 @@ title: Linear Algebra
 tags:
   - section
 ---
+# Index
+- ### 1. Vectors and Matrices
+	- 1.1 Vectors and Linear Combinations
+	- 1.2 Lengths and Angles from Dot Products
+	- 1.3 Matrices and Their Column Spaces
+	- 1.4 Matrix Multiplication $AB$ and $CR$
+- ### 2. Solving Linear Equations $Ax=b$
+- ### 3. The Four Fundamental Subspaces
+- ### 4. Orthogonality
+- ### 5. Determinants
+- ### 6. Eigenvalues and Eigenvectors
+- ### 7. The Singular Value Decomposition (SVD)
+- ### 8. Linear Transformations
+- ### 9. Linear Algebra in Optimization
+- ### 10. Learning from Data
 # Preface
-
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
-
 ## Introduction
 두 column 벡터 $a_1, a_2$ 와 $\text{zero vector}$를 가정하고 시작하자. \
 이들은 3차원 공간의 한 점에 대응한다.
