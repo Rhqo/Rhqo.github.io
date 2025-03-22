@@ -17,8 +17,8 @@ tags:
 	- 2.5 Derivatives and Finite Difference Matrices
 - ### 3. The Four Fundamental Subspaces
 	- 3.1 Vector Spacesand Subspaces
-	- 3.2 Computing the Nullspace by Eliminationn: A=CR
-	- 3.3 The Complete Solutionto Ax =b
+	- 3.2 Computing the Nullspace by Eliminationn: $A=CR$
+	- 3.3 The Complete Solutionto $Ax =b$
 	- 3.4 Dimensions of the Four Subspaces
 	- 3.5 Dimensions of the Four Subspaces
 - ### 4. Orthogonality
@@ -32,7 +32,7 @@ tags:
 	- Computing and Using Determinants
 	- Areas and Volumes by Determinants
 - ### 6. Eigenvalues and Eigenvectors
-	- 6.1 IntroductiontoEigenvalues: Ax=Ax
+	- 6.1 Introduction to Eigenvalues: $Ax=Ax$
 	- 6.2 Diagonalizing a Matrix
 	- 6.3 Symmetric Positive Definite Matrices
 	- 6.4 Complex Numbers and Vectorsand Matrices
@@ -42,12 +42,17 @@ tags:
 	- 7.2 Image Processing by Linear Algebra
 	- 7.3 Principal Component Analysis (PCA by the SVD)
 - ### 8. Linear Transformations
-	- The Idea of a Linear Transformation
-	- The Matrix of a Linear Transformation
-	- The Search for a Good Basis
+	- 8.1 The Idea of a Linear Transformation
+	- 8.2 The Matrix of a Linear Transformation
+	- 8.3 The Search for a Good Basis
 - ### 9. Linear Algebra in Optimization
-	- Minimizing a Multivanable Function
+	- 9.1 Minimizing a Multivanable Function
+	- 9.2 Backpropagation and Stochastic Gradient Descent
+	- 9.3 Constraints, Lagrange Multipliers, Minimum Norms
 - ### 10. Learning from Data
+	- 10.1 Piecewise Linear Learning Functions
+	- 10.2 Creating and Experimenting
+	- 10.3 Mean, Variance, and Covariance
 # Preface
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
 ## Introduction
