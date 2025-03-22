@@ -56,10 +56,10 @@ tags:
 # Preface
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
 ## Introduction
-두 column 벡터 $a_1, a_2$ 와 $\text{zero vector}$를 가정하고 시작하자. \
+두 column vector $a_1, a_2$ 와 $\text{zero vector}$를 가정하고 시작하자. \
 이들은 3차원 공간의 한 점에 대응한다.
 
-이 두 벡터를  $\text{Linear Combination}$을 사용하여 나타낼 수 있으며, 이 combination들은 한 평면을 모두 차지한다. \
+이 두 vector를  $\text{Linear Combination}$을 사용하여 나타낼 수 있으며, 이 combination들은 한 평면을 모두 차지한다. \
 3차원 공간상의 무한한 평면이다.
 $$
 	\text{Linear Combination} = ca_1 + da_2 \; \text{ for any numbers c and d}
@@ -151,10 +151,17 @@ Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다�
 
 모든 matrix는 4개의 fundamental subspace를 가지고 있다. \
 A의 column space 뿐 만 아니라, 모든 row combination의 **row space**도 존재한다. \
-n개의 column과 m개의 row의 모든 combination을 취할 때, 이러한 combination들은 벡터의 "space"를 채운다.
+n개의 column과 m개의 row의 모든 combination을 취할 때, 이러한 combination들은 vector의 "space"를 채운다.
 
 다른 2개의 subspace가 그림을 완성시킬 것이다. \
 Row space가 3 차원 plane이라고 가정해보자. \
 그러면 3D 그림에서 한개의 특별한 방향이 있는데, 그 방향은 row space에 perpendicular하다. \
 이 perpendicular line은 matrix의 **null space**를 의미한다. \
+우리는 모든 row에 perpendicular한 null space의 vector들이 가장 기본적인 linear equation인 $Ax = 0$을 푸는 것을 보게 될 것이다. \
+그리고, 모든 row에 perpendicualr인 vector가 중요하다면 모든 column에 perpendicular인 vector도 중요할 것이다. \
+다음은 위에서 설명한 4가지fundamental subspace의 그림이다.
 
+![[preface_1.png]]
+
+이 그림은 Chapter 3에서 다시 보게 되며, perpendicular space에 대한 idea는 Chapter 4에서 발전시킨다. \
+그리고 
