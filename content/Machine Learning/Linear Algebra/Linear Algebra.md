@@ -170,9 +170,14 @@ Row space가 3 차원 plane이라고 가정해보자. \
 
 ## Five Factorizations of a Matrix
 다음은 linear algebra의 organizing principles이다. \
-Matrix가 특별한 속성을 가질 때 이러한 인수분해가 이를 보여준다. \
+Matrix가 특별한 속성을 가질 때 이러한 factorization이 이를 보여준다. \
 장이 끝나면 핵심 아이디어를 직접적이고 유용한 방식으로 표현한다.
 
 목록을 내려갈수록 유용성이 증가한다. \
 Orthogonal matrix는 column이 perpendicualr unit vector이기 때문에 결국 승자가 된다. \
-
+이것이 완벽함이다.
+$$
+	\text{2 by 2 Orthogonal Matrix} = 
+	\begin{bmatrix}
+	\end{b}
+$$
