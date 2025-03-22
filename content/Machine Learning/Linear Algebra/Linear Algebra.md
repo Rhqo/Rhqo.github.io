@@ -159,9 +159,20 @@ Row space가 3 차원 plane이라고 가정해보자. \
 이 perpendicular line은 matrix의 **null space**를 의미한다. \
 우리는 모든 row에 perpendicular한 null space의 vector들이 가장 기본적인 linear equation인 $Ax = 0$을 푸는 것을 보게 될 것이다. \
 그리고, 모든 row에 perpendicualr인 vector가 중요하다면 모든 column에 perpendicular인 vector도 중요할 것이다. \
-다음은 위에서 설명한 4가지fundamental subspace의 그림이다.
+다음은 위에서 설명한 4가지의 fundamental subspace의 그림이다.
 
 ![[preface_1.png]]
 
 이 그림은 Chapter 3에서 다시 보게 되며, perpendicular space에 대한 idea는 Chapter 4에서 발전시킨다. \
-그리고 
+그리고 4개의 subspace에 대한 특별한 "basis vectors"는 Chapter 7에서 다시 다루게 된다. \
+그 단계는 fundamental theorem of linear algebra의 마지막 부분이다. \
+이 theorem에는 정사각형 또는 직사각형 matrix에 대한 놀라운 사실이 포함되어 있다: independent column의 수는 independent row의 수와 같다.
+
+## Five Factorizations of a Matrix
+다음은 linear algebra의 organizing principles이다. \
+Matrix가 특별한 속성을 가질 때 이러한 인수분해가 이를 보여준다. \
+장이 끝나면 핵심 아이디어를 직접적이고 유용한 방식으로 표현한다.
+
+목록을 내려갈수록 유용성이 증가한다. \
+Orthogonal matrix는 column이 perpendicualr unit vector이기 때문에 결국 승자가 된다. \
+
