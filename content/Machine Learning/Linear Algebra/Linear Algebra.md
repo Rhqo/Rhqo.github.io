@@ -89,7 +89,7 @@ $$
 Section 1.3에서는 $\text{a matrix} \times \text{a vector}$ 에 대해 다루며, \
 section 1.4에서는 $\text{a matrix} \times \text{a matrix}$에 대해 다룬다. \
 이들은 linear algebra의 중요한 operation들이다. \
-이 곱셈을 할 수 있는 좋은 방법이 한가지만 있는 것이 아니라는 것이 중요하다.
+이 곱셈을 할 수 있는 좋은 방법이 여러 가지 있다는 것이 중요하다.
 
 Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다룰 것이다. \
 다음 페이지에서는 이 주제를 구성하는 두 가지 방법을 알려준다. \
