@@ -13,18 +13,18 @@ tags:
 	- 0.4 The Four Fundamental Subspaces
 	- 0.5 Five Factorizations of a Matrix
 	- 0.6 Deep Learning
-- ### 1. Vectors and Matrices
+- ### [[1. Vectors and Matrices]]
 	- 1.1 Vectors and Linear Combinations
 	- 1.2 Lengths and Angles from Dot Products
 	- 1.3 Matrices and Their Column Spaces
 	- 1.4 Matrix Multiplication $AB$ and $CR$
-- ### 2. Solving Linear Equations $Ax=b$
+- ### 2. [[Solving Linear Equations $Ax=b$]]
 	- 2.1 Elimination and Back Substitution
 	- 2.2 Elimination Matrices and Inverse Matrices
 	- 2.3 Matrix Computationsand $A=LU$
 	- 2.4 Permutations and Transposes
 	- 2.5 Derivatives and Finite Difference Matrices
-- ### 3. The Four Fundamental Subspaces
+- ### [[3. The Four Fundamental Subspaces]]
 	- 3.1 Vector Spacesand Subspaces
 	- 3.2 Computing the Nullspace by Eliminationn: $A=CR$
 	- 3.3 The Complete Solutionto $Ax =b$
