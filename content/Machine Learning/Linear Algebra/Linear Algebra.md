@@ -54,7 +54,8 @@ tags:
 	- 10.2 Creating and Experimenting
 	- 10.3 Mean, Variance, and Covariance
 # Preface
-[MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
+[MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8) \
+[Introduction to Linear Algebra Website](https://math.mit.edu/~gs/linearalgebra/)
 ## Introduction
 두 column vector $a_1, a_2$ 와 $\text{zero vector}$를 가정하고 시작하자. \
 이들은 3차원 공간의 한 점에 대응한다.
@@ -145,9 +146,9 @@ Preface의 목적은 큰 그림을 그리는 것이므로, 여기까지만 다�
 그런 다음 선택적 장이 제공되며, 오늘날 응용 분야에서 가장 활발한 deep learning이라는 주제로 이어진다.
 
 ## The Four Fundamental Subspaces
-지난 챕터에서, Matrix $A$ 로부터 2가지 step을 시행했다.
-1. 첫번째 step은 모든 column의 조합 $ca_1 + da_2 + ea_3 + fa_4$ 을 취하고, 이를 통해 column space를 생성하는 것이다.
-2. 두번째 step은 matrix $A$를 $C$ 곱하기 $R$로 인수분해하는 것이고, 이 matrix $C$ 는 전체 independent column 집합을 가지고 있다.
+지난 챕터에서, Matrix $A$ 로부터 2가지 step을 시행했다. \
+첫번째 step은 모든 column의 조합 $ca_1 + da_2 + ea_3 + fa_4$ 을 취하고, 이를 통해 column space를 생성하는 것이다. \
+두번째 step은 matrix $A$를 $C$ 곱하기 $R$로 인수분해하는 것이고, 이 matrix $C$ 는 전체 independent column 집합을 가지고 있다.
 
 모든 matrix는 4개의 fundamental subspace를 가지고 있다. \
 A의 column space 뿐 만 아니라, 모든 row combination의 **row space**도 존재한다. \
@@ -228,6 +229,11 @@ Completenesss은 완전히 불가능할 것이다. \
 우리의 목표는 variables 간의 연결을 찾기 위해 matrix 내부를 살펴보는 것이다.  
 Matrix equation이나 알려진 input-output rule을 표현하는 differential equation을 푸는 대신, 우리는 그 규칙들을 찾아야 한다. \
 딥러닝의 성공은 두 가지 종류의 입력 $x$와 $v$를 가진 함수 $F(x, v)$를 구축하는 것이다:
-- Vector v는 training data의 feature를 나타낸다.
-- Matrix x는 해당 feature들에 weight를 할당한다.
-- Function $F(x, v)$는 해당 training data $v$에 대한 올바른 출력에 가깝습니다.
+- Vector $v$는 training data의 feature를 나타낸다.
+- Matrix $x$는 해당 feature들에 weight를 할당한다.
+- Function $F(x, v)$는 해당 training data $v$에 대한 올바른 output에 가깝다.
+- $v$가 unseen test data로 변경되어도 $F(x, v)$는 올바른 값에 가깝게 유지된다.
+
+이 성공은 부분적으로 방대한 양의 데이터를 포함할 수 있는 learning function $F$의 형태에서 비롯된다. \
+결국, linear function $F$는 완전히 불충분할 것이다. \
+$F$에 가장 적합한 선택은 piecewise linear 이다. 이는 simplicity과 generality을 결합한 것이다.
