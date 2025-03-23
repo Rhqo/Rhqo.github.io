@@ -218,3 +218,16 @@ Vector에 $U$ 또는 $V$를 곱하면 동일한 길이의 vector가 남기 때�
 Chapter 6에서 eigen values와 eigen vectors에 대해 배운 후, Chapter 7.1에서 singular value에 대해 다룰 것이다.
 
 ## Deep Learning
+선형 대수학의 진정한 그림을 그리기 위해서는 응용 프로그램이 포함되어야 한다. \
+Completenesss은 완전히 불가능할 것이다. \
+현재 응용 수학의 지배적인 방향에는 한 가지 특별한 요구 사항이 있다: 완전히 linear일 수는 없다!
+
+그 방향 중 하나가 "deep learning" 이다. \
+그것은 fundamental한 과학적 문제에 대한 매우 성공적인 접근 방식이다: **Learning from data**. \
+많은 경우에서, data는 matrix 형태로 표현이 가능하다. \
+우리의 목표는 variables 간의 연결을 찾기 위해 matrix 내부를 살펴보는 것이다.  
+Matrix equation이나 알려진 input-output rule을 표현하는 differential equation을 푸는 대신, 우리는 그 규칙들을 찾아야 한다. \
+딥러닝의 성공은 두 가지 종류의 입력 $x$와 $v$를 가진 함수 $F(x, v)$를 구축하는 것이다:
+- Vector v는 training data의 feature를 나타낸다.
+- Matrix x는 해당 feature들에 weight를 할당한다.
+- Function $F(x, v)$는 해당 training data $v$에 대한 올바른 출력에 가깝습니다.
