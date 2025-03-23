@@ -4,7 +4,16 @@ tags:
   - title
 comments: false
 ---
-
+## What is ML and DL?
+![[ML_0.png]]
+**AI (Artificial Intelligence):**  
+    A broad field focused on building machines that can think, learn, and solve problems like humans.
+    
+**ML (Machine Learning):**  
+    A subset of AI that enables machines to learn from data and make predictions or decisions without explicit programming.
+    
+- **DL (Deep Learning):**  
+    A specialized branch of ML that uses **neural networks**, especially **deep neural networks (DNNs)**, to handle large and complex datasets like images, audio, and text.
 ## [[Basics]]
 
 Basics of Machine Learning
