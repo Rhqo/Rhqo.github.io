@@ -188,4 +188,4 @@ $F$에 가장 적합한 선택은 piecewise linear 이다. 이는 simplicity과 
 Linear algebra 과정이 끝난 후에도 이 책이 여러분에게 유용하기를 바란다. \  
 이것을 가능하게 하는 것은 모두 linar algebra의 application이다. \
 Matrix는 data를 전달하며, 다른 matrix들은 그 data를 기반으로 작동한다. \ 
-목표는 eigen value와 eigen vector, singular value와 singular vector를 이해하여 "**see into a matrix**"다. \ 
+목표는 eigen value와 eigen vector, singular value와 singular vector를 이해하여 "**see into a matrix**"하는 것이다. \ 
