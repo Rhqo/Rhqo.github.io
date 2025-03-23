@@ -6,14 +6,11 @@ comments: false
 ---
 ## What is ML and DL?
 ![[ML_0.png]]
-**AI (Artificial Intelligence):**  
-    A broad field focused on building machines that can think, learn, and solve problems like humans.
+**AI (Artificial Intelligence):**  A broad field focused on building machines that can think, learn, and solve problems like humans.
     
-**ML (Machine Learning):**  
-    A subset of AI that enables machines to learn from data and make predictions or decisions without explicit programming.
+**ML (Machine Learning):**  A subset of AI that enables machines to learn from data and make predictions or decisions without explicit programming. In ML, humans often need to **==manually extract relevant features==** from data for the model to learn.
     
-- **DL (Deep Learning):**  
-    A specialized branch of ML that uses **neural networks**, especially **deep neural networks (DNNs)**, to handle large and complex datasets like images, audio, and text.
+**DL (Deep Learning):**  A specialized branch of ML that uses **neural networks**, especially **==deep neural networks (DNNs)==**, to handle large and complex datasets like images, audio, and text.
 ## [[Basics]]
 
 Basics of Machine Learning
@@ -21,5 +18,3 @@ Basics of Machine Learning
 ## [[Toy Models of Superposition/Toy Models of Superposition]]
 
 In order to understand the 'polysemantic' phenomenon in which artificial neural networks compressively store multiple concepts in a single neuron, the superposition of features was studied through a simple ReLU network model using synthetic data.
-
-인공 신경망이 한 뉴런에 여러 개념을 압축적으로 저장하는 'polysemantic' 현상을 이해하기 위해, 합성 데이터를 이용한 간단한 ReLU 네트워크 모델을 통해 특징들의 중첩 현상(superposition)을 연구한 논문.
