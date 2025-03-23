@@ -6,7 +6,7 @@ tags:
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8) \
 [Introduction to Linear Algebra Website](https://math.mit.edu/~gs/linearalgebra/)
 # Index
-- ### 0. [[Preface]]
+- ### [[0. Preface]]
 	- 0.1 Introduction
 	- 0.2 Matrix Multiplication $A=CR$
 	- 0.3 Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
