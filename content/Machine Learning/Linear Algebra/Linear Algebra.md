@@ -217,3 +217,4 @@ Vector에 $U$ 또는 $V$를 곱하면 동일한 길이의 vector가 남기 때�
 그리고 $\Sigma$는 sigular value의 positive diagonal matrix이다. \
 Chapter 6에서 eigen values와 eigen vectors에 대해 배운 후, Chapter 7.1에서 singular value에 대해 다룰 것이다.
 
+## Deep Learning
