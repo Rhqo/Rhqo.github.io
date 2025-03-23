@@ -7,18 +7,12 @@ tags:
 [Introduction to Linear Algebra Website](https://math.mit.edu/~gs/linearalgebra/)
 # Index
 - ### [[0. Preface]]
-	- 0.1 Introduction
-	- 0.2 Matrix Multiplication $A=CR$
-	- 0.3 Matrix Multiplication: Each column $j$ of $CR$ is $C$ times column $j$ of $R$
-	- 0.4 The Four Fundamental Subspaces
-	- 0.5 Five Factorizations of a Matrix
-	- 0.6 Deep Learning
 - ### [[1. Vectors and Matrices]]
 	- 1.1 Vectors and Linear Combinations
 	- 1.2 Lengths and Angles from Dot Products
 	- 1.3 Matrices and Their Column Spaces
 	- 1.4 Matrix Multiplication $AB$ and $CR$
-- ### 2. [[Solving Linear Equations $Ax=b$]]
+- ### [[2. Solving Linear Equations Ax=b]]
 	- 2.1 Elimination and Back Substitution
 	- 2.2 Elimination Matrices and Inverse Matrices
 	- 2.3 Matrix Computationsand $A=LU$
@@ -30,35 +24,35 @@ tags:
 	- 3.3 The Complete Solutionto $Ax =b$
 	- 3.4 Dimensions of the Four Subspaces
 	- 3.5 Dimensions of the Four Subspaces
-- ### 4. Orthogonality
+- ### [[4. Orthogonality]]
 	- 4.1 Orthogonality of Vectors and Subspaces
 	- 4.2 Projections onto Lines and Subspaces
 	- 4.3 Least Squares Approximations
 	- 4.4 Orthonormal Bases and Gram-Schmude
 	- 4.5 The Pseudoinverse of a Matrix
-- ### 5. Determinants
+- ### [[5. Determinants]]
 	- 3 by 3 Determinants and Cofactors
 	- Computing and Using Determinants
 	- Areas and Volumes by Determinants
-- ### 6. Eigenvalues and Eigenvectors
+- ### [[6. Eigenvalues and Eigenvectors]]
 	- 6.1 Introduction to Eigenvalues: $Ax=Ax$
 	- 6.2 Diagonalizing a Matrix
 	- 6.3 Symmetric Positive Definite Matrices
 	- 6.4 Complex Numbers and Vectorsand Matrices
 	- 6.5 Solving Linear Differential Equations
-- ### 7. The Singular Value Decomposition (SVD)
+- ### [[7. The Singular Value Decomposition (SVD)]]
 	- 7.1 Singular Values and Singular Vectors
 	- 7.2 Image Processing by Linear Algebra
 	- 7.3 Principal Component Analysis (PCA by the SVD)
-- ### 8. Linear Transformations
+- ### [[8. Linear Transformations]]
 	- 8.1 The Idea of a Linear Transformation
 	- 8.2 The Matrix of a Linear Transformation
 	- 8.3 The Search for a Good Basis
-- ### 9. Linear Algebra in Optimization
+- ### [[9. Linear Algebra in Optimization]]
 	- 9.1 Minimizing a Multivanable Function
 	- 9.2 Backpropagation and Stochastic Gradient Descent
 	- 9.3 Constraints, Lagrange Multipliers, Minimum Norms
-- ### 10. Learning from Data
+- ### [[10. Learning from Data]]
 	- 10.1 Piecewise Linear Learning Functions
 	- 10.2 Creating and Experimenting
 	- 10.3 Mean, Variance, and Covariance
