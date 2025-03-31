@@ -2,7 +2,7 @@
 title: Linear Algebra
 tags:
   - section
-draft: false
+draft: true
 ---
 [MIT 18.06 Linear Algebra Youtube](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8) \
 [Introduction to Linear Algebra Website](https://math.mit.edu/~gs/linearalgebra/)
