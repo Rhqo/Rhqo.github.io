@@ -103,6 +103,7 @@ CNN이 여러 특징들을 표현하는 방식도 overcomplete basis로 볼 수 
 
 각 뉴런이 어떤 역할을 수행하는지는 toy models of superposition에서 설명 시도함
 
+![image.png](MLP_10.png)
 "언제, 어떻게 모델이 차원에 비해 더 많은 feature를 표현할 수 있는가"에 대한 고찰
 
 ⇒ 정리하자면, **뉴런 수는 해당 Layer가 표현할 수 있는 정보의 차원 수와 복잡도라고 볼 수 있다.**
@@ -115,3 +116,4 @@ CNN이 여러 특징들을 표현하는 방식도 overcomplete basis로 볼 수 
 - [Deepest Documentation - Multi-Layer Perceptron](https://deepestdocs.readthedocs.io/en/latest/004_deep_learning_part_2/0040/)
 - Overcomple Basis - [bartwronski - Compressing PBR material texture sets with sparsity and k-SVD dictionary learning](https://bartwronski.com/2020/08/30/compressing-pbr-texture-sets-with-sparsity-and-dictionary-learning/)
 - CNN weights - [Unsupervised formation of an overcomplete basis for natural image patches](https://www.researchgate.net/figure/Unsupervised-formation-of-an-overcomplete-basis-for-natural-image-patches-A-Learning_fig27_209473897)
+- [Anthropic - Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)
