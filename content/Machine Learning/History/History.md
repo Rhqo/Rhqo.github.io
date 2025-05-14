@@ -5,19 +5,6 @@ tags:
   - section
 ---
 
-### References
-- [https://wikidocs.net/272258](https://wikidocs.net/272258)
-- [https://www.samsungsds.com/kr/insights/1232749_4627.html](https://www.samsungsds.com/kr/insights/1232749_4627.html)
-- Techopedia. (2023). What is the ‘AI winter’ and how did it affect AI research? Retrieved from [www.techopedia.com](http://www.techopedia.com/)
-- Automation Tools AI. (2023). AI Winter: Understanding the Cycle of Hype, Disappointment, and Recovery. Retrieved from [www.automationtools.ai](http://www.automationtools.ai/)
-- AIWS.net. (2021). The market for specialised AI hardware collapsed in 1987. Retrieved from aiws.net
-- [https://en.wikipedia.org/wiki/AI_winter](https://en.wikipedia.org/wiki/AI_winter)
-- [https://kjhov195.github.io/2020-02-10-CNN_architecture_1/](https://kjhov195.github.io/2020-02-10-CNN_architecture_1/)
-- [https://www.youtube.com/watch?v=Ount2Y4qxQo&t=1072s](https://www.youtube.com/watch?v=Ount2Y4qxQo&t=1072s)
-    - [https://x.com/ylecun/status/1097532314614034433](https://x.com/ylecun/status/1097532314614034433)
-- [https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence#:~:text=2016%20%20Google%20%20,up](https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence#:~:text=2016%20%20Google%20%20,up)
-- [https://en.wikipedia.org/wiki/Dartmouth_workshop](https://en.wikipedia.org/wiki/Dartmouth_workshop)
-
 ### Contents
 1. 초기 AI와 ML
 2. 1st AI Winter
@@ -144,3 +131,17 @@ tags:
 (2018년) Google가 BERT 공개
 
 (2020년) OpenAI가 GPT-3 공개
+
+
+### References
+- [https://wikidocs.net/272258](https://wikidocs.net/272258)
+- [https://www.samsungsds.com/kr/insights/1232749_4627.html](https://www.samsungsds.com/kr/insights/1232749_4627.html)
+- Techopedia. (2023). What is the ‘AI winter’ and how did it affect AI research? Retrieved from [www.techopedia.com](http://www.techopedia.com/)
+- Automation Tools AI. (2023). AI Winter: Understanding the Cycle of Hype, Disappointment, and Recovery. Retrieved from [www.automationtools.ai](http://www.automationtools.ai/)
+- AIWS.net. (2021). The market for specialised AI hardware collapsed in 1987. Retrieved from aiws.net
+- [https://en.wikipedia.org/wiki/AI_winter](https://en.wikipedia.org/wiki/AI_winter)
+- [https://kjhov195.github.io/2020-02-10-CNN_architecture_1/](https://kjhov195.github.io/2020-02-10-CNN_architecture_1/)
+- [https://www.youtube.com/watch?v=Ount2Y4qxQo&t=1072s](https://www.youtube.com/watch?v=Ount2Y4qxQo&t=1072s)
+    - [https://x.com/ylecun/status/1097532314614034433](https://x.com/ylecun/status/1097532314614034433)
+- [https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence#:~:text=2016%20%20Google%20%20,up](https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence#:~:text=2016%20%20Google%20%20,up)
+- [https://en.wikipedia.org/wiki/Dartmouth_workshop](https://en.wikipedia.org/wiki/Dartmouth_workshop)
