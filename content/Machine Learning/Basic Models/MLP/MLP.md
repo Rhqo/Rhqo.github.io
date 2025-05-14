@@ -1,3 +1,8 @@
+---
+title: MLP
+comments: true
+---
+
 # What’s MLP?
 AI의 궁극적인 목표란 무엇인가?
 

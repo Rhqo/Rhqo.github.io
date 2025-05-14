@@ -1,0 +1,196 @@
+---
+title: Transformer
+comments: true
+---
+
+[Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+
+https://github.com/Rhqo/siglip-from-scratch
+
+> 기존의 sequence transduction model들은 encoder와 decoder를 포함하는 복잡한 RNN 혹은 CNN 기반이 주를 이뤘다.
+> 성능이 가장 우수한 model들은 또한 encoder와 decoder를 attention mechanism으로 연결한다.
+> 우리는 recurrence와 convolution을 완전히 배제하고 attention mechanism만으로 구성된 새로운 simple network architecture인 Transformer를 제안한다.
+
+
+![image.png](Transformer_0.png)
+
+**Encoder**
+1. Input Embedding
+2. Positional Encoding
+3. Multi-Head Attention
+4. Add & Normalization
+5. Feed Forward Network
+
+**Decoder**
+1. Output Embedding
+2. Positional Encoding
+3. Multi-Head Attention
+4. Add & Normalization
+5. Feed Forward Network
+6. Softmax
+
+Transformer의 구조를 순서대로, Top-down 방식으로 알아보고자 한다.
+
+Transformer는 언어 모델을 위해 만들어졌지만, 후에는 이게 [ViT](https://arxiv.org/abs/2010.11929)로 vision transformer로도 사용된다.
+
+ViT를 포함하여, vision task에서의 transformer는 주로 encoder only 구조를 가진다.
+
+Encoder 구조에 대한 코드는 ViT의 구조를 사용하는 [SigLip](https://arxiv.org/abs/2303.15343)의 코드를 통해 설명하고,
+
+Decoder 구조에 대한 코드는 직접 작성하여 설명한다.
+
+# Encoder Only - SigLip
+
+![image.png](Transformer_1.png)
+  
+## 0. Image Preprocessing
+
+![image.png](Transformer_2.png)
+
+Image Preprocessing 과정은 이미지를 적절한 형태의 tensor로 변환하는 과정이다.
+
+이미지는 text처럼 토큰단위로 나뉘어 있지 않기 때문에, vision에서 transformer를 사용하기 위해서는 이미지를 tensor로 변환하고 patch size로 나누는 과정이 필요하다.
+
+PIL로 불러온 이미지를 tensor 형태로 변환한다.
+
+이미지의 pixel 수를 (224, 224)로 설정하고, tensor 형태로 변환한다.
+
+이미지의 각 채널(RGB)에 평균과 표준편차를 사용하여 정규화를 적용하는데,
+
+여기서 사용된 값들은 ImageNet 데이터셋에서 계산된 통계값으로, 많은 pretrained 모델에서 표준으로 사용된다.
+
+여기에 배치 차원 추가하여, 최종 tensor의 형태는 (3, 224, 224) → (1, 3, 224, 224)가 된다.
+
+```python
+
+```
+## 1. Input Embedding
+
+Input Embedding 과정에는 tensor를 patch로 나눠서 embedding하는 부분과 positional encoding하는 부분이 포함된다.
+
+![image.png](Transformer_3.png)
+
+→ 각 patch마다 768차원 정보 담겨있다. mean을 사용해서 시각화.
+
+### Patch Embedding
+
+Conv2d의 stride를 patch size로 설정해서, tensor를 여러 패치로 나누고 patch_embedding으로 변환한다.
+
+(B, 3, 224, 224) → (B, 768, 14, 14)
+
+patch_embedding의 마지막 두 요소를 flatten, tensor의 형태가 (B, T, C)형태가 되도록 transpose한다.
+
+(B, 768, 14, 14) -> (B, 768, 196) -> (B, 196, 768)
+
+### Positional Encoding
+
+torch의 Embedding 함수는 숫자 인덱스를 고차원 벡터로 변환하는 룩업 테이블과 같은 역할을 한다.
+
+Embedding(169, 768)과 같이 설정하면, 169개의 패치에 대해 각각 768차원의 임베딩 벡터를 학습한다.
+
+각 패치에는 0부터 168까지의 고유 인덱스가 이미 할당되어 있고,
+
+Embedding 함수는 이 인덱스들을 의미 있는 위치 정보를 담은 벡터로 변환하는 역할을 한다.
+
+최종적으로 patch embedding의 결과와 positional encoding의 결과를 더한다.
+```python
+
+```
+## 2. Encoder
+
+Encoder는 입력 patch들이 서로 어떻게 연결되는지 파악하고, 이미지의 전체적인 의미와 맥락을 이해하는 역할을 수행한다.
+
+Encoder Block은 multi-head self attention과 layer normalization, feed forward network로 구성된다.
+
+Layer normalization을 언제 하는지에 따라서, pre-norm과 post-norm 방식이 있다. ([On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745)
+
+SigLip 등의 ViT의 경우엔 pre-norm을 사용한다.
+
+Norm → Multi-head self attention → Residual connection → Norm → FFN → Residual connection 의 순서로 진행된다.
+
+Encoder는 입력 dimension과 출력 dimension이 같기 때문에, 여러번 사용가능하다.
+
+실제로 많은 모델에서 이를 반복해서 사용하며, SigLip Encoder도 마찬가지로 num_encoder_blocks만큼 반복하여 사용한다.
+
+대표적인 Encoder 반복의 예시로는 [BERT](https://arxiv.org/abs/1810.04805)가 있다.
+```python
+
+```
+
+## 3. Multi-Head Attention
+
+Multi-Head Attention은 encoder와 decoder에서 입력 시퀀스의 각 요소가 다른 요소들과 어떻게 관련되어 있는지를 모델링하는 핵심 구조이다.
+
+입력 시퀀스에서 Linear(fully connected) layer를 사용하여 query Q, key K, value V를 생성한다.
+
+Q, K, V의 각 768차원 벡터를 12개의 64차원 벡터로 분할하고, transpose로 head 차원을 시퀀스 앞으로 이동
+
+(B, 196, 768) → (B, 196, 12, 64) → (B, 12, 196, 64)
+
+Q, K의 dot product @를 통해 attention score 계산, K의 dimension으로 나눈다. (scaled dot product)
+
+(B, 12, 196, 64) @ (B, 12, 64, 196) → (B, 12, 196, 196)
+
+행렬에 softmax를 취해서 확률로 변환한 후, V와 dot product를 수행한다.
+
+softmax((B, 12, 196, 196)) → (B, 12, 196, 196) @ (B, 12, 196, 64) → (B, 12, 196, 64)
+
+$$
+
+\text{Attention(Q, K, V)}=\text{softmax}\left(\frac{QK^T}{\sqrt{d_K}}\right)V
+
+$$
+
+마지막으로 transpose, reshape 한 후, linear layer 거치면 attention의 최종 결과를 구할 수 있다.
+
+(B, 12, 196, 64) → (B, 196, 12, 64) → (B, 196, 768) → (B, 196, 768)
+
+![image.png](Transformer_4.png)
+![image.png](Transformer_5.png)
+```python
+
+```
+  
+
+## 4. Multi-head Attention Pooling Head
+
+SigLip을 비롯한 최신 ViT 사용 연구들은 CLS token 대신 MAP head(Multihead Attention Pooling Head)를 사용한다.
+
+MAP 헤드는 multi-head attention mechanism을 사용하여 patch token들의 정보를 종합해 하나의 이미지 representation으로 만든다.
+
+이는 CLS 토큰처럼 단일 특수 토큰에 모든 정보를 압축하는 것과 달리, attention mechanism을 통해 모든 패치의 정보를 고려하여 더 효과적인 이미지 representation을 만들어 낼 수 있다.
+```python
+
+```
+## 5. Vision Transformer
+
+지금까지의 모듈들을 하나로 합치는 과정이다.
+
+(Pre-processing) → VisionEmbeddings → Encoder → Norm → Multi-head Attention Pooling
+
+결과는 마지막 head 전의 last_hidden_state와 최종 output인 768차원 벡터를 모두 반환하도록 구성했다.
+```python
+
+```
+![image.png](Transformer_6.png)
+Last Hidden State: (1, 196, 768) → 196 patches, 768 dimension
+
+Output Vector: (1, 768) → 768 dimension
+
+## Masked Multi-Head Attention
+
+
+$$
+
+\text{Masked\ Attention(Q, K, V)}=\text{softmax}\left(\frac{QK^T}{\sqrt{d_K}}+M\right)V
+
+$$
+
+
+### Reference
+- [Transformer](https://arxiv.org/abs/1706.03762) - Vaswani, Ashish, et al. "Attention is all you need." _Advances in neural information processing systems_ 30 (2017).
+- [ViT](https://arxiv.org/abs/2010.11929) - Dosovitskiy, Alexey, et al. "An image is worth 16x16 words: Transformers for image recognition at scale." _arXiv preprint arXiv:2010.11929_ (2020).
+- [SigLip](https://arxiv.org/abs/2303.15343) - Zhai, Xiaohua, et al. "Sigmoid loss for language image pre-training." _Proceedings of the IEEE/CVF international conference on computer vision_. 2023.
+- [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) - Xiong, Ruibin, et al. "On layer normalization in the transformer architecture." _International conference on machine learning_. PMLR, 2020.
+- [BERT](https://arxiv.org/abs/1810.04805) - Kenton, Jacob Devlin Ming-Wei Chang, and Lee Kristina Toutanova. "Bert: Pre-training of deep bidirectional transformers for language understanding." _Proceedings of naacL-HLT_. Vol. 1. No. 2. 2019.
+- [GitHub Code](https://github.com/Rhqo/siglip-from-scratch) - Rhqo/siglip-from-scratch
