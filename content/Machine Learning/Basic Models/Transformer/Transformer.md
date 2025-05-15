@@ -225,8 +225,11 @@ $$
 마지막으로 transpose, reshape 한 후, linear layer 거치면 attention의 최종 결과를 구할 수 있다. \
 (B, 12, 196, 64) → (B, 196, 12, 64) → (B, 196, 768) → (B, 196, 768)
 
-![image.png](Transformer_4.png)
-![image.png](Transformer_5.png)
+![[Transformer_4.png|500]]
+![[Transformer_7.png|250]]
+
+![[Transformer_5.png | 400]]
+
 ```python
 class MultiheadAttention(nn.Module):
     def __init__(self, config: SigLipVisionConfig):
@@ -271,8 +274,6 @@ class MultiheadAttention(nn.Module):
 
         return attention_out
 ```
-  
-
 ## 4. Multi-head Attention Pooling Head
 
 SigLip을 비롯한 최신 ViT 사용 연구들은 CLS token 대신 MAP head(Multihead Attention Pooling Head)를 사용한다.
