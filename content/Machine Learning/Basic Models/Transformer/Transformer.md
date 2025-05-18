@@ -38,6 +38,8 @@ Encoder 구조에 대한 코드는 ViT의 구조를 사용하는 [SigLip](https:
 
 Decoder 구조에 대한 코드는 직접 작성하여 설명한다.
 
+> [!Tips] [[Why Transformer?]]
+
 # Encoder Only - SigLip
 
 ![image.png](Transformer_1.png)
@@ -84,6 +86,7 @@ Input Embedding 과정에는 tensor를 patch로 나눠서 embedding하는 부분
 
 → 각 patch마다 768차원 정보 담겨있다. mean을 사용해서 시각화.
 
+> [!Tips] [[Why Patch Embedding?]]
 ### Patch Embedding
 
 Conv2d의 stride를 patch size로 설정해서, tensor를 여러 패치로 나누고 patch_embedding으로 변환한다. \
