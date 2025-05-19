@@ -28,3 +28,13 @@ CNN이 이러한 inductive bias를 가지고 있기 때문에, transformer에 �
 Inductive bias가 강하면 오히려 generalization(variance)이 떨어져 오히려 학습을 방해하여 성능을 저해할 요소가 될 수 있으므로 Inductive Bias과 generalization은 trade-off가 있다.
 
 결국, ViT 논문에서 나오는 것과 같이 "CNN보다 Inductive Bias가 부족하다"라는 것은 bias-variance의 trade-off로 설명이 가능하다.
+
+다음 표는 transformer 이전의 논문의 표라 transformer에 대한 건 없지만, \
+FCNN, CNN, RNN, GNN의 inductive bias의 비교이다. \
+![[What is Inductive bias?_0.png]]
+[Relational inductive biases, deep learning, and graph networks](https://arxiv.org/abs/1806.01261) \
+각 구조에서 entity들 간의 relation에 의해 생기는 relational inductive bias가 생기게 된다는 내용이다. \
+각각이 가지고 있는 inductive bias 덕분에 적은 데이터로 쉽게 generalize하는 것이 가능한 동시에, inductive bias 때문에 모델의 성능이 저해될 수 있다.
+
+
+> [!Tips] [[What is Bias-Variance Tradeoff?]]

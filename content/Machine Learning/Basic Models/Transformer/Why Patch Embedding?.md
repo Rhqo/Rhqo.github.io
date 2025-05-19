@@ -10,6 +10,7 @@ Neuronize는 이미지의 각 pixel을 3개의 neuron(R, G, B)로 나누는 방�
 Token은 'encapsulated groups of neruon'이며, Tokenization은 이미지를 vector의 set으로 바꾸는 과정이다.
 
 ![[Why Patch Embedding?_0.png]]
+
 Transformer에서는 모든 연산을 token 단위로 수행하게 된다.
 
 Linear combination :

@@ -86,17 +86,19 @@ Input Embedding 과정에는 tensor를 patch로 나눠서 embedding하는 부분
 
 → 각 patch마다 768차원 정보 담겨있다. mean을 사용해서 시각화.
 
-> [!Tips] [[Why Patch Embedding?]]
-
 ### Patch Embedding
 
-Conv2d의 stride를 patch size로 설정해서, tensor를 여러 패치로 나누고 patch_embedding으로 변환한다. \
+> [!Tips] [[Why Patch Embedding?]]
+
+Tensor를 여러 조각의 patch로 나누고, 각각의 patch를 $W_{tokenize}$ 의 weight을 통해 token(patch_embedding)으로 변환하는 과정이므로, stride가 kernel 사이즈와 같은 convolution 연산, Conv2d를 사용하여 구현이 가능하다. \
 (B, 3, 224, 224) → (B, 768, 14, 14)
 
 patch_embedding의 마지막 두 요소를 flatten, tensor의 형태가 (B, T, C)형태가 되도록 transpose한다. \
 (B, 768, 14, 14) -> (B, 768, 196) -> (B, 196, 768)
 
 ### Positional Encoding
+
+> [!Tips] [[Why Positional Encoding?]]
 
 torch의 Embedding 함수는 숫자 인덱스를 고차원 벡터로 변환하는 룩업 테이블과 같은 역할을 한다.
 
@@ -207,6 +209,8 @@ class SigLipEncoder(nn.Module):
 
 ## 3. Multi-Head Attention
 
+> [!Tips] [[Why Multi-Head Attention?]]
+
 Multi-Head Attention은 encoder와 decoder에서 입력 시퀀스의 각 요소가 다른 요소들과 어떻게 관련되어 있는지를 모델링하는 핵심 구조이다.
 
 입력 시퀀스에서 Linear(fully connected) layer를 사용하여 query Q, key K, value V를 생성한다.
@@ -226,8 +230,14 @@ $$
 
 $$
 
-마지막으로 transpose, reshape 한 후, linear layer 거치면 attention의 최종 결과를 구할 수 있다. \
+마지막으로 transpose, reshape ($Concat$) 한 후, linear layer $W^O$ 거치면 attention의 최종 결과를 구할 수 있다. \
 (B, 12, 196, 64) → (B, 196, 12, 64) → (B, 196, 768) → (B, 196, 768)
+
+$$
+MultiHead(Q, K, V) = Concat(head_1, ..., head_h)W^O \\
+\\
+\text{where } head_i = Attention(QW^Q_i, KW^K_i, VW^V_i)
+$$
 
 ![[Transformer_4.png|500]]
 ![[Transformer_7.png|250]]
