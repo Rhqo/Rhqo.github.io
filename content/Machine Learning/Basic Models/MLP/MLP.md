@@ -113,12 +113,66 @@ CNN이 여러 특징들을 표현하는 방식도 overcomplete basis로 볼 수 
 
 ⇒ 정리하자면, **뉴런 수는 해당 Layer가 표현할 수 있는 정보의 차원 수와 복잡도라고 볼 수 있다.**
 
+> [!Tips] [[Neural Tangent Kernel]]
+> Neural Net이 infinite의 width 또는 데이터에 관해 sufficiently large width를 지니고 있으면,
+> Neural Net이 estimated function을 학습하는 과정은 결과적으로 kernel regression과 같다. \
+> 이를 Neural Tangent Kernel(NTK)라고 한다. \
+> [Neural Tangent Kernel: Convergence and Generalization in Neural Networks](https://arxiv.org/abs/1806.07572)
 
+# Practice
+
+MNIST 데이터셋을 학습시키는 간단한 MLP를 구현했다.
+
+모델의 전체 구조는 아래와 같다.
+![[MLP_12.png]]
+
+```python
+def forward(x, W1, b1, W2, b2):
+    Z1 = W1 @ x + b1
+    A1 = ReLU(Z1)
+    Z2 = W2 @ A1 + b2
+    P = softmax(Z2)
+
+    return Z1, A1, Z2, P
+```
+
+
+Back propagation을 계산하기 위한 gradient를 계산하는 과정은 아래와 같다.
+![[MLP_13.png]]
+
+```python
+def back_prop(Z1, A1, Z2, P, W1, W2, X, Y):
+    one_hot_Y = one_hot_encoding(Y)
+
+    dZ2 = P - one_hot_Y
+    dW2 = 1 / Y.size * (dZ2 @ A1.transpose(-1, 0))
+    db2 = 1 / Y.size * np.sum(dZ2)
+
+    dZ1 = (W2.transpose(-1, 0) @ dZ2) * dReLU(Z1)
+    dW1 = 1 / Y.size * (dZ1 @ X.transpose(-1, 0))
+    db1 = 1 / Y.size * np.sum(dZ1)
+
+    return dW2, db2, dW1, db1
+```
+
+모델의 parameter update는 gradient에 learning rate를 곱한 값을 더하는 과정을 통해 계산된다.
+
+```python
+def update_parameters(W1, b1, W2, b2, dW2, db2, dW1, db1, lr):
+    W1 = W1 - lr * dW1
+    b1 = b1 - lr * db1
+    W2 = W2 - lr * dW2
+    b2 = b2 - lr * db2
+
+    return W1, b1, W2, b2
+```
 
 ### Reference
+
 - Cybenko, George. "Approximation by superpositions of a sigmoidal function." _Mathematics of control, signals and systems_ 2.4 (1989): 303-314.
 - [3Blue1Brown - But what is a neural network? | Deep learning chapter 1](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 - [Deepest Documentation - Multi-Layer Perceptron](https://deepestdocs.readthedocs.io/en/latest/004_deep_learning_part_2/0040/)
 - Overcomple Basis - [bartwronski - Compressing PBR material texture sets with sparsity and k-SVD dictionary learning](https://bartwronski.com/2020/08/30/compressing-pbr-texture-sets-with-sparsity-and-dictionary-learning/)
 - CNN weights - [Unsupervised formation of an overcomplete basis for natural image patches](https://www.researchgate.net/figure/Unsupervised-formation-of-an-overcomplete-basis-for-natural-image-patches-A-Learning_fig27_209473897)
 - [Anthropic - Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)
+- [Github Code](https://github.com/Rhqo/mlp-from-scratch) - Rhqo/mlp-from-scratch
