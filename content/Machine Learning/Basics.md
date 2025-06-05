@@ -6,7 +6,7 @@ comments: false
 ---
 1. **[[History/History]]**
 2. Mathematical Foundation
-	- **[[Mathematical Foundation/Linear Algebra/Linear Algebra]]**
+	- **[[0. Linear Algebra]]**
 	- **[[0. Multiple View Geometry]]**
 3. Architectures
 	- **[[Basic Models/Basic Models]]**
