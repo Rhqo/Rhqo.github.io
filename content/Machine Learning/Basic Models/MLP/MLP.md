@@ -114,7 +114,7 @@ CNN이 여러 특징들을 표현하는 방식도 overcomplete basis로 볼 수 
 ⇒ 정리하자면, **뉴런 수는 해당 Layer가 표현할 수 있는 정보의 차원 수와 복잡도라고 볼 수 있다.**
 
 > [!Tips] [[Neural Tangent Kernel]]
-> Neural Net이 infinite의 width 또는 데이터에 관해 sufficiently large width를 지니고 있으면,
+> Neural Net이 infinite의 width 또는 데이터에 관해 sufficiently large width를 지니고 있으면, \
 > Neural Net이 estimated function을 학습하는 과정은 결과적으로 kernel regression과 같다. \
 > 이를 Neural Tangent Kernel(NTK)라고 한다. \
 > [Neural Tangent Kernel: Convergence and Generalization in Neural Networks](https://arxiv.org/abs/1806.07572)
